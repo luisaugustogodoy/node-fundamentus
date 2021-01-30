@@ -2,7 +2,11 @@
     "name": "node-fundamentus",
     "description": "Fundamentalist Investors",
     "version": "0.0.1",
-    "dependencies": {},
+    "dependencies": {
+        "node-red-dashboard": "*",
+        "node-red-node-ui-table": "^0.3.10",
+        "node-red-contrib-nbrowser": "^1.1.4"
+    },
     "node-red": {
         "settings": {
             "flowFile": "flow.json",
