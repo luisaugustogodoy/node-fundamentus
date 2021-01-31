@@ -1,1 +1,1872 @@
-[{"id":"a95ee63d.be3678","type":"tab","label":"Flow 1","disabled":false,"info":""},{"id":"b615d1b2.58708","type":"tab","label":"Ui Landing","disabled":false,"info":""},{"id":"663c27b0.e97548","type":"tab","label":"Fundamentus","disabled":false,"info":""},{"id":"79116bc0.031274","type":"ui_tab","z":"a95ee63d.be3678","name":"Landing","icon":"dashboard","order":2,"disabled":false,"hidden":false},{"id":"d4a1264b.bdc5f8","type":"ui_group","z":"a95ee63d.be3678","name":"Group 1","tab":"54aa62ba.57bf3c","order":1,"disp":false,"width":"32","collapse":false},{"id":"acd90c2a.41911","type":"ui_base","z":"","theme":{"name":"theme-light","lightTheme":{"default":"#0094CE","baseColor":"#0094CE","baseFont":"-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif","edited":false},"darkTheme":{"default":"#097479","baseColor":"#097479","baseFont":"-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif","edited":false},"customTheme":{"name":"Untitled Theme 1","default":"#4B7930","baseColor":"#4B7930","baseFont":"-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"},"themeState":{"base-color":{"default":"#0094CE","value":"#0094CE","edited":false},"page-titlebar-backgroundColor":{"value":"#0094CE","edited":false},"page-backgroundColor":{"value":"#fafafa","edited":false},"page-sidebar-backgroundColor":{"value":"#ffffff","edited":false},"group-textColor":{"value":"#1bbfff","edited":false},"group-borderColor":{"value":"#ffffff","edited":false},"group-backgroundColor":{"value":"#ffffff","edited":false},"widget-textColor":{"value":"#111111","edited":false},"widget-backgroundColor":{"value":"#0094ce","edited":false},"widget-borderColor":{"value":"#ffffff","edited":false},"base-font":{"value":"-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"}},"angularTheme":{"primary":"indigo","accents":"blue","warn":"red","background":"grey"}},"site":{"name":"Node-RED Dashboard","hideToolbar":"false","allowSwipe":"false","lockMenu":"false","allowTempTheme":"true","dateFormat":"DD/MM/YYYY","sizes":{"sx":48,"sy":48,"gx":6,"gy":6,"cx":6,"cy":6,"px":0,"py":0}}},{"id":"f07159ac.5fc0f8","type":"ui_group","name":"Group 1","tab":"9e69bc57.dd606","order":1,"disp":false,"width":"32","collapse":false},{"id":"9e69bc57.dd606","type":"ui_tab","name":"Landing","icon":"dashboard","order":2,"disabled":false,"hidden":false},{"id":"870782ae.d531c","type":"ui_tab","name":"Fundamentus (filtered)","icon":"dashboard","order":3,"disabled":false,"hidden":false},{"id":"51f50962.4bc478","type":"ui_base","theme":{"name":"theme-light","lightTheme":{"default":"#0094CE","baseColor":"#0094CE","baseFont":"-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif","edited":true,"reset":false},"darkTheme":{"default":"#097479","baseColor":"#097479","baseFont":"-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif","edited":false},"customTheme":{"name":"Untitled Theme 1","default":"#4B7930","baseColor":"#4B7930","baseFont":"-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"},"themeState":{"base-color":{"default":"#0094CE","value":"#0094CE","edited":false},"page-titlebar-backgroundColor":{"value":"#0094CE","edited":false},"page-backgroundColor":{"value":"#fafafa","edited":false},"page-sidebar-backgroundColor":{"value":"#ffffff","edited":false},"group-textColor":{"value":"#1bbfff","edited":false},"group-borderColor":{"value":"#ffffff","edited":false},"group-backgroundColor":{"value":"#ffffff","edited":false},"widget-textColor":{"value":"#111111","edited":false},"widget-backgroundColor":{"value":"#0094ce","edited":false},"widget-borderColor":{"value":"#ffffff","edited":false},"base-font":{"value":"-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"}},"angularTheme":{"primary":"indigo","accents":"blue","warn":"red","background":"grey"}},"site":{"name":"Node-RED Dashboard","hideToolbar":"false","allowSwipe":"false","lockMenu":"false","allowTempTheme":"true","dateFormat":"DD/MM/YYYY","sizes":{"sx":48,"sy":48,"gx":6,"gy":6,"cx":6,"cy":6,"px":0,"py":0}}},{"id":"7963295f.aa30c8","type":"ui_group","name":"Group1","tab":"870782ae.d531c","order":1,"disp":false,"width":"32","collapse":false},{"id":"6825de81.ffaff","type":"ui_tab","name":"Landing","icon":"dashboard","order":2,"disabled":false,"hidden":false},{"id":"2723be6d.a35e52","type":"ui_group","name":"Group 1","tab":"6825de81.ffaff","order":1,"disp":false,"width":"32","collapse":false},{"id":"219029b.3c72ed6","type":"http request","z":"663c27b0.e97548","name":"","method":"POST","ret":"txt","paytoqs":"ignore","url":"http://www.fundamentus.com.br/resultado.php","tls":"","persist":false,"proxy":"","authType":"","x":350,"y":160,"wires":[["ce7b03d5.3d8b7"]]},{"id":"26e41008.9698c","type":"debug","z":"663c27b0.e97548","name":"","active":false,"tosidebar":true,"console":false,"tostatus":false,"complete":"false","statusVal":"","statusType":"auto","x":890,"y":300,"wires":[]},{"id":"ce7b03d5.3d8b7","type":"html","z":"663c27b0.e97548","name":"","property":"payload","outproperty":"payload","tag":"table","ret":"html","as":"multi","x":490,"y":220,"wires":[["94cfd210.1bb7b","3a1459aa.f13156","2b31d0cf.ebe5c"]]},{"id":"789b5120.8fd1c","type":"function","z":"663c27b0.e97548","name":"","func":"let data =msg.payload\n\nmsg.headers = {};\n\nmsg.headers['Accept'] =  'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9'\n//msg.headers['Accept-Encoding'] = 'gzip, deflate'\nmsg.headers['Accept-Language'] = 'en,en-US;q=0.9,pt-BR;q=0.8,pt;q=0.7'\n//msg.headers['Cache-Control'] = 'max-age=0'\n//msg.headers['Connection'] = 'keep-alive'\nmsg.headers['Content-Type'] =  'application/x-www-form-urlencoded'\nmsg.headers['Cookie']= '__cfduid=d9bfd324d77e286ed3747adca08281d401610907005; _fbp=fb.2.1610907015822.457488293; __utmc=138951332; PHPSESSID=f1de49650be2f2bc91582e3570db9080; __utmz=138951332.1611333660.4.3.utmcsr=google|utmccn=(organic)|utmcmd=organic|utmctr=(not%20provided); __utma=138951332.167960548.1610907016.1611434554.1611494402.12; __utmt=1; __utmb=138951332.6.10.1611494402'\nmsg.headers['Host']= 'www.fundamentus.com.br'\nmsg.headers['Origin']= 'http://www.fundamentus.com.br'\nmsg.headers['Referer']= 'http://www.fundamentus.com.br/buscaavancada.php'\n//msg.headers['Upgrade-Insecure-Requests']= '1'\nmsg.headers['User-Agent']= 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.75 Safari/537.36'\n\nreturn msg;","outputs":1,"noerr":0,"initialize":"","finalize":"","x":140,"y":180,"wires":[["219029b.3c72ed6","ec6dac83.c7c96"]]},{"id":"d52cb0c7.c446","type":"function","z":"663c27b0.e97548","name":"Form Data","func":"let data = {\n'pl_min': null,\n'pl_max': null,\n'pvp_min': null,\n'pvp_max': null,\n'psr_min': null,\n'psr_max': null,\n'divy_min': null,//0.01,\n'divy_max': null,\n'pativos_min': null,\n'pativos_max': null,\n'pcapgiro_min': null,\n'pcapgiro_max': null,\n'pebit_min': null,\n'pebit_max': null,\n'fgrah_min': null,\n'fgrah_max': null,\n'firma_ebit_min': null,\n'firma_ebit_max': null,\n'firma_ebitda_min': null,\n'firma_ebitda_max': null,\n'margemebit_min': null,\n'margemebit_max': null,\n'margemliq_min': null,\n'margemliq_max': null,\n'liqcorr_min': null,\n'liqcorr_max': null,\n'roic_min': null,\n'roic_max': null,\n'roe_min': null,\n'roe_max': null,\n'liq_min': null,\n'liq_max': null,\n'patrim_min': null,\n'patrim_max': null,\n'divbruta_min': null,\n'divbruta_max': null,\n'tx_cresc_rec_min': null,\n'tx_cresc_rec_max': null,\n'setor': null,\n'negociada': 'ON',\n'ordem': 1,\n'x': 37,\n'y': 18}\n\nmsg.payload = data;\nreturn msg;\n","outputs":1,"noerr":0,"initialize":"","finalize":"","x":130,"y":120,"wires":[["789b5120.8fd1c"]]},{"id":"ec6dac83.c7c96","type":"debug","z":"663c27b0.e97548","name":"","active":false,"tosidebar":true,"console":false,"tostatus":false,"complete":"true","targetType":"full","statusVal":"","statusType":"auto","x":310,"y":220,"wires":[]},{"id":"36c2075.56d52f8","type":"ui_button","z":"663c27b0.e97548","name":"","group":"7963295f.aa30c8","order":1,"width":"5","height":"1","passthru":false,"label":"refresh info","tooltip":"","color":"","bgcolor":"","icon":"","payload":"","payloadType":"str","topic":"","x":120,"y":340,"wires":[["2b93755b.cf538a","87239401.009ab8"]]},{"id":"3a1459aa.f13156","type":"html","z":"663c27b0.e97548","name":"","property":"payload","outproperty":"payload","tag":"thead","ret":"html","as":"multi","x":710,"y":300,"wires":[["26e41008.9698c","b66af71e.6eb9e8"]]},{"id":"b66af71e.6eb9e8","type":"html","z":"663c27b0.e97548","name":"","property":"payload","outproperty":"payload","tag":"tr","ret":"html","as":"multi","x":850,"y":340,"wires":[["d72dc867.fa55f8"]]},{"id":"257d2f52.e212b","type":"html","z":"663c27b0.e97548","name":"","property":"payload","outproperty":"payload","tag":"tbody","ret":"html","as":"multi","x":710,"y":420,"wires":[["cc8f8673.e02b48","619673a0.e8158c"]]},{"id":"94cfd210.1bb7b","type":"debug","z":"663c27b0.e97548","name":"","active":false,"tosidebar":true,"console":false,"tostatus":false,"complete":"false","statusVal":"","statusType":"auto","x":690,"y":220,"wires":[]},{"id":"619673a0.e8158c","type":"html","z":"663c27b0.e97548","name":"","property":"payload","outproperty":"payload","tag":"tr","ret":"html","as":"multi","x":790,"y":520,"wires":[["24abb0db.a95b4","c06ecb0d.750678"]]},{"id":"cc8f8673.e02b48","type":"debug","z":"663c27b0.e97548","name":"","active":false,"tosidebar":true,"console":false,"tostatus":false,"complete":"false","statusVal":"","statusType":"auto","x":890,"y":420,"wires":[]},{"id":"4a61c3cf.a65f7c","type":"function","z":"663c27b0.e97548","name":"","func":"let tableColumns = msg.payload\n\nflow.set(\"tableColumns\", tableColumns);\n\n\nreturn msg;","outputs":1,"noerr":0,"initialize":"","finalize":"","x":1140,"y":340,"wires":[["9b97b51a.0de408","411a7d.088eb584"]]},{"id":"2b93755b.cf538a","type":"function","z":"663c27b0.e97548","name":"initialize","func":"flow.set(\"tableRows\", []);\nflow.set(\"tableColumns\",[])\n\nreturn msg;","outputs":1,"noerr":0,"initialize":"","finalize":"","x":140,"y":80,"wires":[["d52cb0c7.c446"]]},{"id":"625fe207.f868dc","type":"inject","z":"663c27b0.e97548","name":"","props":[{"p":"payload"},{"p":"topic","vt":"str"}],"repeat":"21600","crontab":"","once":false,"onceDelay":0.1,"topic":"","payload":"","payloadType":"date","x":130,"y":20,"wires":[["2b93755b.cf538a"]]},{"id":"24abb0db.a95b4","type":"html","z":"663c27b0.e97548","name":"","property":"payload","outproperty":"payload","tag":"td","ret":"text","as":"single","x":930,"y":600,"wires":[["b0d6e90f.7e0458"]]},{"id":"c06ecb0d.750678","type":"debug","z":"663c27b0.e97548","name":"","active":false,"tosidebar":true,"console":false,"tostatus":false,"complete":"false","statusVal":"","statusType":"auto","x":970,"y":520,"wires":[]},{"id":"d72dc867.fa55f8","type":"html","z":"663c27b0.e97548","name":"","property":"payload","outproperty":"payload","tag":"th","ret":"text","as":"single","x":990,"y":340,"wires":[["4a61c3cf.a65f7c"]]},{"id":"9b97b51a.0de408","type":"debug","z":"663c27b0.e97548","name":"","active":true,"tosidebar":true,"console":false,"tostatus":false,"complete":"false","statusVal":"","statusType":"auto","x":1350,"y":340,"wires":[]},{"id":"2b31d0cf.ebe5c","type":"delay","z":"663c27b0.e97548","name":"","pauseType":"delay","timeout":"0.1","timeoutUnits":"seconds","rate":"1","nbRateUnits":"1","rateUnits":"second","randomFirst":"1","randomLast":"5","randomUnits":"seconds","drop":false,"x":570,"y":420,"wires":[["257d2f52.e212b"]]},{"id":"b0d6e90f.7e0458","type":"function","z":"663c27b0.e97548","name":"","func":"function convert(str) {\n    if (str.includes(\",\"))\n    {\n        str = str.replace(',','.')\n        if (str.includes(\"%\"))\n        {\n            str = str.replace('%','')\n            str = parseFloat(str)\n            str= str/100.0\n        }\n        else{\n            str = parseFloat(str)\n        }\n    }\n  return str    \n}\n\n\nlet tableColumns = flow.get(\"tableColumns\");\nlet obj = {}\n\n\nfor (i = 0; i < tableColumns.length; i++)\n{\n    obj[tableColumns[i]] = convert(msg.payload[i])\n}\n\n//parseFloat(str.replace(',','.')\n\nmsg.payload = obj\n\nreturn msg;","outputs":1,"noerr":0,"initialize":"","finalize":"","x":1080,"y":640,"wires":[["f7c686ee.dbaff8"]]},{"id":"492c99af.cb5e28","type":"debug","z":"663c27b0.e97548","name":"","active":true,"tosidebar":true,"console":false,"tostatus":false,"complete":"payload","targetType":"msg","statusVal":"","statusType":"auto","x":1430,"y":640,"wires":[]},{"id":"c983e461.2a4c68","type":"ui_table","z":"663c27b0.e97548","group":"7963295f.aa30c8","name":"Details","order":8,"width":"32","height":"10","columns":[],"outputs":1,"cts":true,"x":1370,"y":920,"wires":[["856e3eed.127ab","a29a0913.53e958"]]},{"id":"f7c686ee.dbaff8","type":"function","z":"663c27b0.e97548","name":"add factors","func":"let tableRows = flow.get('tableRows')\n\ntableRows.push(msg.payload)\n\n//flow.set('tableRows',tableRows)\n\n\n\nfor (i = 0; i < tableRows.length; i++)\n{\n    row = tableRows[i] \n    tableRows[i].factorSeba =Math.abs(\n                                (1+row[\"DivYield\"])^5 *\n                                (1+row[\"Mrg Liq\"])^5 * \n                                (1+row[\"Cresc Rec 5a\"])^5 *\n                                (1/(row[\"DivBrut/Patrim\"]+0.1)) *\n                                (1/(row[\"P/VP\"]+0.1))\n                                ) *\n                                Math.sign(row[\"Mrg Liq\"])\n}\n\nfor (i = 0; i < tableRows.length; i++)\n{\n    row = tableRows[i] \n    tableRows[i].factorLuis = (100000*row[\"DivYield\"] *\n                                       row[\"Mrg Liq\"])/ \n                                       //row[\"Cresc Rec 5a\"])/\n                                       ((row[\"DivBrut/Patrim\"]+0.0001)*(row[\"P/VP\"])+0.0001)\n}\n\nflow.set('tableRows', tableRows)\n\nreturn msg;","outputs":1,"noerr":0,"initialize":"","finalize":"","x":1270,"y":700,"wires":[["492c99af.cb5e28"]]},{"id":"411a7d.088eb584","type":"function","z":"663c27b0.e97548","name":"fix column names","func":"let tableColumns = flow.get('tableColumns')\n\ntableColumns[1] = \"Cotacao\"\ntableColumns[5] = \"DivYield\"\ntableColumns[7] = \"P/CapGiro\"\ntableColumns[9] = \"P/Ativ CircLiq\"\n\ntableColumns[13] = \"Mrg Liq\"\ntableColumns[14] = \"Liq Corr\"\n\ntableColumns[17] = \"Liq2meses\"\ntableColumns[18] = \"Patrim Liq\"\ntableColumns[19] = \"DivBrut/Patrim\"\ntableColumns[20] = \"Cresc Rec 5a\"\n\nflow.set('tableColumns',tableColumns)\n\nreturn msg;","outputs":1,"noerr":0,"initialize":"","finalize":"","x":1340,"y":400,"wires":[[]]},{"id":"8b070cf9.76d04","type":"ui_template","z":"b615d1b2.58708","group":"2723be6d.a35e52","name":"Internacional","order":1,"width":0,"height":0,"format":" <h1>Internacional</h1>\n <ul>\n    <li> <a href=\"https://www.morningstar.com/markets\" target=\"_blank\" rel=\"noopener noreferrer\">morningstar.com</a> </li>\n    <li> <a href=\"https://www.investing.com/indices/major-indices\" target=\"_blank\" rel=\"noopener noreferrer\">investing.com major-indices</a> </li>\n    <li> <a href=\"https://www.investing.com/indices/volatility-s-p-500\" target=\"_blank\" rel=\"noopener noreferrer\">investing.com WIX</a> </li>\n </ul>","storeOutMessages":true,"fwdInMessages":true,"resendOnRefresh":true,"templateScope":"local","x":610,"y":320,"wires":[[]]},{"id":"7822bfe7.51b7","type":"ui_template","z":"b615d1b2.58708","group":"2723be6d.a35e52","name":"Brasil","order":3,"width":0,"height":0,"format":" <h1>Brasil</h1>\n <ul>\n    <li> <a href=\"https://www.investing.com/indices/bovespa\" target=\"_blank\" rel=\"noopener noreferrer\">investing.com bovespa</a> </li>\n    <li> <a href=\"https://www.tradingview.com/symbols/BMFBOVESPA-IBOV/\" target=\"_blank\" rel=\"noopener noreferrer\">tradingview bovespa/</a> </li>\n    <li> <a href=\"http://www.fundamentus.com.br/\" target=\"_blank\" rel=\"noopener noreferrer\">fundamentus.com.br</a> </li>\n    <li> <a href=\"https://www.oceans14.com.br/\" target=\"_blank\" rel=\"noopener noreferrer\">oceans14.com.br</a> </li>\n </ul>","storeOutMessages":true,"fwdInMessages":true,"resendOnRefresh":true,"templateScope":"local","x":590,"y":360,"wires":[[]]},{"id":"856e3eed.127ab","type":"debug","z":"663c27b0.e97548","name":"","active":true,"tosidebar":true,"console":false,"tostatus":false,"complete":"false","statusVal":"","statusType":"auto","x":1570,"y":800,"wires":[]},{"id":"34bac394.b7bd6c","type":"ui_dropdown","z":"663c27b0.e97548","name":"","label":"table filter","tooltip":"","place":"Select option","group":"7963295f.aa30c8","order":2,"width":"8","height":"1","passthru":true,"multiple":false,"options":[{"label":"all stocks","value":"all","type":"str"},{"label":"best stocks","value":"best","type":"str"},{"label":"discounted stocks","value":"discounted","type":"str"},{"label":"debt stocks","value":"debt","type":"str"}],"payload":"","topic":"","x":420,"y":980,"wires":[["31973ee4.2606b2"]]},{"id":"7486138b.30e60c","type":"switch","z":"663c27b0.e97548","name":"","property":"payload","propertyType":"msg","rules":[{"t":"eq","v":"all","vt":"str"},{"t":"eq","v":"best","vt":"str"},{"t":"eq","v":"discounted","vt":"str"},{"t":"eq","v":"debt","vt":"str"}],"checkall":"true","repair":false,"outputs":4,"x":930,"y":980,"wires":[["8a47eb9f.2380f8"],["f92e3286.04463"],["3056982c.add8e8"],["e1b5cfb.d75d73"]]},{"id":"31973ee4.2606b2","type":"function","z":"663c27b0.e97548","name":"tableRows","func":"let tableRows = flow.get('tableRows')\n\nmsg.tableRows = tableRows\n\n\n\nreturn msg;","outputs":1,"noerr":0,"initialize":"","finalize":"","x":590,"y":980,"wires":[["7486138b.30e60c","b47d58ae.dcad28"]]},{"id":"8a47eb9f.2380f8","type":"function","z":"663c27b0.e97548","name":"Filtro","func":"let filteredRows = msg.tableRows\n\nmsg.payload = filteredRows\n\nmsg.filteredRows = filteredRows.length\nreturn msg;\n","outputs":1,"noerr":0,"initialize":"","finalize":"","x":1110,"y":920,"wires":[["c983e461.2a4c68","25fa01a6.782e7e","e418cf27.c8bc1"]]},{"id":"f92e3286.04463","type":"function","z":"663c27b0.e97548","name":"Filtro","func":"let filteredRows = []\nlet tableRows = msg.tableRows\n\nfilteredRows = tableRows.filter(function (el) {\n  return el.DivYield >= 0.05 &&  // Dividendos > 5%\n         el[\"Mrg Liq\"] > 0 &&\n         el[\"Cresc Rec 5a\"] > 0 &&\n         el[\"P/VP\"] < 20 &&\n         el[\"DivBrut/Patrim\"] <=1\n});\n\nmsg.payload = filteredRows\nmsg.filteredRows = filteredRows.length\nreturn msg;\n","outputs":1,"noerr":0,"initialize":"","finalize":"","x":1110,"y":960,"wires":[["c983e461.2a4c68","25fa01a6.782e7e","e418cf27.c8bc1"]]},{"id":"e1b5cfb.d75d73","type":"function","z":"663c27b0.e97548","name":"Filtro","func":"let filteredRows = []\nlet tableRows = msg.tableRows\n\nfilteredRows = tableRows.filter(function (el) {\n  return el[\"DivBrut/Patrim\"] > 0;\n});\n\nmsg.payload = filteredRows\nmsg.filteredRows = filteredRows.length\nreturn msg;\n","outputs":1,"noerr":0,"initialize":"","finalize":"","x":1110,"y":1040,"wires":[["c983e461.2a4c68","25fa01a6.782e7e","e418cf27.c8bc1"]]},{"id":"25fa01a6.782e7e","type":"ui_text","z":"663c27b0.e97548","group":"7963295f.aa30c8","order":3,"width":"5","height":"1","name":"","label":"rows = ","format":"{{msg.filteredRows}}","layout":"row-left","x":1380,"y":980,"wires":[]},{"id":"a29a0913.53e958","type":"function","z":"663c27b0.e97548","name":"Filtro","func":"let tableRow = []\n\ntableRow[0] = msg.payload\n\nmsg.payload = tableRow\nreturn msg;\n","outputs":1,"noerr":0,"initialize":"","finalize":"","x":1530,"y":740,"wires":[["fe8b0ffb.370ef"]]},{"id":"87239401.009ab8","type":"debug","z":"663c27b0.e97548","name":"","active":true,"tosidebar":true,"console":false,"tostatus":false,"complete":"true","targetType":"full","statusVal":"","statusType":"auto","x":290,"y":400,"wires":[]},{"id":"3056982c.add8e8","type":"function","z":"663c27b0.e97548","name":"Filtro","func":"let filteredRows = []\nlet tableRows = msg.tableRows\n\nfilteredRows = tableRows.filter(function (el) {\n  return el[\"P/VP\"] >=0 && \n         el[\"P/VP\"] <=1 ;\n});\n\nmsg.payload = filteredRows\nmsg.filteredRows = filteredRows.length\nreturn msg;\n","outputs":1,"noerr":0,"initialize":"","finalize":"","x":1110,"y":1000,"wires":[["c983e461.2a4c68","25fa01a6.782e7e","e418cf27.c8bc1"]]},{"id":"32226b0b.7c56b4","type":"ui_template","z":"b615d1b2.58708","group":"2723be6d.a35e52","name":"Crypto","order":4,"width":0,"height":0,"format":" <h1>Crypto</h1>\n <ul>\n    <li> <a href=\"https://www.binance.com/ng/trade/BTC_USDT?layout=pro\" target=\"_blank\" rel=\"noopener noreferrer\">binance.com btcu/sdt</a> </li>\n </ul>","storeOutMessages":true,"fwdInMessages":true,"resendOnRefresh":true,"templateScope":"local","x":590,"y":400,"wires":[[]]},{"id":"e0d2d1c5.6b74d","type":"ui_template","z":"b615d1b2.58708","group":"2723be6d.a35e52","name":"international widget","order":2,"width":"32","height":"12","format":"<!-- TradingView Widget BEGIN -->\n<div class=\"tradingview-widget-container\">\n  <div class=\"tradingview-widget-container__widget\"></div>\n  <div class=\"tradingview-widget-copyright\"><a href=\"https://www.tradingview.com/markets/\" rel=\"noopener\" target=\"_blank\"><span class=\"blue-text\">Financial Markets</span></a> by TradingView</div>\n  <script type=\"text/javascript\" src=\"https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js\" async>\n  {\n  \"width\": 770,\n  \"height\": 450,\n  \"symbolsGroups\": [\n    {\n      \"name\": \"Indices\",\n      \"originalName\": \"Indices\",\n      \"symbols\": [\n        {\n          \"name\": \"FOREXCOM:SPXUSD\",\n          \"displayName\": \"S&P 500\"\n        },\n        {\n          \"name\": \"FOREXCOM:NSXUSD\",\n          \"displayName\": \"Nasdaq 100\"\n        },\n        {\n          \"name\": \"FOREXCOM:DJI\",\n          \"displayName\": \"Dow 30\"\n        },\n        {\n          \"name\": \"INDEX:NKY\",\n          \"displayName\": \"Nikkei 225\"\n        },\n        {\n          \"name\": \"INDEX:DEU30\",\n          \"displayName\": \"DAX Index\"\n        },\n        {\n          \"name\": \"FOREXCOM:UKXGBP\",\n          \"displayName\": \"FTSE 100\"\n        }\n      ]\n    },\n    {\n      \"name\": \"Commodities\",\n      \"originalName\": \"Commodities\",\n      \"symbols\": [\n        {\n          \"name\": \"CME_MINI:ES1!\",\n          \"displayName\": \"S&P 500\"\n        },\n        {\n          \"name\": \"CME:6E1!\",\n          \"displayName\": \"Euro\"\n        },\n        {\n          \"name\": \"COMEX:GC1!\",\n          \"displayName\": \"Gold\"\n        },\n        {\n          \"name\": \"NYMEX:CL1!\",\n          \"displayName\": \"Crude Oil\"\n        },\n        {\n          \"name\": \"NYMEX:NG1!\",\n          \"displayName\": \"Natural Gas\"\n        },\n        {\n          \"name\": \"CBOT:ZC1!\",\n          \"displayName\": \"Corn\"\n        }\n      ]\n    },\n    {\n      \"name\": \"Bonds\",\n      \"originalName\": \"Bonds\",\n      \"symbols\": [\n        {\n          \"name\": \"CME:GE1!\",\n          \"displayName\": \"Eurodollar\"\n        },\n        {\n          \"name\": \"CBOT:ZB1!\",\n          \"displayName\": \"T-Bond\"\n        },\n        {\n          \"name\": \"CBOT:UB1!\",\n          \"displayName\": \"Ultra T-Bond\"\n        },\n        {\n          \"name\": \"EUREX:FGBL1!\",\n          \"displayName\": \"Euro Bund\"\n        },\n        {\n          \"name\": \"EUREX:FBTP1!\",\n          \"displayName\": \"Euro BTP\"\n        },\n        {\n          \"name\": \"EUREX:FGBM1!\",\n          \"displayName\": \"Euro BOBL\"\n        }\n      ]\n    },\n    {\n      \"name\": \"Forex\",\n      \"originalName\": \"Forex\",\n      \"symbols\": [\n        {\n          \"name\": \"FX:EURUSD\"\n        },\n        {\n          \"name\": \"FX:GBPUSD\"\n        },\n        {\n          \"name\": \"FX:USDJPY\"\n        },\n        {\n          \"name\": \"FX:USDCHF\"\n        },\n        {\n          \"name\": \"FX:AUDUSD\"\n        },\n        {\n          \"name\": \"FX:USDCAD\"\n        }\n      ]\n    }\n  ],\n  \"showSymbolLogo\": true,\n  \"colorTheme\": \"light\",\n  \"isTransparent\": true,\n  \"locale\": \"en\"\n}\n  </script>\n</div>\n<!-- TradingView Widget END -->","storeOutMessages":true,"fwdInMessages":true,"resendOnRefresh":true,"templateScope":"local","x":810,"y":320,"wires":[[]]},{"id":"5c50351d.e57cec","type":"ui_template","z":"b615d1b2.58708","group":"2723be6d.a35e52","name":"Crypto widget","order":4,"width":"32","height":"12","format":"<!-- TradingView Widget BEGIN -->\n<div class=\"tradingview-widget-container\">\n  <div id=\"tradingview_48596\"></div>\n  <div class=\"tradingview-widget-copyright\"><a href=\"https://www.tradingview.com/symbols/BTCUSDT/?exchange=BINANCE\" rel=\"noopener\" target=\"_blank\"><span class=\"blue-text\">BTCUSDT Chart</span></a> by TradingView</div>\n  <script type=\"text/javascript\" src=\"https://s3.tradingview.com/tv.js\"></script>\n  <script type=\"text/javascript\">\n  new TradingView.widget(\n  {\n  \"width\": 980,\n  \"height\": 610,\n  \"symbol\": \"BINANCE:BTCUSDT\",\n  \"interval\": \"D\",\n  \"timezone\": \"Etc/UTC\",\n  \"theme\": \"light\",\n  \"style\": \"1\",\n  \"locale\": \"en\",\n  \"toolbar_bg\": \"#f1f3f6\",\n  \"enable_publishing\": false,\n  \"allow_symbol_change\": true,\n  \"studies\": [\n    \"MACD@tv-basicstudies\"\n  ],\n  \"container_id\": \"tradingview_48596\"\n}\n  );\n  </script>\n</div>\n<!-- TradingView Widget END -->","storeOutMessages":true,"fwdInMessages":true,"resendOnRefresh":true,"templateScope":"local","x":800,"y":400,"wires":[[]]},{"id":"c2f55afd.2ccb88","type":"ui_template","z":"b615d1b2.58708","group":"2723be6d.a35e52","name":"Crypto widget","order":4,"width":"32","height":"10","format":"<!-- TradingView Widget BEGIN -->\n<div class=\"tradingview-widget-container\">\n  <div class=\"tradingview-widget-container__widget\"></div>\n  <div class=\"tradingview-widget-copyright\"><a href=\"https://www.tradingview.com/symbols/BTCUSD/technicals/\" rel=\"noopener\" target=\"_blank\"><span class=\"blue-text\">Technical Analysis for BTCUSD</span></a> by TradingView</div>\n  <script type=\"text/javascript\" src=\"https://s3.tradingview.com/external-embedding/embed-widget-technical-analysis.js\" async>\n  {\n  \"interval\": \"1h\",\n  \"width\": 425,\n  \"isTransparent\": true,\n  \"height\": 450,\n  \"symbol\": \"BITSTAMP:BTCUSD\",\n  \"showIntervalTabs\": true,\n  \"locale\": \"en\",\n  \"colorTheme\": \"light\"\n}\n  </script>\n</div>\n<!-- TradingView Widget END -->","storeOutMessages":true,"fwdInMessages":true,"resendOnRefresh":true,"templateScope":"local","x":800,"y":440,"wires":[[]]},{"id":"70e3eddd.1cb6c4","type":"ui_template","z":"b615d1b2.58708","group":"2723be6d.a35e52","name":"international widget","order":2,"width":"32","height":"12","format":"<iframe src=\"https://sslecal2.forexprostools.com?columns=exc_flags,exc_currency,exc_importance,exc_actual,exc_forecast,exc_previous&features=datepicker,timezone&countries=25,32,6,37,72,22,17,39,14,10,35,43,56,36,110,11,26,12,4,5&calType=week&timeZone=8&lang=1\" width=\"650\" height=\"467\" frameborder=\"0\" allowtransparency=\"true\" marginwidth=\"0\" marginheight=\"0\"></iframe><div class=\"poweredBy\" style=\"font-family: Arial, Helvetica, sans-serif;\"><span style=\"font-size: 11px;color: #333333;text-decoration: none;\">Real Time Economic Calendar provided by <a href=\"https://www.investing.com/\" rel=\"nofollow\" target=\"_blank\" style=\"font-size: 11px;color: #06529D; font-weight: bold;\" class=\"underline_link\">Investing.com</a>.</span></div>","storeOutMessages":true,"fwdInMessages":true,"resendOnRefresh":true,"templateScope":"local","x":1010,"y":320,"wires":[[]]},{"id":"72d736b.700d3c8","type":"ui_template","z":"b615d1b2.58708","group":"2723be6d.a35e52","name":"international widget","order":2,"width":"32","height":"12","format":"<iframe height=\"480\" width=\"650\" src=\"https://ssltvc.forexprostools.com/?pair_ID=44336&height=480&width=650&interval=86400&plotStyle=area&domain_ID=30&lang_ID=12&timezone_ID=10\"></iframe>","storeOutMessages":true,"fwdInMessages":true,"resendOnRefresh":true,"templateScope":"local","x":1210,"y":320,"wires":[[]]},{"id":"e418cf27.c8bc1","type":"ui_table","z":"663c27b0.e97548","group":"7963295f.aa30c8","name":"Summary","order":7,"width":"26","height":"10","columns":[{"field":"Papel","title":"Papel","width":"6%","align":"left","formatter":"plaintext","formatterParams":{"target":"_blank"}},{"field":"Cotacao","title":"Cotacao","width":"6%","align":"left","formatter":"plaintext","formatterParams":{"target":"_blank"}},{"field":"DivYield","title":"DivYield","width":"6%","align":"left","formatter":"plaintext","formatterParams":{"target":"_blank"}},{"field":"P/VP","title":"P/VP","width":"6%","align":"left","formatter":"plaintext","formatterParams":{"target":"_blank"}},{"field":"Mrg Liq","title":"Mrg Liq","width":"6%","align":"left","formatter":"plaintext","formatterParams":{"target":"_blank"}},{"field":"Cresc Rec 5a","title":"Cresc Rec 5a","width":"6%","align":"left","formatter":"plaintext","formatterParams":{"target":"_blank"}},{"field":"DivBrut/Patrim","title":"DivBrut/Patrim","width":"6%","align":"left","formatter":"plaintext","formatterParams":{"target":"_blank"}},{"field":"factorSeba","title":"factorSeba","width":"6%","align":"left","formatter":"plaintext","formatterParams":{"target":"_blank"}},{"field":"factorLuis","title":"factorLuis","width":"6%","align":"left","formatter":"plaintext","formatterParams":{"target":"_blank"}}],"outputs":1,"cts":true,"x":1340,"y":820,"wires":[["a29a0913.53e958"]]},{"id":"b47d58ae.dcad28","type":"debug","z":"663c27b0.e97548","name":"","active":true,"tosidebar":true,"console":false,"tostatus":false,"complete":"false","statusVal":"","statusType":"auto","x":790,"y":860,"wires":[]},{"id":"55ec8e0b.bc76a","type":"inject","z":"663c27b0.e97548","name":"","props":[{"p":"payload"},{"p":"topic","vt":"str"}],"repeat":"","crontab":"","once":false,"onceDelay":0.1,"topic":"","payload":"","payloadType":"date","x":980,"y":700,"wires":[["f7c686ee.dbaff8"]]},{"id":"56fd4d6f.82d8d4","type":"ui_template","z":"663c27b0.e97548","group":"7963295f.aa30c8","name":"URL","order":6,"width":0,"height":0,"format":"<h2>More Info on {{msg.payload}}</h2>\n <ul>\n    <li> <a href=\"https://www.google.com/search?q={{msg.payload}}\" target=\"_blank\" rel=\"noopener noreferrer\">google</a> </li>\n    <li> <a href=\"https://www.tradingview.com/symbols/BMFBOVESPA-{{msg.payload}}/\" target=\"_blank\" rel=\"noopener noreferrer\">tradingview/</a> </li>\n    <li> <a href=\"https://fundamentus.com.br/detalhes.php?papel={{msg.payload}}\" target=\"_blank\" rel=\"noopener noreferrer\">fundamentus</a> </li>\n </ul>\n ","storeOutMessages":true,"fwdInMessages":true,"resendOnRefresh":true,"templateScope":"local","x":1730,"y":920,"wires":[[]]},{"id":"fe8b0ffb.370ef","type":"function","z":"663c27b0.e97548","name":"","func":"let papel = \"\"\n\npapel = msg.payload[0].Papel\n\nmsg.payload = papel\n\nreturn msg;","outputs":1,"noerr":0,"initialize":"","finalize":"","x":1700,"y":740,"wires":[["56fd4d6f.82d8d4","3d76352a.c2d13a"]]},{"id":"3d76352a.c2d13a","type":"debug","z":"663c27b0.e97548","name":"","active":true,"tosidebar":true,"console":false,"tostatus":false,"complete":"false","statusVal":"","statusType":"auto","x":1990,"y":780,"wires":[]},{"id":"45f57b0c.ca4ad4","type":"ui_text_input","z":"663c27b0.e97548","name":"","label":"paper filter","tooltip":"","group":"7963295f.aa30c8","order":4,"width":0,"height":0,"passthru":true,"mode":"text","delay":300,"topic":"","x":440,"y":1080,"wires":[[]]}]
+[
+    {
+        "id": "987aa7c6.9ea908",
+        "type": "tab",
+        "label": "Ui Landing",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "415872bf.76470c",
+        "type": "tab",
+        "label": "Sector-subsector-segment",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "67ccaa57.7f0e14",
+        "type": "tab",
+        "label": "Fundamentus",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "acd90c2a.41911",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "f07159ac.5fc0f8",
+        "type": "ui_group",
+        "name": "Group 1",
+        "tab": "9e69bc57.dd606",
+        "order": 1,
+        "disp": false,
+        "width": "32",
+        "collapse": false
+    },
+    {
+        "id": "7963295f.aa30c8",
+        "type": "ui_group",
+        "name": "Group1",
+        "tab": "870782ae.d531c",
+        "order": 1,
+        "disp": false,
+        "width": "32",
+        "collapse": false
+    },
+    {
+        "id": "2723be6d.a35e52",
+        "type": "ui_group",
+        "name": "Group 1",
+        "tab": "6825de81.ffaff",
+        "order": 1,
+        "disp": false,
+        "width": "32",
+        "collapse": false
+    },
+    {
+        "id": "9e69bc57.dd606",
+        "type": "ui_tab",
+        "name": "Landing",
+        "icon": "dashboard",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "870782ae.d531c",
+        "type": "ui_tab",
+        "name": "Fundamentus (filtered)",
+        "icon": "dashboard",
+        "order": 3,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "6825de81.ffaff",
+        "type": "ui_tab",
+        "name": "Landing",
+        "icon": "dashboard",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "6863a290.6ad93c",
+        "type": "ui_tab",
+        "name": "Fundamentus (filtered)",
+        "icon": "dashboard",
+        "order": 3,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "5cb1a02b.1b87",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "3b9e390f.f205d6",
+        "type": "ui_group",
+        "name": "Group1",
+        "tab": "6863a290.6ad93c",
+        "order": 1,
+        "disp": false,
+        "width": "32",
+        "collapse": false
+    },
+    {
+        "id": "54aa62ba.57bf3c",
+        "type": "ui_tab",
+        "name": "Landing",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "360b4f4f.5f4e2",
+        "type": "ui_group",
+        "name": "Group 1",
+        "tab": "54aa62ba.57bf3c",
+        "order": 1,
+        "disp": false,
+        "width": "32",
+        "collapse": false
+    },
+    {
+        "id": "c920c87a.026708",
+        "type": "ui_tab",
+        "name": "Company - Sector",
+        "icon": "dashboard",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "ddf4ccb1.e24dd",
+        "type": "ui_group",
+        "name": "Group 1",
+        "tab": "c920c87a.026708",
+        "order": 1,
+        "disp": false,
+        "width": "25",
+        "collapse": false
+    },
+    {
+        "id": "7e550eca.f0a11",
+        "type": "http request",
+        "z": "67ccaa57.7f0e14",
+        "name": "",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://www.fundamentus.com.br/resultado.php",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "x": 330,
+        "y": 220,
+        "wires": [
+            [
+                "4efc614.3a254a"
+            ]
+        ]
+    },
+    {
+        "id": "4efc614.3a254a",
+        "type": "html",
+        "z": "67ccaa57.7f0e14",
+        "name": "",
+        "property": "payload",
+        "outproperty": "payload",
+        "tag": "table",
+        "ret": "html",
+        "as": "multi",
+        "x": 490,
+        "y": 220,
+        "wires": [
+            [
+                "ba3cb63a.88f4a8",
+                "c3186ac9.052138"
+            ]
+        ]
+    },
+    {
+        "id": "c27125ce.22dc08",
+        "type": "function",
+        "z": "67ccaa57.7f0e14",
+        "name": "headers",
+        "func": "let data =msg.payload\n\nmsg.headers = {};\n\nmsg.headers['Accept'] =  'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9'\n//msg.headers['Accept-Encoding'] = 'gzip, deflate'\nmsg.headers['Accept-Language'] = 'en,en-US;q=0.9,pt-BR;q=0.8,pt;q=0.7'\n//msg.headers['Cache-Control'] = 'max-age=0'\n//msg.headers['Connection'] = 'keep-alive'\nmsg.headers['Content-Type'] =  'application/x-www-form-urlencoded'\nmsg.headers['Cookie']= '__cfduid=d9bfd324d77e286ed3747adca08281d401610907005; _fbp=fb.2.1610907015822.457488293; __utmc=138951332; PHPSESSID=f1de49650be2f2bc91582e3570db9080; __utmz=138951332.1611333660.4.3.utmcsr=google|utmccn=(organic)|utmcmd=organic|utmctr=(not%20provided); __utma=138951332.167960548.1610907016.1611434554.1611494402.12; __utmt=1; __utmb=138951332.6.10.1611494402'\nmsg.headers['Host']= 'www.fundamentus.com.br'\nmsg.headers['Origin']= 'http://www.fundamentus.com.br'\nmsg.headers['Referer']= 'http://www.fundamentus.com.br/buscaavancada.php'\n//msg.headers['Upgrade-Insecure-Requests']= '1'\nmsg.headers['User-Agent']= 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.75 Safari/537.36'\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 140,
+        "y": 220,
+        "wires": [
+            [
+                "7e550eca.f0a11"
+            ]
+        ]
+    },
+    {
+        "id": "3e99f06d.4b365",
+        "type": "function",
+        "z": "67ccaa57.7f0e14",
+        "name": "Form Data",
+        "func": "let data = {\n'pl_min': null,\n'pl_max': null,\n'pvp_min': null,\n'pvp_max': null,\n'psr_min': null,\n'psr_max': null,\n'divy_min': null,//0.01,\n'divy_max': null,\n'pativos_min': null,\n'pativos_max': null,\n'pcapgiro_min': null,\n'pcapgiro_max': null,\n'pebit_min': null,\n'pebit_max': null,\n'fgrah_min': null,\n'fgrah_max': null,\n'firma_ebit_min': null,\n'firma_ebit_max': null,\n'firma_ebitda_min': null,\n'firma_ebitda_max': null,\n'margemebit_min': null,\n'margemebit_max': null,\n'margemliq_min': null,\n'margemliq_max': null,\n'liqcorr_min': null,\n'liqcorr_max': null,\n'roic_min': null,\n'roic_max': null,\n'roe_min': null,\n'roe_max': null,\n'liq_min': null,\n'liq_max': null,\n'patrim_min': null,\n'patrim_max': null,\n'divbruta_min': null,\n'divbruta_max': null,\n'tx_cresc_rec_min': null,\n'tx_cresc_rec_max': null,\n'setor': null,\n'negociada': 'ON',\n'ordem': 1,\n'x': 37,\n'y': 18}\n\nmsg.payload = data;\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 150,
+        "y": 160,
+        "wires": [
+            [
+                "c27125ce.22dc08"
+            ]
+        ]
+    },
+    {
+        "id": "5eda577e.b936c8",
+        "type": "ui_button",
+        "z": "67ccaa57.7f0e14",
+        "name": "",
+        "group": "3b9e390f.f205d6",
+        "order": 1,
+        "width": "5",
+        "height": "1",
+        "passthru": false,
+        "label": "refresh info",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "x": 130,
+        "y": 40,
+        "wires": [
+            [
+                "c72e8f6f.477e9"
+            ]
+        ]
+    },
+    {
+        "id": "ba3cb63a.88f4a8",
+        "type": "html",
+        "z": "67ccaa57.7f0e14",
+        "name": "",
+        "property": "payload",
+        "outproperty": "payload",
+        "tag": "thead",
+        "ret": "html",
+        "as": "multi",
+        "x": 750,
+        "y": 220,
+        "wires": [
+            [
+                "d3bca1d.95e4c6"
+            ]
+        ]
+    },
+    {
+        "id": "d3bca1d.95e4c6",
+        "type": "html",
+        "z": "67ccaa57.7f0e14",
+        "name": "",
+        "property": "payload",
+        "outproperty": "payload",
+        "tag": "tr",
+        "ret": "html",
+        "as": "multi",
+        "x": 890,
+        "y": 260,
+        "wires": [
+            [
+                "457b374f.9ea9c8"
+            ]
+        ]
+    },
+    {
+        "id": "fad873f0.88edd",
+        "type": "html",
+        "z": "67ccaa57.7f0e14",
+        "name": "",
+        "property": "payload",
+        "outproperty": "payload",
+        "tag": "tbody",
+        "ret": "html",
+        "as": "multi",
+        "x": 750,
+        "y": 340,
+        "wires": [
+            [
+                "a37d95a7.820f08"
+            ]
+        ]
+    },
+    {
+        "id": "a37d95a7.820f08",
+        "type": "html",
+        "z": "67ccaa57.7f0e14",
+        "name": "",
+        "property": "payload",
+        "outproperty": "payload",
+        "tag": "tr",
+        "ret": "html",
+        "as": "multi",
+        "x": 890,
+        "y": 380,
+        "wires": [
+            [
+                "70313e22.54818"
+            ]
+        ]
+    },
+    {
+        "id": "6b03878c.313758",
+        "type": "function",
+        "z": "67ccaa57.7f0e14",
+        "name": "",
+        "func": "let tableColumns = msg.payload\n\nflow.set(\"tableColumns\", tableColumns);\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 1180,
+        "y": 260,
+        "wires": [
+            [
+                "55742774.53c6d8",
+                "67bbe817.388338"
+            ]
+        ]
+    },
+    {
+        "id": "c72e8f6f.477e9",
+        "type": "function",
+        "z": "67ccaa57.7f0e14",
+        "name": "initialize",
+        "func": "flow.set(\"tableRows\", []);\nflow.set(\"tableColumns\",[])\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 140,
+        "y": 100,
+        "wires": [
+            [
+                "3e99f06d.4b365"
+            ]
+        ]
+    },
+    {
+        "id": "f8873ea6.21721",
+        "type": "inject",
+        "z": "67ccaa57.7f0e14",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "21600",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 70,
+        "y": 460,
+        "wires": [
+            [
+                "c72e8f6f.477e9"
+            ]
+        ]
+    },
+    {
+        "id": "70313e22.54818",
+        "type": "html",
+        "z": "67ccaa57.7f0e14",
+        "name": "",
+        "property": "payload",
+        "outproperty": "payload",
+        "tag": "td",
+        "ret": "text",
+        "as": "single",
+        "x": 1030,
+        "y": 380,
+        "wires": [
+            [
+                "23b3c7af.a05378"
+            ]
+        ]
+    },
+    {
+        "id": "457b374f.9ea9c8",
+        "type": "html",
+        "z": "67ccaa57.7f0e14",
+        "name": "",
+        "property": "payload",
+        "outproperty": "payload",
+        "tag": "th",
+        "ret": "text",
+        "as": "single",
+        "x": 1030,
+        "y": 260,
+        "wires": [
+            [
+                "6b03878c.313758"
+            ]
+        ]
+    },
+    {
+        "id": "55742774.53c6d8",
+        "type": "debug",
+        "z": "67ccaa57.7f0e14",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1370,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "c3186ac9.052138",
+        "type": "delay",
+        "z": "67ccaa57.7f0e14",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "0.1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 630,
+        "y": 280,
+        "wires": [
+            [
+                "fad873f0.88edd"
+            ]
+        ]
+    },
+    {
+        "id": "23b3c7af.a05378",
+        "type": "function",
+        "z": "67ccaa57.7f0e14",
+        "name": "",
+        "func": "function convert(str) {\n    if (str.includes(\",\"))\n    {\n        str = str.replace(',','.')\n        if (str.includes(\"%\"))\n        {\n            str = str.replace('%','')\n            str = parseFloat(str)\n            str= str/100.0\n        }\n        else{\n            str = parseFloat(str)\n        }\n    }\n  return str    \n}\n\n\nlet tableColumns = flow.get(\"tableColumns\");\nlet obj = {}\n\n\nfor (i = 0; i < tableColumns.length; i++)\n{\n    obj[tableColumns[i]] = convert(msg.payload[i])\n}\n\n//parseFloat(str.replace(',','.')\n\nmsg.payload = obj\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 1180,
+        "y": 380,
+        "wires": [
+            [
+                "643ecd61.8984a4"
+            ]
+        ]
+    },
+    {
+        "id": "ae5d8aed.312ba8",
+        "type": "debug",
+        "z": "67ccaa57.7f0e14",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1470,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "b643d67a.f66bb8",
+        "type": "ui_table",
+        "z": "67ccaa57.7f0e14",
+        "group": "3b9e390f.f205d6",
+        "name": "Details",
+        "order": 7,
+        "width": "32",
+        "height": "10",
+        "columns": [],
+        "outputs": 1,
+        "cts": true,
+        "x": 1210,
+        "y": 820,
+        "wires": [
+            [
+                "73232335.0e594c"
+            ]
+        ]
+    },
+    {
+        "id": "643ecd61.8984a4",
+        "type": "function",
+        "z": "67ccaa57.7f0e14",
+        "name": "add rows",
+        "func": "let tableRows = flow.get('tableRows')\n\ntableRows.push(msg.payload)\n\nflow.set('tableRows', tableRows)\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 1360,
+        "y": 380,
+        "wires": [
+            [
+                "43ef9d19.f60434"
+            ]
+        ]
+    },
+    {
+        "id": "67bbe817.388338",
+        "type": "function",
+        "z": "67ccaa57.7f0e14",
+        "name": "fix column names",
+        "func": "let tableColumns = flow.get('tableColumns')\n\ntableColumns[1] = \"Cotacao\"\ntableColumns[5] = \"DivYield\"\ntableColumns[7] = \"P/CapGiro\"\ntableColumns[9] = \"P/Ativ CircLiq\"\n\ntableColumns[13] = \"Mrg Liq\"\ntableColumns[14] = \"Liq Corr\"\n\ntableColumns[17] = \"Liq2meses\"\ntableColumns[18] = \"Patrim Liq\"\ntableColumns[19] = \"DivBrut/Patrim\"\ntableColumns[20] = \"Cresc Rec 5a\"\n\nflow.set('tableColumns',tableColumns)\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 1370,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4473ee5.58e321",
+        "type": "ui_template",
+        "z": "987aa7c6.9ea908",
+        "group": "360b4f4f.5f4e2",
+        "name": "Internacional",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "format": " <h1>Internacional</h1>\n <ul>\n    <li> <a href=\"https://www.morningstar.com/markets\" target=\"_blank\" rel=\"noopener noreferrer\">morningstar.com</a> </li>\n    <li> <a href=\"https://www.investing.com/indices/major-indices\" target=\"_blank\" rel=\"noopener noreferrer\">investing.com major-indices</a> </li>\n    <li> <a href=\"https://www.investing.com/indices/volatility-s-p-500\" target=\"_blank\" rel=\"noopener noreferrer\">investing.com WIX</a> </li>\n </ul>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "x": 610,
+        "y": 320,
+        "wires": [
+            [
+                "12018264.5c14be"
+            ]
+        ]
+    },
+    {
+        "id": "e2e1c993.1bcfa8",
+        "type": "ui_template",
+        "z": "987aa7c6.9ea908",
+        "group": "360b4f4f.5f4e2",
+        "name": "Brasil",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "format": " <h1>Brasil</h1>\n <ul>\n    <li> <a href=\"https://www.investing.com/indices/bovespa\" target=\"_blank\" rel=\"noopener noreferrer\">investing.com bovespa</a> </li>\n    <li> <a href=\"https://www.tradingview.com/symbols/BMFBOVESPA-IBOV/\" target=\"_blank\" rel=\"noopener noreferrer\">tradingview bovespa/</a> </li>\n    <li> <a href=\"http://www.fundamentus.com.br/\" target=\"_blank\" rel=\"noopener noreferrer\">fundamentus.com.br</a> </li>\n    <li> <a href=\"https://www.oceans14.com.br/\" target=\"_blank\" rel=\"noopener noreferrer\">oceans14.com.br</a> </li>\n </ul>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "x": 590,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "48654a03.391114",
+        "type": "ui_dropdown",
+        "z": "67ccaa57.7f0e14",
+        "name": "",
+        "label": "table filter",
+        "tooltip": "",
+        "place": "Select option",
+        "group": "3b9e390f.f205d6",
+        "order": 2,
+        "width": "8",
+        "height": "1",
+        "passthru": false,
+        "multiple": false,
+        "options": [
+            {
+                "label": "all stocks",
+                "value": "all",
+                "type": "str"
+            },
+            {
+                "label": "best stocks",
+                "value": "best",
+                "type": "str"
+            },
+            {
+                "label": "discounted stocks",
+                "value": "discounted",
+                "type": "str"
+            },
+            {
+                "label": "debt stocks",
+                "value": "debt",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "",
+        "x": 520,
+        "y": 820,
+        "wires": [
+            [
+                "3fb25b9f.345c14"
+            ]
+        ]
+    },
+    {
+        "id": "908822c2.cdb57",
+        "type": "switch",
+        "z": "67ccaa57.7f0e14",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "all",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "best",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "discounted",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "debt",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 4,
+        "x": 850,
+        "y": 820,
+        "wires": [
+            [
+                "a0142158.388f9"
+            ],
+            [
+                "97f4c25.b27bb4"
+            ],
+            [
+                "f81ca738.123128"
+            ],
+            [
+                "b9dab5ed.2e9188"
+            ]
+        ]
+    },
+    {
+        "id": "3fb25b9f.345c14",
+        "type": "function",
+        "z": "67ccaa57.7f0e14",
+        "name": "tableRows",
+        "func": "let tableRows = flow.get('tableRows')\n\nmsg.tableRows = tableRows\n\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 690,
+        "y": 820,
+        "wires": [
+            [
+                "908822c2.cdb57"
+            ]
+        ]
+    },
+    {
+        "id": "a0142158.388f9",
+        "type": "function",
+        "z": "67ccaa57.7f0e14",
+        "name": "Filtro",
+        "func": "let filteredRows = msg.tableRows\n\nmsg.payload = filteredRows\n\nmsg.filteredRows = filteredRows.length\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 990,
+        "y": 760,
+        "wires": [
+            [
+                "b643d67a.f66bb8",
+                "183aa9f7.c75976",
+                "dd8cdd9c.548c2"
+            ]
+        ]
+    },
+    {
+        "id": "97f4c25.b27bb4",
+        "type": "function",
+        "z": "67ccaa57.7f0e14",
+        "name": "Filtro",
+        "func": "let filteredRows = []\nlet tableRows = msg.tableRows\n\nfilteredRows = tableRows.filter(function (el) {\n  return el.DivYield >= 0.05 &&  // Dividendos > 5%\n         el[\"Mrg Liq\"] > 0 &&\n         el[\"Cresc Rec 5a\"] > 0 &&\n         el[\"P/VP\"] < 20 &&\n         el[\"DivBrut/Patrim\"] <=1\n});\n\nmsg.payload = filteredRows\nmsg.filteredRows = filteredRows.length\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 990,
+        "y": 800,
+        "wires": [
+            [
+                "b643d67a.f66bb8",
+                "183aa9f7.c75976",
+                "dd8cdd9c.548c2"
+            ]
+        ]
+    },
+    {
+        "id": "b9dab5ed.2e9188",
+        "type": "function",
+        "z": "67ccaa57.7f0e14",
+        "name": "Filtro",
+        "func": "let filteredRows = []\nlet tableRows = msg.tableRows\n\nfilteredRows = tableRows.filter(function (el) {\n  return el[\"DivBrut/Patrim\"] > 0;\n});\n\nmsg.payload = filteredRows\nmsg.filteredRows = filteredRows.length\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 990,
+        "y": 880,
+        "wires": [
+            [
+                "b643d67a.f66bb8",
+                "183aa9f7.c75976",
+                "dd8cdd9c.548c2"
+            ]
+        ]
+    },
+    {
+        "id": "183aa9f7.c75976",
+        "type": "ui_text",
+        "z": "67ccaa57.7f0e14",
+        "group": "3b9e390f.f205d6",
+        "order": 3,
+        "width": "5",
+        "height": "1",
+        "name": "",
+        "label": "rows = ",
+        "format": "{{msg.filteredRows}}",
+        "layout": "row-left",
+        "x": 1210,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "73232335.0e594c",
+        "type": "function",
+        "z": "67ccaa57.7f0e14",
+        "name": "Filtro",
+        "func": "let tableRow = []\n\nlet tick = msg.payload.Papel\n\nmsg.payload = tick\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 1370,
+        "y": 800,
+        "wires": [
+            [
+                "24c4df0b.8ecfe"
+            ]
+        ]
+    },
+    {
+        "id": "f81ca738.123128",
+        "type": "function",
+        "z": "67ccaa57.7f0e14",
+        "name": "Filtro",
+        "func": "let filteredRows = []\nlet tableRows = msg.tableRows\n\nfilteredRows = tableRows.filter(function (el) {\n  return el[\"P/VP\"] >=0 && \n         el[\"P/VP\"] <=1 ;\n});\n\nmsg.payload = filteredRows\nmsg.filteredRows = filteredRows.length\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 990,
+        "y": 840,
+        "wires": [
+            [
+                "b643d67a.f66bb8",
+                "183aa9f7.c75976",
+                "dd8cdd9c.548c2"
+            ]
+        ]
+    },
+    {
+        "id": "949101e9.c1602",
+        "type": "ui_template",
+        "z": "987aa7c6.9ea908",
+        "group": "360b4f4f.5f4e2",
+        "name": "Crypto",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "format": " <h1>Crypto</h1>\n <ul>\n    <li> <a href=\"https://www.binance.com/ng/trade/BTC_USDT?layout=pro\" target=\"_blank\" rel=\"noopener noreferrer\">binance.com btcu/sdt</a> </li>\n </ul>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "x": 590,
+        "y": 400,
+        "wires": [
+            [
+                "9b6f320d.792ce"
+            ]
+        ]
+    },
+    {
+        "id": "12018264.5c14be",
+        "type": "ui_template",
+        "z": "987aa7c6.9ea908",
+        "group": "360b4f4f.5f4e2",
+        "name": "international widget",
+        "order": 2,
+        "width": "32",
+        "height": "12",
+        "format": "<!-- TradingView Widget BEGIN -->\n<div class=\"tradingview-widget-container\">\n  <div class=\"tradingview-widget-container__widget\"></div>\n  <div class=\"tradingview-widget-copyright\"><a href=\"https://www.tradingview.com/markets/\" rel=\"noopener\" target=\"_blank\"><span class=\"blue-text\">Financial Markets</span></a> by TradingView</div>\n  <script type=\"text/javascript\" src=\"https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js\" async>\n  {\n  \"width\": 770,\n  \"height\": 450,\n  \"symbolsGroups\": [\n    {\n      \"name\": \"Indices\",\n      \"originalName\": \"Indices\",\n      \"symbols\": [\n        {\n          \"name\": \"FOREXCOM:SPXUSD\",\n          \"displayName\": \"S&P 500\"\n        },\n        {\n          \"name\": \"FOREXCOM:NSXUSD\",\n          \"displayName\": \"Nasdaq 100\"\n        },\n        {\n          \"name\": \"FOREXCOM:DJI\",\n          \"displayName\": \"Dow 30\"\n        },\n        {\n          \"name\": \"INDEX:NKY\",\n          \"displayName\": \"Nikkei 225\"\n        },\n        {\n          \"name\": \"INDEX:DEU30\",\n          \"displayName\": \"DAX Index\"\n        },\n        {\n          \"name\": \"FOREXCOM:UKXGBP\",\n          \"displayName\": \"FTSE 100\"\n        }\n      ]\n    },\n    {\n      \"name\": \"Commodities\",\n      \"originalName\": \"Commodities\",\n      \"symbols\": [\n        {\n          \"name\": \"CME_MINI:ES1!\",\n          \"displayName\": \"S&P 500\"\n        },\n        {\n          \"name\": \"CME:6E1!\",\n          \"displayName\": \"Euro\"\n        },\n        {\n          \"name\": \"COMEX:GC1!\",\n          \"displayName\": \"Gold\"\n        },\n        {\n          \"name\": \"NYMEX:CL1!\",\n          \"displayName\": \"Crude Oil\"\n        },\n        {\n          \"name\": \"NYMEX:NG1!\",\n          \"displayName\": \"Natural Gas\"\n        },\n        {\n          \"name\": \"CBOT:ZC1!\",\n          \"displayName\": \"Corn\"\n        }\n      ]\n    },\n    {\n      \"name\": \"Bonds\",\n      \"originalName\": \"Bonds\",\n      \"symbols\": [\n        {\n          \"name\": \"CME:GE1!\",\n          \"displayName\": \"Eurodollar\"\n        },\n        {\n          \"name\": \"CBOT:ZB1!\",\n          \"displayName\": \"T-Bond\"\n        },\n        {\n          \"name\": \"CBOT:UB1!\",\n          \"displayName\": \"Ultra T-Bond\"\n        },\n        {\n          \"name\": \"EUREX:FGBL1!\",\n          \"displayName\": \"Euro Bund\"\n        },\n        {\n          \"name\": \"EUREX:FBTP1!\",\n          \"displayName\": \"Euro BTP\"\n        },\n        {\n          \"name\": \"EUREX:FGBM1!\",\n          \"displayName\": \"Euro BOBL\"\n        }\n      ]\n    },\n    {\n      \"name\": \"Forex\",\n      \"originalName\": \"Forex\",\n      \"symbols\": [\n        {\n          \"name\": \"FX:EURUSD\"\n        },\n        {\n          \"name\": \"FX:GBPUSD\"\n        },\n        {\n          \"name\": \"FX:USDJPY\"\n        },\n        {\n          \"name\": \"FX:USDCHF\"\n        },\n        {\n          \"name\": \"FX:AUDUSD\"\n        },\n        {\n          \"name\": \"FX:USDCAD\"\n        }\n      ]\n    }\n  ],\n  \"showSymbolLogo\": true,\n  \"colorTheme\": \"light\",\n  \"isTransparent\": true,\n  \"locale\": \"en\"\n}\n  </script>\n</div>\n<!-- TradingView Widget END -->",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "x": 810,
+        "y": 320,
+        "wires": [
+            [
+                "2fc90a02.f5fb96"
+            ]
+        ]
+    },
+    {
+        "id": "9b6f320d.792ce",
+        "type": "ui_template",
+        "z": "987aa7c6.9ea908",
+        "group": "360b4f4f.5f4e2",
+        "name": "Crypto widget",
+        "order": 4,
+        "width": "32",
+        "height": "12",
+        "format": "<!-- TradingView Widget BEGIN -->\n<div class=\"tradingview-widget-container\">\n  <div id=\"tradingview_48596\"></div>\n  <div class=\"tradingview-widget-copyright\"><a href=\"https://www.tradingview.com/symbols/BTCUSDT/?exchange=BINANCE\" rel=\"noopener\" target=\"_blank\"><span class=\"blue-text\">BTCUSDT Chart</span></a> by TradingView</div>\n  <script type=\"text/javascript\" src=\"https://s3.tradingview.com/tv.js\"></script>\n  <script type=\"text/javascript\">\n  new TradingView.widget(\n  {\n  \"width\": 980,\n  \"height\": 610,\n  \"symbol\": \"BINANCE:BTCUSDT\",\n  \"interval\": \"D\",\n  \"timezone\": \"Etc/UTC\",\n  \"theme\": \"light\",\n  \"style\": \"1\",\n  \"locale\": \"en\",\n  \"toolbar_bg\": \"#f1f3f6\",\n  \"enable_publishing\": false,\n  \"allow_symbol_change\": true,\n  \"studies\": [\n    \"MACD@tv-basicstudies\"\n  ],\n  \"container_id\": \"tradingview_48596\"\n}\n  );\n  </script>\n</div>\n<!-- TradingView Widget END -->",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "x": 800,
+        "y": 400,
+        "wires": [
+            [
+                "7e3cfd57.1c0ea4"
+            ]
+        ]
+    },
+    {
+        "id": "7e3cfd57.1c0ea4",
+        "type": "ui_template",
+        "z": "987aa7c6.9ea908",
+        "group": "360b4f4f.5f4e2",
+        "name": "Crypto widget",
+        "order": 4,
+        "width": "32",
+        "height": "10",
+        "format": "<!-- TradingView Widget BEGIN -->\n<div class=\"tradingview-widget-container\">\n  <div class=\"tradingview-widget-container__widget\"></div>\n  <div class=\"tradingview-widget-copyright\"><a href=\"https://www.tradingview.com/symbols/BTCUSD/technicals/\" rel=\"noopener\" target=\"_blank\"><span class=\"blue-text\">Technical Analysis for BTCUSD</span></a> by TradingView</div>\n  <script type=\"text/javascript\" src=\"https://s3.tradingview.com/external-embedding/embed-widget-technical-analysis.js\" async>\n  {\n  \"interval\": \"1h\",\n  \"width\": 425,\n  \"isTransparent\": true,\n  \"height\": 450,\n  \"symbol\": \"BITSTAMP:BTCUSD\",\n  \"showIntervalTabs\": true,\n  \"locale\": \"en\",\n  \"colorTheme\": \"light\"\n}\n  </script>\n</div>\n<!-- TradingView Widget END -->",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "x": 1040,
+        "y": 400,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2fc90a02.f5fb96",
+        "type": "ui_template",
+        "z": "987aa7c6.9ea908",
+        "group": "360b4f4f.5f4e2",
+        "name": "international widget",
+        "order": 2,
+        "width": "32",
+        "height": "12",
+        "format": "<iframe src=\"https://sslecal2.forexprostools.com?columns=exc_flags,exc_currency,exc_importance,exc_actual,exc_forecast,exc_previous&features=datepicker,timezone&countries=25,32,6,37,72,22,17,39,14,10,35,43,56,36,110,11,26,12,4,5&calType=week&timeZone=8&lang=1\" width=\"650\" height=\"467\" frameborder=\"0\" allowtransparency=\"true\" marginwidth=\"0\" marginheight=\"0\"></iframe><div class=\"poweredBy\" style=\"font-family: Arial, Helvetica, sans-serif;\"><span style=\"font-size: 11px;color: #333333;text-decoration: none;\">Real Time Economic Calendar provided by <a href=\"https://www.investing.com/\" rel=\"nofollow\" target=\"_blank\" style=\"font-size: 11px;color: #06529D; font-weight: bold;\" class=\"underline_link\">Investing.com</a>.</span></div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "x": 1010,
+        "y": 320,
+        "wires": [
+            [
+                "fcfce04d.7c632"
+            ]
+        ]
+    },
+    {
+        "id": "fcfce04d.7c632",
+        "type": "ui_template",
+        "z": "987aa7c6.9ea908",
+        "group": "360b4f4f.5f4e2",
+        "name": "international widget",
+        "order": 2,
+        "width": "32",
+        "height": "12",
+        "format": "<iframe height=\"480\" width=\"650\" src=\"https://ssltvc.forexprostools.com/?pair_ID=44336&height=480&width=650&interval=86400&plotStyle=area&domain_ID=30&lang_ID=12&timezone_ID=10\"></iframe>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "x": 1210,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "dd8cdd9c.548c2",
+        "type": "ui_table",
+        "z": "67ccaa57.7f0e14",
+        "group": "3b9e390f.f205d6",
+        "name": "Summary",
+        "order": 6,
+        "width": "26",
+        "height": "10",
+        "columns": [
+            {
+                "field": "sector",
+                "title": "setor",
+                "width": "12%",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "subsector",
+                "title": "subsetor",
+                "width": "12%",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "segment",
+                "title": "segmento",
+                "width": "4%",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "company",
+                "title": "Compania",
+                "width": "10%",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "Papel",
+                "title": "Papel",
+                "width": "5%",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "Cotacao",
+                "title": "Cotacao",
+                "width": "5%",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "DivYield",
+                "title": "DivYield",
+                "width": "5%",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "P/VP",
+                "title": "P/VP",
+                "width": "5%",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "Mrg Liq",
+                "title": "Mrg Liq",
+                "width": "5%",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "Cresc Rec 5a",
+                "title": "Cresc Rec 5a",
+                "width": "5%",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "DivBrut/Patrim",
+                "title": "DivBrut/Patrim",
+                "width": "5%",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "factorSeba",
+                "title": "factorSeba",
+                "width": "6%",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "factorLuis",
+                "title": "factorLuis",
+                "width": "6%",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            }
+        ],
+        "outputs": 1,
+        "cts": true,
+        "x": 1220,
+        "y": 760,
+        "wires": [
+            [
+                "73232335.0e594c"
+            ]
+        ]
+    },
+    {
+        "id": "1d0823ea.5c86fc",
+        "type": "inject",
+        "z": "67ccaa57.7f0e14",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 1140,
+        "y": 520,
+        "wires": [
+            [
+                "4b006ebe.90253"
+            ]
+        ]
+    },
+    {
+        "id": "24c4df0b.8ecfe",
+        "type": "ui_template",
+        "z": "67ccaa57.7f0e14",
+        "group": "3b9e390f.f205d6",
+        "name": "URL",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "format": "<h2>More Info on {{msg.payload}}</h2>\n <ul>\n    <li> <a href=\"https://www.google.com/search?q={{msg.payload}}\" target=\"_blank\" rel=\"noopener noreferrer\">google</a> </li>\n    <li> <a href=\"https://www.tradingview.com/symbols/BMFBOVESPA-{{msg.payload}}/\" target=\"_blank\" rel=\"noopener noreferrer\">tradingview/</a> </li>\n    <li> <a href=\"https://fundamentus.com.br/detalhes.php?papel={{msg.payload}}\" target=\"_blank\" rel=\"noopener noreferrer\">fundamentus</a> </li>\n </ul>\n ",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "x": 1510,
+        "y": 800,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "864b893.b162978",
+        "type": "ui_text_input",
+        "z": "67ccaa57.7f0e14",
+        "name": "",
+        "label": "Ticker filter",
+        "tooltip": "Ingresse o papel que quer buscar",
+        "group": "3b9e390f.f205d6",
+        "order": 5,
+        "width": "0",
+        "height": "0",
+        "passthru": false,
+        "mode": "text",
+        "delay": "0",
+        "topic": "",
+        "x": 530,
+        "y": 940,
+        "wires": [
+            [
+                "2e1c241a.f7413c"
+            ]
+        ]
+    },
+    {
+        "id": "586203a2.2baccc",
+        "type": "function",
+        "z": "415872bf.76470c",
+        "name": "table paste",
+        "func": "// open https://tableconvert.com/\n// paste the excel columns\n// columns = SETOR SUBSETOR SEGMENTO CODIGO ATIVO SEGMENTO ValorMercado\n// convert to json and paste the array below (in table variable)\n\n\nlet table = [\n    {\"SETOR\":\"Petróleo, Gás e Biocombustíveis\",\"SUBSETOR\":\"Petróleo, Gás e Biocombustíveis\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"COSAN       \",\"CODIGO\":\"CSAN\",\"ATIVO\":\"CSAN3\",\"ValorMercado\":\" R$33.216.736.080,00 \"},\n    {\"SETOR\":\"Petróleo, Gás e Biocombustíveis\",\"SUBSETOR\":\"Petróleo, Gás e Biocombustíveis\",\"SEGMENTO\":\" \",\"EMPRESA\":\"DOMMO\",\"CODIGO\":\"DMMO\",\"ATIVO\":\"DMMO3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Petróleo, Gás e Biocombustíveis\",\"SUBSETOR\":\"Petróleo, Gás e Biocombustíveis\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"ENAUTA PART\",\"CODIGO\":\"ENAT\",\"ATIVO\":\"ENAT3\",\"ValorMercado\":\" R$4.175.812.260,00 \"},\n    {\"SETOR\":\"Petróleo, Gás e Biocombustíveis\",\"SUBSETOR\":\"Petróleo, Gás e Biocombustíveis\",\"SEGMENTO\":\" \",\"EMPRESA\":\"PET MANGUINH\",\"CODIGO\":\"RPMG\",\"ATIVO\":\"RPMG3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Petróleo, Gás e Biocombustíveis\",\"SUBSETOR\":\"Petróleo, Gás e Biocombustíveis\",\"SEGMENTO\":\"N2\",\"EMPRESA\":\"PETROBRAS   \",\"CODIGO\":\"PETR\",\"ATIVO\":\"PETR3\",\"ValorMercado\":\" R$387.682.450.840,00 \"},\n    {\"SETOR\":\"Petróleo, Gás e Biocombustíveis\",\"SUBSETOR\":\"Petróleo, Gás e Biocombustíveis\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"PETROBRAS BR\",\"CODIGO\":\"BRDT\",\"ATIVO\":\"BRDT3\",\"ValorMercado\":\" R$36.219.850.000,00 \"},\n    {\"SETOR\":\"Petróleo, Gás e Biocombustíveis\",\"SUBSETOR\":\"Petróleo, Gás e Biocombustíveis\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"PETRORIO\",\"CODIGO\":\"PRIO\",\"ATIVO\":\"PRIO3\",\"ValorMercado\":\" R$6.322.235.400,00 \"},\n    {\"SETOR\":\"Petróleo, Gás e Biocombustíveis\",\"SUBSETOR\":\"Petróleo, Gás e Biocombustíveis\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"ULTRAPAR    \",\"CODIGO\":\"UGPA\",\"ATIVO\":\"UGPA3\",\"ValorMercado\":\" R$27.286.101.200,00 \"},\n    {\"SETOR\":\"Petróleo, Gás e Biocombustíveis\",\"SUBSETOR\":\"Petróleo, Gás e Biocombustíveis\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"LUPATECH    \",\"CODIGO\":\"LUPA\",\"ATIVO\":\"LUPA3\",\"ValorMercado\":\" R$46.859.280,00 \"},\n    {\"SETOR\":\"Petróleo, Gás e Biocombustíveis\",\"SUBSETOR\":\"Petróleo, Gás e Biocombustíveis\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"OSX BRASIL  \",\"CODIGO\":\"OSXB\",\"ATIVO\":\"OSXB3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Materiais Básicos\",\"SUBSETOR\":\"Mineração\",\"SEGMENTO\":\"N1             \",\"EMPRESA\":\"BRADESPAR   \",\"CODIGO\":\"BRAP\",\"ATIVO\":\"BRAP3\",\"ValorMercado\":\" R$13.287.938.120,00 \"},\n    {\"SETOR\":\"Materiais Básicos\",\"SUBSETOR\":\"Mineração\",\"SEGMENTO\":\"MB             \",\"EMPRESA\":\"LITEL       \",\"CODIGO\":\"LTEL\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Materiais Básicos\",\"SUBSETOR\":\"Mineração\",\"SEGMENTO\":\"MB             \",\"EMPRESA\":\"LITELA\",\"CODIGO\":\"LTLA\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Materiais Básicos\",\"SUBSETOR\":\"Mineração\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"MMX MINER   \",\"CODIGO\":\"MMXM\",\"ATIVO\":\"MMXM3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Materiais Básicos\",\"SUBSETOR\":\"Mineração\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"VALE        \",\"CODIGO\":\"VALE\",\"ATIVO\":\"VALE3\",\"ValorMercado\":\" R$275.532.526.500,00 \"},\n    {\"SETOR\":\"Materiais Básicos\",\"SUBSETOR\":\"Siderurgia e Metalurgia\",\"SEGMENTO\":\"N1             \",\"EMPRESA\":\"FERBASA     \",\"CODIGO\":\"FESA\",\"ATIVO\":\"FESA3\",\"ValorMercado\":\" R$1.748.736.000,00 \"},\n    {\"SETOR\":\"Materiais Básicos\",\"SUBSETOR\":\"Siderurgia e Metalurgia\",\"SEGMENTO\":\"N1             \",\"EMPRESA\":\"GERDAU      \",\"CODIGO\":\"GGBR\",\"ATIVO\":\"GGBR3\",\"ValorMercado\":\" R$36.422.356.440,00 \"},\n    {\"SETOR\":\"Materiais Básicos\",\"SUBSETOR\":\"Siderurgia e Metalurgia\",\"SEGMENTO\":\"N1             \",\"EMPRESA\":\"GERDAU MET  \",\"CODIGO\":\"GOAU\",\"ATIVO\":\"GOAU3\",\"ValorMercado\":\" R$9.885.095.220,00 \"},\n    {\"SETOR\":\"Materiais Básicos\",\"SUBSETOR\":\"Siderurgia e Metalurgia\",\"SEGMENTO\":\" \",\"EMPRESA\":\"SID NACIONAL\",\"CODIGO\":\"CSNA\",\"ATIVO\":\"CSNA3\",\"ValorMercado\":\" R$18.010.061.520,00 \"},\n    {\"SETOR\":\"Materiais Básicos\",\"SUBSETOR\":\"Siderurgia e Metalurgia\",\"SEGMENTO\":\"N1             \",\"EMPRESA\":\"USIMINAS    \",\"CODIGO\":\"USIM\",\"ATIVO\":\"USIM3\",\"ValorMercado\":\" R$12.725.335.350,00 \"},\n    {\"SETOR\":\"Materiais Básicos\",\"SUBSETOR\":\"Siderurgia e Metalurgia\",\"SEGMENTO\":\" \",\"EMPRESA\":\"MANGELS INDL\",\"CODIGO\":\"MGEL\",\"ATIVO\":\"MGEL3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Materiais Básicos\",\"SUBSETOR\":\"Siderurgia e Metalurgia\",\"SEGMENTO\":\" \",\"EMPRESA\":\"PANATLANTICA\",\"CODIGO\":\"PATI\",\"ATIVO\":\"PATI3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Materiais Básicos\",\"SUBSETOR\":\"Siderurgia e Metalurgia\",\"SEGMENTO\":\" \",\"EMPRESA\":\"TEKNO       \",\"CODIGO\":\"TKNO\",\"ATIVO\":\"TKNO4\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Materiais Básicos\",\"SUBSETOR\":\"Siderurgia e Metalurgia\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"PARANAPANEMA\",\"CODIGO\":\"PMAM\",\"ATIVO\":\"PMAM3\",\"ValorMercado\":\" R$969.657.500,00 \"},\n    {\"SETOR\":\"Materiais Básicos\",\"SUBSETOR\":\"Químicos\",\"SEGMENTO\":\"N1             \",\"EMPRESA\":\"BRASKEM     \",\"CODIGO\":\"BRKM\",\"ATIVO\":\"BRKM3\",\"ValorMercado\":\" R$24.578.230.940,00 \"},\n    {\"SETOR\":\"Materiais Básicos\",\"SUBSETOR\":\"Químicos\",\"SEGMENTO\":\" \",\"EMPRESA\":\"ELEKEIROZ   \",\"CODIGO\":\"ELEK\",\"ATIVO\":\"ELEK3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Materiais Básicos\",\"SUBSETOR\":\"Químicos\",\"SEGMENTO\":\" \",\"EMPRESA\":\"GPC PART    \",\"CODIGO\":\"GPCP\",\"ATIVO\":\"GPCP3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Materiais Básicos\",\"SUBSETOR\":\"Químicos\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"FER HERINGER\",\"CODIGO\":\"FHER\",\"ATIVO\":\"FHER3\",\"ValorMercado\":\" R$199.809.470,00 \"},\n    {\"SETOR\":\"Materiais Básicos\",\"SUBSETOR\":\"Químicos\",\"SEGMENTO\":\"MA             \",\"EMPRESA\":\"NUTRIPLANT  \",\"CODIGO\":\"NUTR\",\"ATIVO\":\"NUTR3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Materiais Básicos\",\"SUBSETOR\":\"Químicos\",\"SEGMENTO\":\" \",\"EMPRESA\":\"CRISTAL\",\"CODIGO\":\"CRPG\",\"ATIVO\":\"CRPG3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Materiais Básicos\",\"SUBSETOR\":\"Químicos\",\"SEGMENTO\":\" \",\"EMPRESA\":\"UNIPAR      \",\"CODIGO\":\"UNIP\",\"ATIVO\":\"UNIP3\",\"ValorMercado\":\" R$3.232.407.200,00 \"},\n    {\"SETOR\":\"Materiais Básicos\",\"SUBSETOR\":\"Madeira e Papel\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"DURATEX     \",\"CODIGO\":\"DTEX\",\"ATIVO\":\"DTEX3\",\"ValorMercado\":\" R$11.615.070.150,00 \"},\n    {\"SETOR\":\"Materiais Básicos\",\"SUBSETOR\":\"Madeira e Papel\",\"SEGMENTO\":\"N1             \",\"EMPRESA\":\"EUCATEX     \",\"CODIGO\":\"EUCA\",\"ATIVO\":\"EUCA3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Materiais Básicos\",\"SUBSETOR\":\"Madeira e Papel\",\"SEGMENTO\":\" \",\"EMPRESA\":\"CELUL IRANI \",\"CODIGO\":\"RANI\",\"ATIVO\":\"RANI3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Materiais Básicos\",\"SUBSETOR\":\"Madeira e Papel\",\"SEGMENTO\":\"N2\",\"EMPRESA\":\"KLABIN S/A  \",\"CODIGO\":\"KLBN\",\"ATIVO\":\"KLBN11\",\"ValorMercado\":\" R$23.456.897.140,00 \"},\n    {\"SETOR\":\"Materiais Básicos\",\"SUBSETOR\":\"Madeira e Papel\",\"SEGMENTO\":\" \",\"EMPRESA\":\"MELHOR SP   \",\"CODIGO\":\"MSPA\",\"ATIVO\":\"MSPA3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Materiais Básicos\",\"SUBSETOR\":\"Madeira e Papel\",\"SEGMENTO\":\" \",\"EMPRESA\":\"SANTHER     \",\"CODIGO\":\"STTZ\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Materiais Básicos\",\"SUBSETOR\":\"Madeira e Papel\",\"SEGMENTO\":\" \",\"EMPRESA\":\"SUZANO HOLD \",\"CODIGO\":\"NEMO\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Materiais Básicos\",\"SUBSETOR\":\"Madeira e Papel\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"SUZANO S.A.\",\"CODIGO\":\"SUZB\",\"ATIVO\":\"SUZB3\",\"ValorMercado\":\" R$56.220.203.200,00 \"},\n    {\"SETOR\":\"Materiais Básicos\",\"SUBSETOR\":\"Embalagens\",\"SEGMENTO\":\" \",\"EMPRESA\":\"METAL IGUACU\",\"CODIGO\":\"MTIG\",\"ATIVO\":\"MTIG3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Materiais Básicos\",\"SUBSETOR\":\"Materiais Diversos\",\"SEGMENTO\":\" \",\"EMPRESA\":\"SANSUY      \",\"CODIGO\":\"SNSY\",\"ATIVO\":\"SNSY5\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Bens Industriais\",\"SUBSETOR\":\"Construção e Engenharia\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"ETERNIT     \",\"CODIGO\":\"ETER\",\"ATIVO\":\"ETER3\",\"ValorMercado\":\" R$192.422.850,00 \"},\n    {\"SETOR\":\"Bens Industriais\",\"SUBSETOR\":\"Construção e Engenharia\",\"SEGMENTO\":\" \",\"EMPRESA\":\"HAGA S/A    \",\"CODIGO\":\"HAGA\",\"ATIVO\":\"HAGA3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Bens Industriais\",\"SUBSETOR\":\"Construção e Engenharia\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"PORTOBELLO  \",\"CODIGO\":\"PTBL\",\"ATIVO\":\"PTBL3\",\"ValorMercado\":\" R$930.330.430,00 \"},\n    {\"SETOR\":\"Bens Industriais\",\"SUBSETOR\":\"Construção e Engenharia\",\"SEGMENTO\":\" \",\"EMPRESA\":\"AZEVEDO     \",\"CODIGO\":\"AZEV\",\"ATIVO\":\"AZEV3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Bens Industriais\",\"SUBSETOR\":\"Construção e Engenharia\",\"SEGMENTO\":\" \",\"EMPRESA\":\"SONDOTECNICA\",\"CODIGO\":\"SOND\",\"ATIVO\":\"SOND3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Bens Industriais\",\"SUBSETOR\":\"Construção e Engenharia\",\"SEGMENTO\":\" \",\"EMPRESA\":\"TECNOSOLO   \",\"CODIGO\":\"TCNO\",\"ATIVO\":\"TCNO3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Bens Industriais\",\"SUBSETOR\":\"Construção e Engenharia\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"MILLS       \",\"CODIGO\":\"MILS\",\"ATIVO\":\"MILS3\",\"ValorMercado\":\" R$2.344.835.220,00 \"},\n    {\"SETOR\":\"Bens Industriais\",\"SUBSETOR\":\"Material de Transporte\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"EMBRAER     \",\"CODIGO\":\"EMBR\",\"ATIVO\":\"EMBR3\",\"ValorMercado\":\" R$14.194.714.050,00 \"},\n    {\"SETOR\":\"Bens Industriais\",\"SUBSETOR\":\"Material de Transporte\",\"SEGMENTO\":\"N1             \",\"EMPRESA\":\"FRAS-LE     \",\"CODIGO\":\"FRAS\",\"ATIVO\":\"FRAS3\",\"ValorMercado\":\" R$1.488.151.440,00 \"},\n    {\"SETOR\":\"Bens Industriais\",\"SUBSETOR\":\"Material de Transporte\",\"SEGMENTO\":\"N2             \",\"EMPRESA\":\"MARCOPOLO   \",\"CODIGO\":\"POMO\",\"ATIVO\":\"POMO3\",\"ValorMercado\":\" R$5.188.968.160,00 \"},\n    {\"SETOR\":\"Bens Industriais\",\"SUBSETOR\":\"Material de Transporte\",\"SEGMENTO\":\"N1             \",\"EMPRESA\":\"RANDON PART \",\"CODIGO\":\"RAPT\",\"ATIVO\":\"RAPT3\",\"ValorMercado\":\" R$4.837.406.240,00 \"},\n    {\"SETOR\":\"Bens Industriais\",\"SUBSETOR\":\"Material de Transporte\",\"SEGMENTO\":\" \",\"EMPRESA\":\"RECRUSUL    \",\"CODIGO\":\"RCSL\",\"ATIVO\":\"RCSL4\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Bens Industriais\",\"SUBSETOR\":\"Material de Transporte\",\"SEGMENTO\":\" \",\"EMPRESA\":\"RIOSULENSE  \",\"CODIGO\":\"RSUL\",\"ATIVO\":\"RSUL4\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Bens Industriais\",\"SUBSETOR\":\"Material de Transporte\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"TUPY        \",\"CODIGO\":\"TUPY\",\"ATIVO\":\"TUPY3\",\"ValorMercado\":\" R$3.417.018.600,00 \"},\n    {\"SETOR\":\"Bens Industriais\",\"SUBSETOR\":\"Material de Transporte\",\"SEGMENTO\":\" \",\"EMPRESA\":\"WETZEL S/A  \",\"CODIGO\":\"MWET\",\"ATIVO\":\"MWET3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Bens Industriais\",\"SUBSETOR\":\"Máquinas e Equipamentos\",\"SEGMENTO\":\" \",\"EMPRESA\":\"SCHULZ      \",\"CODIGO\":\"SHUL\",\"ATIVO\":\"SHUL4\",\"ValorMercado\":\" R$1.230.253.110,00 \"},\n    {\"SETOR\":\"Bens Industriais\",\"SUBSETOR\":\"Máquinas e Equipamentos\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"WEG         \",\"CODIGO\":\"WEGE\",\"ATIVO\":\"WEGE3\",\"ValorMercado\":\" R$95.635.845.060,00 \"},\n    {\"SETOR\":\"Bens Industriais\",\"SUBSETOR\":\"Máquinas e Equipamentos\",\"SEGMENTO\":\" \",\"EMPRESA\":\"ACO ALTONA  \",\"CODIGO\":\"EALT\",\"ATIVO\":\"EALT3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Bens Industriais\",\"SUBSETOR\":\"Máquinas e Equipamentos\",\"SEGMENTO\":\" \",\"EMPRESA\":\"BARDELLA    \",\"CODIGO\":\"BDLL\",\"ATIVO\":\"BDLL3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Bens Industriais\",\"SUBSETOR\":\"Máquinas e Equipamentos\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"INDS ROMI   \",\"CODIGO\":\"ROMI\",\"ATIVO\":\"ROMI3\",\"ValorMercado\":\" R$1.077.997.550,00 \"},\n    {\"SETOR\":\"Bens Industriais\",\"SUBSETOR\":\"Máquinas e Equipamentos\",\"SEGMENTO\":\" \",\"EMPRESA\":\"INEPAR      \",\"CODIGO\":\"INEP\",\"ATIVO\":\"INEP3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Bens Industriais\",\"SUBSETOR\":\"Máquinas e Equipamentos\",\"SEGMENTO\":\" \",\"EMPRESA\":\"KEPLER WEBER\",\"CODIGO\":\"KEPL\",\"ATIVO\":\"KEPL3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Bens Industriais\",\"SUBSETOR\":\"Máquinas e Equipamentos\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"METALFRIO   \",\"CODIGO\":\"FRIO\",\"ATIVO\":\"FRIO3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Bens Industriais\",\"SUBSETOR\":\"Máquinas e Equipamentos\",\"SEGMENTO\":\" \",\"EMPRESA\":\"NORDON MET  \",\"CODIGO\":\"NORD\",\"ATIVO\":\"NORD3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Bens Industriais\",\"SUBSETOR\":\"Máquinas e Equipamentos\",\"SEGMENTO\":\"M2\",\"EMPRESA\":\"PRATICA\",\"CODIGO\":\"PTCA\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Bens Industriais\",\"SUBSETOR\":\"Máquinas e Equipamentos\",\"SEGMENTO\":\" \",\"EMPRESA\":\"METISA      \",\"CODIGO\":\"MTSA\",\"ATIVO\":\"MTSA4\",\"ValorMercado\":\" R$208.232.230,00 \"},\n    {\"SETOR\":\"Bens Industriais\",\"SUBSETOR\":\"Máquinas e Equipamentos\",\"SEGMENTO\":\"MA\",\"EMPRESA\":\"STARA\",\"CODIGO\":\"STTR\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Bens Industriais\",\"SUBSETOR\":\"Máquinas e Equipamentos\",\"SEGMENTO\":\"N2             \",\"EMPRESA\":\"TAURUS ARMAS\",\"CODIGO\":\"TASA\",\"ATIVO\":\"TASA3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Bens Industriais\",\"SUBSETOR\":\"Transporte\",\"SEGMENTO\":\"N2             \",\"EMPRESA\":\"AZUL\",\"CODIGO\":\"AZUL\",\"ATIVO\":\"AZUL4\",\"ValorMercado\":\" R$74.226.720.000,00 \"},\n    {\"SETOR\":\"Bens Industriais\",\"SUBSETOR\":\"Transporte\",\"SEGMENTO\":\"N2             \",\"EMPRESA\":\"GOL         \",\"CODIGO\":\"GOLL\",\"ATIVO\":\"GOLL4\",\"ValorMercado\":\" R$110.868.835.200,00 \"},\n    {\"SETOR\":\"Bens Industriais\",\"SUBSETOR\":\"Transporte\",\"SEGMENTO\":\"MB             \",\"EMPRESA\":\"ALL NORTE   \",\"CODIGO\":\"FRRN\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Bens Industriais\",\"SUBSETOR\":\"Transporte\",\"SEGMENTO\":\"MB             \",\"EMPRESA\":\"ALL PAULISTA\",\"CODIGO\":\"GASC\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Bens Industriais\",\"SUBSETOR\":\"Transporte\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"COSAN LOG\",\"CODIGO\":\"RLOG\",\"ATIVO\":\"RLOG3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Bens Industriais\",\"SUBSETOR\":\"Transporte\",\"SEGMENTO\":\" \",\"EMPRESA\":\"FER C ATLANT\",\"CODIGO\":\"VSPT\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Bens Industriais\",\"SUBSETOR\":\"Transporte\",\"SEGMENTO\":\"MB             \",\"EMPRESA\":\"MRS LOGIST  \",\"CODIGO\":\"MRSA\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Bens Industriais\",\"SUBSETOR\":\"Transporte\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"RUMO S.A.\",\"CODIGO\":\"RAIL\",\"ATIVO\":\"RAIL3\",\"ValorMercado\":\" R$37.104.557.000,00 \"},\n    {\"SETOR\":\"Bens Industriais\",\"SUBSETOR\":\"Transporte\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"LOG-IN      \",\"CODIGO\":\"LOGN\",\"ATIVO\":\"LOGN3\",\"ValorMercado\":\" R$844.937.270,00 \"},\n    {\"SETOR\":\"Bens Industriais\",\"SUBSETOR\":\"Transporte\",\"SEGMENTO\":\" \",\"EMPRESA\":\"TREVISA     \",\"CODIGO\":\"LUXM\",\"ATIVO\":\"LUXM3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Bens Industriais\",\"SUBSETOR\":\"Transporte\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"JSL         \",\"CODIGO\":\"JSLG\",\"ATIVO\":\"JSLG3\",\"ValorMercado\":\" R$6.677.897.130,00 \"},\n    {\"SETOR\":\"Bens Industriais\",\"SUBSETOR\":\"Transporte\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"TEGMA       \",\"CODIGO\":\"TGMA\",\"ATIVO\":\"TGMA3\",\"ValorMercado\":\" R$2.621.599.440,00 \"},\n    {\"SETOR\":\"Bens Industriais\",\"SUBSETOR\":\"Transporte\",\"SEGMENTO\":\" \",\"EMPRESA\":\"AUTOBAN     \",\"CODIGO\":\"ANHB\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Bens Industriais\",\"SUBSETOR\":\"Transporte\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"CCR SA      \",\"CODIGO\":\"CCRO\",\"ATIVO\":\"CCRO3\",\"ValorMercado\":\" R$36.360.000.000,00 \"},\n    {\"SETOR\":\"Bens Industriais\",\"SUBSETOR\":\"Transporte\",\"SEGMENTO\":\" \",\"EMPRESA\":\"CONC RAPOSO \",\"CODIGO\":\"RPTA\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Bens Industriais\",\"SUBSETOR\":\"Transporte\",\"SEGMENTO\":\"MB             \",\"EMPRESA\":\"CONC RIO TER\",\"CODIGO\":\"CRTE\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Bens Industriais\",\"SUBSETOR\":\"Transporte\",\"SEGMENTO\":\" \",\"EMPRESA\":\"ECON        \",\"CODIGO\":\"ERDV\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Bens Industriais\",\"SUBSETOR\":\"Transporte\",\"SEGMENTO\":\" \",\"EMPRESA\":\"ECONORTE    \",\"CODIGO\":\"ECNT\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Bens Industriais\",\"SUBSETOR\":\"Transporte\",\"SEGMENTO\":\" \",\"EMPRESA\":\"ECOPISTAS   \",\"CODIGO\":\"ASCP\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Bens Industriais\",\"SUBSETOR\":\"Transporte\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"ECORODOVIAS \",\"CODIGO\":\"ECOR\",\"ATIVO\":\"ECOR3\",\"ValorMercado\":\" R$9.609.622.800,00 \"},\n    {\"SETOR\":\"Bens Industriais\",\"SUBSETOR\":\"Transporte\",\"SEGMENTO\":\" \",\"EMPRESA\":\"ECOVIAS     \",\"CODIGO\":\"ECOV\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Bens Industriais\",\"SUBSETOR\":\"Transporte\",\"SEGMENTO\":\" \",\"EMPRESA\":\"ROD COLINAS \",\"CODIGO\":\"COLN\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Bens Industriais\",\"SUBSETOR\":\"Transporte\",\"SEGMENTO\":\" \",\"EMPRESA\":\"ROD TIETE   \",\"CODIGO\":\"RDVT\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Bens Industriais\",\"SUBSETOR\":\"Transporte\",\"SEGMENTO\":\" \",\"EMPRESA\":\"RT BANDEIRAS\",\"CODIGO\":\"CRBD\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Bens Industriais\",\"SUBSETOR\":\"Transporte\",\"SEGMENTO\":\" \",\"EMPRESA\":\"TRIANGULOSOL\",\"CODIGO\":\"TRIA\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Bens Industriais\",\"SUBSETOR\":\"Transporte\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"TRIUNFO PART\",\"CODIGO\":\"TPIS\",\"ATIVO\":\"TPIS3\",\"ValorMercado\":\" R$327.360.000,00 \"},\n    {\"SETOR\":\"Bens Industriais\",\"SUBSETOR\":\"Transporte\",\"SEGMENTO\":\" \",\"EMPRESA\":\"VIAOESTE    \",\"CODIGO\":\"VOES\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Bens Industriais\",\"SUBSETOR\":\"Transporte\",\"SEGMENTO\":\"MB             \",\"EMPRESA\":\"GRUAIRPORT\",\"CODIGO\":\"AGRU\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Bens Industriais\",\"SUBSETOR\":\"Transporte\",\"SEGMENTO\":\" \",\"EMPRESA\":\"PORTO VM\",\"CODIGO\":\"PSVM\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Bens Industriais\",\"SUBSETOR\":\"Transporte\",\"SEGMENTO\":\"MB             \",\"EMPRESA\":\"INVEPAR     \",\"CODIGO\":\"IVPR\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Bens Industriais\",\"SUBSETOR\":\"Transporte\",\"SEGMENTO\":\" \",\"EMPRESA\":\"SALUS INFRA\",\"CODIGO\":\"SAIP\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Bens Industriais\",\"SUBSETOR\":\"Transporte\",\"SEGMENTO\":\"N2             \",\"EMPRESA\":\"SANTOS BRP  \",\"CODIGO\":\"STBP\",\"ATIVO\":\"STBP11\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Bens Industriais\",\"SUBSETOR\":\"Transporte\",\"SEGMENTO\":\"DR3\",\"EMPRESA\":\"WILSON SONS \",\"CODIGO\":\"WSON\",\"ATIVO\":\"WSON33\",\"ValorMercado\":\" R$3.505.204.800,00 \"},\n    {\"SETOR\":\"Bens Industriais\",\"SUBSETOR\":\"Serviços Diversos\",\"SEGMENTO\":\"MA\",\"EMPRESA\":\"BBMLOGISTICA\",\"CODIGO\":\"BBML\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Bens Industriais\",\"SUBSETOR\":\"Serviços Diversos\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"CSU CARDSYST\",\"CODIGO\":\"CARD\",\"ATIVO\":\"CARD3\",\"ValorMercado\":\" R$521.246.000,00 \"},\n    {\"SETOR\":\"Bens Industriais\",\"SUBSETOR\":\"Serviços Diversos\",\"SEGMENTO\":\" \",\"EMPRESA\":\"DTCOM-DIRECT\",\"CODIGO\":\"DTCY\",\"ATIVO\":\"DTCY3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Bens Industriais\",\"SUBSETOR\":\"Serviços Diversos\",\"SEGMENTO\":\"MA\",\"EMPRESA\":\"FLEX S/A\",\"CODIGO\":\"FLEX\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Bens Industriais\",\"SUBSETOR\":\"Serviços Diversos\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"LIQ\",\"CODIGO\":\"LIQO\",\"ATIVO\":\"LIQO3\",\"ValorMercado\":\" R$24.034.820,00 \"},\n    {\"SETOR\":\"Bens Industriais\",\"SUBSETOR\":\"Serviços Diversos\",\"SEGMENTO\":\"MA\",\"EMPRESA\":\"PRINER\",\"CODIGO\":\"PRNR\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Bens Industriais\",\"SUBSETOR\":\"Serviços Diversos\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"VALID       \",\"CODIGO\":\"VLID\",\"ATIVO\":\"VLID3\",\"ValorMercado\":\" R$1.239.315.000,00 \"},\n    {\"SETOR\":\"Bens Industriais\",\"SUBSETOR\":\"Comércio\",\"SEGMENTO\":\" \",\"EMPRESA\":\"BATTISTELLA \",\"CODIGO\":\"BTTL\",\"ATIVO\":\"BTTL3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Bens Industriais\",\"SUBSETOR\":\"Comércio\",\"SEGMENTO\":\" \",\"EMPRESA\":\"MINASMAQUINA\",\"CODIGO\":\"MMAQ\",\"ATIVO\":\"MMAQ3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Bens Industriais\",\"SUBSETOR\":\"Comércio\",\"SEGMENTO\":\" \",\"EMPRESA\":\"WLM IND COM \",\"CODIGO\":\"WLMM\",\"ATIVO\":\"WLMM3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Consumo não Cíclico\",\"SUBSETOR\":\"Agropecuária\",\"SEGMENTO\":\" \",\"EMPRESA\":\"ALIPERTI    \",\"CODIGO\":\"APTI\",\"ATIVO\":\"APTI4\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Consumo não Cíclico\",\"SUBSETOR\":\"Agropecuária\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"BRASILAGRO  \",\"CODIGO\":\"AGRO\",\"ATIVO\":\"AGRO3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Consumo não Cíclico\",\"SUBSETOR\":\"Agropecuária\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"POMIFRUTAS\",\"CODIGO\":\"FRTA\",\"ATIVO\":\"FRTA3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Consumo não Cíclico\",\"SUBSETOR\":\"Agropecuária\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"SLC AGRICOLA\",\"CODIGO\":\"SLCE\",\"ATIVO\":\"SLCE3\",\"ValorMercado\":\" R$4.174.030.500,00 \"},\n    {\"SETOR\":\"Consumo não Cíclico\",\"SUBSETOR\":\"Agropecuária\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"TERRA SANTA\",\"CODIGO\":\"TESA\",\"ATIVO\":\"TESA3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Consumo não Cíclico\",\"SUBSETOR\":\"Alimentos Processados\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"BIOSEV\",\"CODIGO\":\"BSEV\",\"ATIVO\":\"BSEV3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Consumo não Cíclico\",\"SUBSETOR\":\"Alimentos Processados\",\"SEGMENTO\":\" \",\"EMPRESA\":\"RAIZEN ENERG\",\"CODIGO\":\"RESA\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Consumo não Cíclico\",\"SUBSETOR\":\"Alimentos Processados\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"SAO MARTINHO\",\"CODIGO\":\"SMTO\",\"ATIVO\":\"SMTO3\",\"ValorMercado\":\" R$10.086.744.810,00 \"},\n    {\"SETOR\":\"Consumo não Cíclico\",\"SUBSETOR\":\"Alimentos Processados\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"BRF SA   \",\"CODIGO\":\"BRFS\",\"ATIVO\":\"BRFS3\",\"ValorMercado\":\" R$25.454.779.090,00 \"},\n    {\"SETOR\":\"Consumo não Cíclico\",\"SUBSETOR\":\"Alimentos Processados\",\"SEGMENTO\":\" \",\"EMPRESA\":\"EXCELSIOR   \",\"CODIGO\":\"BAUH\",\"ATIVO\":\"BAUH4\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Consumo não Cíclico\",\"SUBSETOR\":\"Alimentos Processados\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"JBS         \",\"CODIGO\":\"JBSS\",\"ATIVO\":\"JBSS3\",\"ValorMercado\":\" R$71.738.758.630,00 \"},\n    {\"SETOR\":\"Consumo não Cíclico\",\"SUBSETOR\":\"Alimentos Processados\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"MARFRIG     \",\"CODIGO\":\"MRFG\",\"ATIVO\":\"MRFG3\",\"ValorMercado\":\" R$83.932.750.100,00 \"},\n    {\"SETOR\":\"Consumo não Cíclico\",\"SUBSETOR\":\"Alimentos Processados\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"MINERVA     \",\"CODIGO\":\"BEEF\",\"ATIVO\":\"BEEF3\",\"ValorMercado\":\" R$4.460.471.360,00 \"},\n    {\"SETOR\":\"Consumo não Cíclico\",\"SUBSETOR\":\"Alimentos Processados\",\"SEGMENTO\":\" \",\"EMPRESA\":\"MINUPAR     \",\"CODIGO\":\"MNPR\",\"ATIVO\":\"MNPR3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Consumo não Cíclico\",\"SUBSETOR\":\"Alimentos Processados\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"CAMIL\",\"CODIGO\":\"CAML\",\"ATIVO\":\"CAML3\",\"ValorMercado\":\" R$3.731.464.100,00 \"},\n    {\"SETOR\":\"Consumo não Cíclico\",\"SUBSETOR\":\"Alimentos Processados\",\"SEGMENTO\":\" \",\"EMPRESA\":\"J.MACEDO    \",\"CODIGO\":\"JMCD\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Consumo não Cíclico\",\"SUBSETOR\":\"Alimentos Processados\",\"SEGMENTO\":\" \",\"EMPRESA\":\"JOSAPAR     \",\"CODIGO\":\"JOPA\",\"ATIVO\":\"JOPA3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Consumo não Cíclico\",\"SUBSETOR\":\"Alimentos Processados\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"M.DIASBRANCO\",\"CODIGO\":\"MDIA\",\"ATIVO\":\"MDIA3\",\"ValorMercado\":\" R$14.492.250.000,00 \"},\n    {\"SETOR\":\"Consumo não Cíclico\",\"SUBSETOR\":\"Alimentos Processados\",\"SEGMENTO\":\" \",\"EMPRESA\":\"ODERICH     \",\"CODIGO\":\"ODER\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Consumo não Cíclico\",\"SUBSETOR\":\"Bebidas\",\"SEGMENTO\":\" \",\"EMPRESA\":\"AMBEV S/A\",\"CODIGO\":\"ABEV\",\"ATIVO\":\"ABEV3\",\"ValorMercado\":\" R$255.886.799.210,00 \"},\n    {\"SETOR\":\"Consumo não Cíclico\",\"SUBSETOR\":\"Produtos de Uso Pessoal e de Limpeza\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"GRUPO NATURA      \",\"CODIGO\":\"NTCO\",\"ATIVO\":\"NTCO3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Consumo não Cíclico\",\"SUBSETOR\":\"Produtos de Uso Pessoal e de Limpeza\",\"SEGMENTO\":\" \",\"EMPRESA\":\"BOMBRIL     \",\"CODIGO\":\"BOBR\",\"ATIVO\":\"BOBR3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Consumo não Cíclico\",\"SUBSETOR\":\"Comércio e Distribuição\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"CARREFOUR BR\",\"CODIGO\":\"CRFB\",\"ATIVO\":\"CRFB3\",\"ValorMercado\":\" R$43.681.668.540,00 \"},\n    {\"SETOR\":\"Consumo não Cíclico\",\"SUBSETOR\":\"Comércio e Distribuição\",\"SEGMENTO\":\"N1             \",\"EMPRESA\":\"P.ACUCAR-CBD\",\"CODIGO\":\"PCAR\",\"ATIVO\":\"PCAR3\",\"ValorMercado\":\" R$22.861.962.400,00 \"},\n    {\"SETOR\":\"Consumo Cíclico\",\"SUBSETOR\":\"Construção Civil\",\"SEGMENTO\":\" \",\"EMPRESA\":\"CONST A LIND\",\"CODIGO\":\"CALI\",\"ATIVO\":\"CALI3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Consumo Cíclico\",\"SUBSETOR\":\"Construção Civil\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"CR2         \",\"CODIGO\":\"CRDE\",\"ATIVO\":\"CRDE3\",\"ValorMercado\":\" R$101.651.340,00 \"},\n    {\"SETOR\":\"Consumo Cíclico\",\"SUBSETOR\":\"Construção Civil\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"CYRELA REALT\",\"CODIGO\":\"CYRE\",\"ATIVO\":\"CYRE3\",\"ValorMercado\":\" R$13.099.578.110,00 \"},\n    {\"SETOR\":\"Consumo Cíclico\",\"SUBSETOR\":\"Construção Civil\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"DIRECIONAL  \",\"CODIGO\":\"DIRR\",\"ATIVO\":\"DIRR3\",\"ValorMercado\":\" R$2.448.232.080,00 \"},\n    {\"SETOR\":\"Consumo Cíclico\",\"SUBSETOR\":\"Construção Civil\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"EVEN        \",\"CODIGO\":\"EVEN\",\"ATIVO\":\"EVEN3\",\"ValorMercado\":\" R$3.500.210.000,00 \"},\n    {\"SETOR\":\"Consumo Cíclico\",\"SUBSETOR\":\"Construção Civil\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"EZTEC       \",\"CODIGO\":\"EZTC\",\"ATIVO\":\"EZTC3\",\"ValorMercado\":\" R$10.340.000.000,00 \"},\n    {\"SETOR\":\"Consumo Cíclico\",\"SUBSETOR\":\"Construção Civil\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"GAFISA      \",\"CODIGO\":\"GFSA\",\"ATIVO\":\"GFSA3\",\"ValorMercado\":\" R$647.811.840,00 \"},\n    {\"SETOR\":\"Consumo Cíclico\",\"SUBSETOR\":\"Construção Civil\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"HELBOR      \",\"CODIGO\":\"HBOR\",\"ATIVO\":\"HBOR3\",\"ValorMercado\":\" R$1.854.547.650,00 \"},\n    {\"SETOR\":\"Consumo Cíclico\",\"SUBSETOR\":\"Construção Civil\",\"SEGMENTO\":\"MA\",\"EMPRESA\":\"INTER SA \",\"CODIGO\":\"INNT\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Consumo Cíclico\",\"SUBSETOR\":\"Construção Civil\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"JHSF PART   \",\"CODIGO\":\"JHSF\",\"ATIVO\":\"JHSF3\",\"ValorMercado\":\" R$4.101.872.740,00 \"},\n    {\"SETOR\":\"Consumo Cíclico\",\"SUBSETOR\":\"Construção Civil\",\"SEGMENTO\":\" \",\"EMPRESA\":\"JOAO FORTES \",\"CODIGO\":\"JFEN\",\"ATIVO\":\"JFEN3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Consumo Cíclico\",\"SUBSETOR\":\"Construção Civil\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"MRV         \",\"CODIGO\":\"MRVE\",\"ATIVO\":\"MRVE3\",\"ValorMercado\":\" R$9.113.732.280,00 \"},\n    {\"SETOR\":\"Consumo Cíclico\",\"SUBSETOR\":\"Construção Civil\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"PDG REALT   \",\"CODIGO\":\"PDGR\",\"ATIVO\":\"PDGR3\",\"ValorMercado\":\" R$60.495.000,00 \"},\n    {\"SETOR\":\"Consumo Cíclico\",\"SUBSETOR\":\"Construção Civil\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"RNI\",\"CODIGO\":\"RDNI\",\"ATIVO\":\"RDNI3\",\"ValorMercado\":\" R$641.230.500,00 \"},\n    {\"SETOR\":\"Consumo Cíclico\",\"SUBSETOR\":\"Construção Civil\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"ROSSI RESID \",\"CODIGO\":\"RSID\",\"ATIVO\":\"RSID3\",\"ValorMercado\":\" R$159.522.900,00 \"},\n    {\"SETOR\":\"Consumo Cíclico\",\"SUBSETOR\":\"Construção Civil\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"TECNISA     \",\"CODIGO\":\"TCSA\",\"ATIVO\":\"TCSA3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Consumo Cíclico\",\"SUBSETOR\":\"Construção Civil\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"TENDA\",\"CODIGO\":\"TEND\",\"ATIVO\":\"TEND3\",\"ValorMercado\":\" R$3.808.556.000,00 \"},\n    {\"SETOR\":\"Consumo Cíclico\",\"SUBSETOR\":\"Construção Civil\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"TRISUL      \",\"CODIGO\":\"TRIS\",\"ATIVO\":\"TRIS3\",\"ValorMercado\":\" R$2.301.358.500,00 \"},\n    {\"SETOR\":\"Consumo Cíclico\",\"SUBSETOR\":\"Construção Civil\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"VIVER       \",\"CODIGO\":\"VIVR\",\"ATIVO\":\"VIVR3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Consumo Cíclico\",\"SUBSETOR\":\"Tecidos, Vestuário e Calçados\",\"SEGMENTO\":\"N1             \",\"EMPRESA\":\"CEDRO       \",\"CODIGO\":\"CEDO\",\"ATIVO\":\"CEDO3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Consumo Cíclico\",\"SUBSETOR\":\"Tecidos, Vestuário e Calçados\",\"SEGMENTO\":\" \",\"EMPRESA\":\"COTEMINAS   \",\"CODIGO\":\"CTNM\",\"ATIVO\":\"CTNM3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Consumo Cíclico\",\"SUBSETOR\":\"Tecidos, Vestuário e Calçados\",\"SEGMENTO\":\" \",\"EMPRESA\":\"DOHLER      \",\"CODIGO\":\"DOHL\",\"ATIVO\":\"DOHL3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Consumo Cíclico\",\"SUBSETOR\":\"Tecidos, Vestuário e Calçados\",\"SEGMENTO\":\" \",\"EMPRESA\":\"ENCORPAR    \",\"CODIGO\":\"ECPR\",\"ATIVO\":\"ECPR3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Consumo Cíclico\",\"SUBSETOR\":\"Tecidos, Vestuário e Calçados\",\"SEGMENTO\":\" \",\"EMPRESA\":\"IND CATAGUAS\",\"CODIGO\":\"CATA\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Consumo Cíclico\",\"SUBSETOR\":\"Tecidos, Vestuário e Calçados\",\"SEGMENTO\":\" \",\"EMPRESA\":\"KARSTEN     \",\"CODIGO\":\"CTKA\",\"ATIVO\":\"CTKA3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Consumo Cíclico\",\"SUBSETOR\":\"Tecidos, Vestuário e Calçados\",\"SEGMENTO\":\" \",\"EMPRESA\":\"PETTENATI   \",\"CODIGO\":\"PTNT\",\"ATIVO\":\"PTNT3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Consumo Cíclico\",\"SUBSETOR\":\"Tecidos, Vestuário e Calçados\",\"SEGMENTO\":\" \",\"EMPRESA\":\"SANTANENSE  \",\"CODIGO\":\"CTSA\",\"ATIVO\":\"CTSA3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Consumo Cíclico\",\"SUBSETOR\":\"Tecidos, Vestuário e Calçados\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"SPRINGS     \",\"CODIGO\":\"SGPS\",\"ATIVO\":\"SGPS3\",\"ValorMercado\":\" R$609.000.000,00 \"},\n    {\"SETOR\":\"Consumo Cíclico\",\"SUBSETOR\":\"Tecidos, Vestuário e Calçados\",\"SEGMENTO\":\" \",\"EMPRESA\":\"TEKA        \",\"CODIGO\":\"TEKA\",\"ATIVO\":\"TEKA3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Consumo Cíclico\",\"SUBSETOR\":\"Tecidos, Vestuário e Calçados\",\"SEGMENTO\":\" \",\"EMPRESA\":\"TEX RENAUX  \",\"CODIGO\":\"TXRX\",\"ATIVO\":\"TXRX3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Consumo Cíclico\",\"SUBSETOR\":\"Tecidos, Vestuário e Calçados\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"CIA HERING  \",\"CODIGO\":\"HGTX\",\"ATIVO\":\"HGTX3\",\"ValorMercado\":\" R$4.133.932.500,00 \"},\n    {\"SETOR\":\"Consumo Cíclico\",\"SUBSETOR\":\"Tecidos, Vestuário e Calçados\",\"SEGMENTO\":\"N1             \",\"EMPRESA\":\"ALPARGATAS  \",\"CODIGO\":\"ALPA\",\"ATIVO\":\"ALPA3\",\"ValorMercado\":\" R$21.281.963.780,00 \"},\n    {\"SETOR\":\"Consumo Cíclico\",\"SUBSETOR\":\"Tecidos, Vestuário e Calçados\",\"SEGMENTO\":\" \",\"EMPRESA\":\"CAMBUCI     \",\"CODIGO\":\"CAMB\",\"ATIVO\":\"CAMB3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Consumo Cíclico\",\"SUBSETOR\":\"Tecidos, Vestuário e Calçados\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"GRENDENE    \",\"CODIGO\":\"GRND\",\"ATIVO\":\"GRND3\",\"ValorMercado\":\" R$9.842.565.600,00 \"},\n    {\"SETOR\":\"Consumo Cíclico\",\"SUBSETOR\":\"Tecidos, Vestuário e Calçados\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"VULCABRAS   \",\"CODIGO\":\"VULC\",\"ATIVO\":\"VULC3\",\"ValorMercado\":\" R$2.113.501.600,00 \"},\n    {\"SETOR\":\"Consumo Cíclico\",\"SUBSETOR\":\"Tecidos, Vestuário e Calçados\",\"SEGMENTO\":\" \",\"EMPRESA\":\"MUNDIAL     \",\"CODIGO\":\"MNDL\",\"ATIVO\":\"MNDL3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Consumo Cíclico\",\"SUBSETOR\":\"Tecidos, Vestuário e Calçados\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"TECHNOS     \",\"CODIGO\":\"TECN\",\"ATIVO\":\"TECN3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Consumo Cíclico\",\"SUBSETOR\":\"Tecidos, Vestuário e Calçados\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"VIVARA S.A.\",\"CODIGO\":\"VIVA\",\"ATIVO\":\"VIVA3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Consumo Cíclico\",\"SUBSETOR\":\"Utilidades Domésticas\",\"SEGMENTO\":\" \",\"EMPRESA\":\"WHIRLPOOL   \",\"CODIGO\":\"WHRL\",\"ATIVO\":\"WHRL3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Consumo Cíclico\",\"SUBSETOR\":\"Utilidades Domésticas\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"UNICASA\",\"CODIGO\":\"UCAS\",\"ATIVO\":\"UCAS3\",\"ValorMercado\":\" R$370.081.600,00 \"},\n    {\"SETOR\":\"Consumo Cíclico\",\"SUBSETOR\":\"Utilidades Domésticas\",\"SEGMENTO\":\" \",\"EMPRESA\":\"HERCULES    \",\"CODIGO\":\"HETA\",\"ATIVO\":\"HETA3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Consumo Cíclico\",\"SUBSETOR\":\"Utilidades Domésticas\",\"SEGMENTO\":\" \",\"EMPRESA\":\"NADIR FIGUEI\",\"CODIGO\":\"NAFG\",\"ATIVO\":\"NAFG3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Consumo Cíclico\",\"SUBSETOR\":\"Automóveis e Motocicletas\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"IOCHP-MAXION\",\"CODIGO\":\"MYPK\",\"ATIVO\":\"MYPK3\",\"ValorMercado\":\" R$3.326.500.800,00 \"},\n    {\"SETOR\":\"Consumo Cíclico\",\"SUBSETOR\":\"Automóveis e Motocicletas\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"METAL LEVE  \",\"CODIGO\":\"LEVE\",\"ATIVO\":\"LEVE3\",\"ValorMercado\":\" R$3.919.809.400,00 \"},\n    {\"SETOR\":\"Consumo Cíclico\",\"SUBSETOR\":\"Automóveis e Motocicletas\",\"SEGMENTO\":\" \",\"EMPRESA\":\"PLASCAR PART\",\"CODIGO\":\"PLAS\",\"ATIVO\":\"PLAS3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Consumo Cíclico\",\"SUBSETOR\":\"Hoteis e Restaurantes\",\"SEGMENTO\":\" \",\"EMPRESA\":\"HOTEIS OTHON\",\"CODIGO\":\"HOOT\",\"ATIVO\":\"HOOT4\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Consumo Cíclico\",\"SUBSETOR\":\"Hoteis e Restaurantes\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"BK BRASIL\",\"CODIGO\":\"BKBR\",\"ATIVO\":\"BKBR3\",\"ValorMercado\":\" R$3.619.905.520,00 \"},\n    {\"SETOR\":\"Consumo Cíclico\",\"SUBSETOR\":\"Hoteis e Restaurantes\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"IMC S/A\",\"CODIGO\":\"MEAL\",\"ATIVO\":\"MEAL3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Consumo Cíclico\",\"SUBSETOR\":\"Viagens e Lazer\",\"SEGMENTO\":\" \",\"EMPRESA\":\"BIC MONARK  \",\"CODIGO\":\"BMKS\",\"ATIVO\":\"BMKS3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Consumo Cíclico\",\"SUBSETOR\":\"Viagens e Lazer\",\"SEGMENTO\":\" \",\"EMPRESA\":\"ESTRELA     \",\"CODIGO\":\"ESTR\",\"ATIVO\":\"ESTR3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Consumo Cíclico\",\"SUBSETOR\":\"Viagens e Lazer\",\"SEGMENTO\":\" \",\"EMPRESA\":\"SPTURIS     \",\"CODIGO\":\"AHEB\",\"ATIVO\":\"AHEB3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Consumo Cíclico\",\"SUBSETOR\":\"Viagens e Lazer\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"TIME FOR FUN\",\"CODIGO\":\"SHOW\",\"ATIVO\":\"SHOW3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Consumo Cíclico\",\"SUBSETOR\":\"Viagens e Lazer\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"CVC BRASIL\",\"CODIGO\":\"CVCB\",\"ATIVO\":\"CVCB3\",\"ValorMercado\":\" R$5.034.872.920,00 \"},\n    {\"SETOR\":\"Consumo Cíclico\",\"SUBSETOR\":\"Viagens e Lazer\",\"SEGMENTO\":\"M2\",\"EMPRESA\":\"SMART FIT\",\"CODIGO\":\"SMFT\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Consumo Cíclico\",\"SUBSETOR\":\"Diversos\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"ANIMA\",\"CODIGO\":\"ANIM\",\"ATIVO\":\"ANIM3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Consumo Cíclico\",\"SUBSETOR\":\"Diversos\",\"SEGMENTO\":\"MA\",\"EMPRESA\":\"BAHEMA      \",\"CODIGO\":\"BAHI\",\"ATIVO\":\"BAHI11\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Consumo Cíclico\",\"SUBSETOR\":\"Diversos\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"COGNA ON\",\"CODIGO\":\"COGN\",\"ATIVO\":\"COGN3\",\"ValorMercado\":\" R$19.402.126.400,00 \"},\n    {\"SETOR\":\"Consumo Cíclico\",\"SUBSETOR\":\"Diversos\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"SER EDUCA\",\"CODIGO\":\"SEER\",\"ATIVO\":\"SEER3\",\"ValorMercado\":\" R$3.990.351.000,00 \"},\n    {\"SETOR\":\"Consumo Cíclico\",\"SUBSETOR\":\"Diversos\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"YDUQS PART\",\"CODIGO\":\"YDUQ\",\"ATIVO\":\"YDUQ3\",\"ValorMercado\":\" R$16.496.079.930,00 \"},\n    {\"SETOR\":\"Consumo Cíclico\",\"SUBSETOR\":\"Diversos\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"LOCALIZA    \",\"CODIGO\":\"RENT\",\"ATIVO\":\"RENT3\",\"ValorMercado\":\" R$39.743.641.980,00 \"},\n    {\"SETOR\":\"Consumo Cíclico\",\"SUBSETOR\":\"Diversos\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"LOCAMERICA\",\"CODIGO\":\"LCAM\",\"ATIVO\":\"LCAM3\",\"ValorMercado\":\" R$10.691.768.520,00 \"},\n    {\"SETOR\":\"Consumo Cíclico\",\"SUBSETOR\":\"Diversos\",\"SEGMENTO\":\"M2\",\"EMPRESA\":\"MAESTROLOC\",\"CODIGO\":\"MSRO\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Consumo Cíclico\",\"SUBSETOR\":\"Diversos\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"MOVIDA\",\"CODIGO\":\"MOVI\",\"ATIVO\":\"MOVI3\",\"ValorMercado\":\" R$4.567.167.300,00 \"},\n    {\"SETOR\":\"Consumo Cíclico\",\"SUBSETOR\":\"Diversos\",\"SEGMENTO\":\" \",\"EMPRESA\":\"UNIDAS      \",\"CODIGO\":\"UNID\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Consumo Cíclico\",\"SUBSETOR\":\"Diversos\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"SMILES\",\"CODIGO\":\"SMLS\",\"ATIVO\":\"SMLS3\",\"ValorMercado\":\" R$4.731.661.380,00 \"},\n    {\"SETOR\":\"Consumo Cíclico\",\"SUBSETOR\":\"Comércio\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"AREZZO CO   \",\"CODIGO\":\"ARZZ\",\"ATIVO\":\"ARZZ3\",\"ValorMercado\":\" R$5.787.403.020,00 \"},\n    {\"SETOR\":\"Consumo Cíclico\",\"SUBSETOR\":\"Comércio\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"CEA MODAS\",\"CODIGO\":\"CEAB\",\"ATIVO\":\"CEAB3\",\"ValorMercado\":\" R$16.446.150,00 \"},\n    {\"SETOR\":\"Consumo Cíclico\",\"SUBSETOR\":\"Comércio\",\"SEGMENTO\":\" \",\"EMPRESA\":\"GRAZZIOTIN  \",\"CODIGO\":\"CGRA\",\"ATIVO\":\"CGRA3\",\"ValorMercado\":\" R$663.300.000,00 \"},\n    {\"SETOR\":\"Consumo Cíclico\",\"SUBSETOR\":\"Comércio\",\"SEGMENTO\":\" \",\"EMPRESA\":\"GUARARAPES  \",\"CODIGO\":\"GUAR\",\"ATIVO\":\"GUAR3\",\"ValorMercado\":\" R$14.052.480.000,00 \"},\n    {\"SETOR\":\"Consumo Cíclico\",\"SUBSETOR\":\"Comércio\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"LE LIS BLANC\",\"CODIGO\":\"LLIS\",\"ATIVO\":\"LLIS3\",\"ValorMercado\":\" R$846.256.400,00 \"},\n    {\"SETOR\":\"Consumo Cíclico\",\"SUBSETOR\":\"Comércio\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"LOJAS MARISA\",\"CODIGO\":\"AMAR\",\"ATIVO\":\"AMAR3\",\"ValorMercado\":\" R$2.728.629.820,00 \"},\n    {\"SETOR\":\"Consumo Cíclico\",\"SUBSETOR\":\"Comércio\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"LOJAS RENNER\",\"CODIGO\":\"LREN\",\"ATIVO\":\"LREN3\",\"ValorMercado\":\" R$45.575.605.570,00 \"},\n    {\"SETOR\":\"Consumo Cíclico\",\"SUBSETOR\":\"Comércio\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"MAGAZ LUIZA \",\"CODIGO\":\"MGLU\",\"ATIVO\":\"MGLU3\",\"ValorMercado\":\" R$695.887.228.400,00 \"},\n    {\"SETOR\":\"Consumo Cíclico\",\"SUBSETOR\":\"Comércio\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"VIAVAREJO\",\"CODIGO\":\"VVAR\",\"ATIVO\":\"VVAR11\",\"ValorMercado\":\" R$19.424.816.250,00 \"},\n    {\"SETOR\":\"Consumo Cíclico\",\"SUBSETOR\":\"Comércio\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"B2W DIGITAL\",\"CODIGO\":\"BTOW\",\"ATIVO\":\"BTOW3\",\"ValorMercado\":\" R$33.532.342.400,00 \"},\n    {\"SETOR\":\"Consumo Cíclico\",\"SUBSETOR\":\"Comércio\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"CENTAURO\",\"CODIGO\":\"CNTO\",\"ATIVO\":\"CNTO3\",\"ValorMercado\":\" R$9.876.580.000,00 \"},\n    {\"SETOR\":\"Consumo Cíclico\",\"SUBSETOR\":\"Comércio\",\"SEGMENTO\":\"N1             \",\"EMPRESA\":\"LOJAS AMERIC\",\"CODIGO\":\"LAME\",\"ATIVO\":\"LAME3\",\"ValorMercado\":\" R$44.162.016.270,00 \"},\n    {\"SETOR\":\"Consumo Cíclico\",\"SUBSETOR\":\"Comércio\",\"SEGMENTO\":\"N2             \",\"EMPRESA\":\"SARAIVA LIVR\",\"CODIGO\":\"SLED\",\"ATIVO\":\"SLED3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Saúde\",\"SUBSETOR\":\"Medicamentos e Outros Produtos\",\"SEGMENTO\":\"MA\",\"EMPRESA\":\"BIOMM       \",\"CODIGO\":\"BIOM\",\"ATIVO\":\"BIOM3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Saúde\",\"SUBSETOR\":\"Medicamentos e Outros Produtos\",\"SEGMENTO\":\"DR3\",\"EMPRESA\":\"BIOTOSCANA\",\"CODIGO\":\"GBIO\",\"ATIVO\":\"GBIO33\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Saúde\",\"SUBSETOR\":\"Medicamentos e Outros Produtos\",\"SEGMENTO\":\"MA\",\"EMPRESA\":\"NORTCQUIMICA\",\"CODIGO\":\"NRTQ\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Saúde\",\"SUBSETOR\":\"Medicamentos e Outros Produtos\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"OUROFINO S/A\",\"CODIGO\":\"OFSA\",\"ATIVO\":\"OFSA3\",\"ValorMercado\":\" R$2.253.989.220,00 \"},\n    {\"SETOR\":\"Saúde\",\"SUBSETOR\":\"Serviços Médico - Hospitalares, Análises e Diagnósticos\",\"SEGMENTO\":\" \",\"EMPRESA\":\"ADVANCED-DH\",\"CODIGO\":\"ADHM\",\"ATIVO\":\"ADHM3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Saúde\",\"SUBSETOR\":\"Serviços Médico - Hospitalares, Análises e Diagnósticos\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"ALLIAR\",\"CODIGO\":\"AALR\",\"ATIVO\":\"AALR3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Saúde\",\"SUBSETOR\":\"Serviços Médico - Hospitalares, Análises e Diagnósticos\",\"SEGMENTO\":\" \",\"EMPRESA\":\"DASA        \",\"CODIGO\":\"DASA\",\"ATIVO\":\"DASA3\",\"ValorMercado\":\" R$20.820.947.840,00 \"},\n    {\"SETOR\":\"Saúde\",\"SUBSETOR\":\"Serviços Médico - Hospitalares, Análises e Diagnósticos\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"FLEURY      \",\"CODIGO\":\"FLRY\",\"ATIVO\":\"FLRY3\",\"ValorMercado\":\" R$9.698.346.840,00 \"},\n    {\"SETOR\":\"Saúde\",\"SUBSETOR\":\"Serviços Médico - Hospitalares, Análises e Diagnósticos\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"HAPVIDA\",\"CODIGO\":\"HAPV\",\"ATIVO\":\"HAPV3\",\"ValorMercado\":\" R$39.443.934.600,00 \"},\n    {\"SETOR\":\"Saúde\",\"SUBSETOR\":\"Serviços Médico - Hospitalares, Análises e Diagnósticos\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"IHPARDINI\",\"CODIGO\":\"PARD\",\"ATIVO\":\"PARD3\",\"ValorMercado\":\" R$3.905.793.780,00 \"},\n    {\"SETOR\":\"Saúde\",\"SUBSETOR\":\"Serviços Médico - Hospitalares, Análises e Diagnósticos\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"INTERMEDICA\",\"CODIGO\":\"GNDI\",\"ATIVO\":\"GNDI3\",\"ValorMercado\":\" R$38.336.767.500,00 \"},\n    {\"SETOR\":\"Saúde\",\"SUBSETOR\":\"Serviços Médico - Hospitalares, Análises e Diagnósticos\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"ODONTOPREV  \",\"CODIGO\":\"ODPV\",\"ATIVO\":\"ODPV3\",\"ValorMercado\":\" R$8.729.160.420,00 \"},\n    {\"SETOR\":\"Saúde\",\"SUBSETOR\":\"Serviços Médico - Hospitalares, Análises e Diagnósticos\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"QUALICORP   \",\"CODIGO\":\"QUAL\",\"ATIVO\":\"QUAL3\",\"ValorMercado\":\" R$12.023.495.550,00 \"},\n    {\"SETOR\":\"Saúde\",\"SUBSETOR\":\"Equipamentos\",\"SEGMENTO\":\" \",\"EMPRESA\":\"BAUMER      \",\"CODIGO\":\"BALM\",\"ATIVO\":\"BALM3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Saúde\",\"SUBSETOR\":\"Equipamentos\",\"SEGMENTO\":\"MA\",\"EMPRESA\":\"LIFEMED\",\"CODIGO\":\"LMED\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Saúde\",\"SUBSETOR\":\"Comércio e Distribuição\",\"SEGMENTO\":\" \",\"EMPRESA\":\"DIMED       \",\"CODIGO\":\"PNVL\",\"ATIVO\":\"PNVL3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Saúde\",\"SUBSETOR\":\"Comércio e Distribuição\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"HYPERA\",\"CODIGO\":\"HYPE\",\"ATIVO\":\"HYPE3\",\"ValorMercado\":\" R$24.341.163.000,00 \"},\n    {\"SETOR\":\"Saúde\",\"SUBSETOR\":\"Comércio e Distribuição\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"PROFARMA    \",\"CODIGO\":\"PFRM\",\"ATIVO\":\"PFRM3\",\"ValorMercado\":\" R$780.021.900,00 \"},\n    {\"SETOR\":\"Saúde\",\"SUBSETOR\":\"Comércio e Distribuição\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"RAIADROGASIL    \",\"CODIGO\":\"RADL\",\"ATIVO\":\"RADL3\",\"ValorMercado\":\" R$39.646.320.000,00 \"},\n    {\"SETOR\":\"Tecnologia da Informação\",\"SUBSETOR\":\"Computadores e Equipamentos\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"POSITIVO TEC\",\"CODIGO\":\"POSI\",\"ATIVO\":\"POSI3\",\"ValorMercado\":\" R$605.820.000,00 \"},\n    {\"SETOR\":\"Tecnologia da Informação\",\"SUBSETOR\":\"Programas e Serviços\",\"SEGMENTO\":\"MA\",\"EMPRESA\":\"BRQ\",\"CODIGO\":\"BRQB\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Tecnologia da Informação\",\"SUBSETOR\":\"Programas e Serviços\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"LINX\",\"CODIGO\":\"LINX\",\"ATIVO\":\"LINX3\",\"ValorMercado\":\" R$6.837.628.800,00 \"},\n    {\"SETOR\":\"Tecnologia da Informação\",\"SUBSETOR\":\"Programas e Serviços\",\"SEGMENTO\":\"MA\",\"EMPRESA\":\"QUALITY SOFT\",\"CODIGO\":\"QUSW\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Tecnologia da Informação\",\"SUBSETOR\":\"Programas e Serviços\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"SINQIA\",\"CODIGO\":\"SQIA\",\"ATIVO\":\"SQIA3\",\"ValorMercado\":\" R$1.202.274.000,00 \"},\n    {\"SETOR\":\"Tecnologia da Informação\",\"SUBSETOR\":\"Programas e Serviços\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"TOTVS       \",\"CODIGO\":\"TOTS\",\"ATIVO\":\"TOTS3\",\"ValorMercado\":\" R$15.044.949.700,00 \"},\n    {\"SETOR\":\"Comunicações\",\"SUBSETOR\":\"Telecomunicações\",\"SEGMENTO\":\" \",\"EMPRESA\":\"ALGAR TELEC\",\"CODIGO\":\"ALGT\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Comunicações\",\"SUBSETOR\":\"Telecomunicações\",\"SEGMENTO\":\"N1\",\"EMPRESA\":\"OI\",\"CODIGO\":\"OIBR\",\"ATIVO\":\"OIBR3\",\"ValorMercado\":\" R$5.954.205.000,00 \"},\n    {\"SETOR\":\"Comunicações\",\"SUBSETOR\":\"Telecomunicações\",\"SEGMENTO\":\" \",\"EMPRESA\":\"TELEBRAS    \",\"CODIGO\":\"TELB\",\"ATIVO\":\"TELB3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Comunicações\",\"SUBSETOR\":\"Telecomunicações\",\"SEGMENTO\":\" \",\"EMPRESA\":\"TELEF BRASIL\",\"CODIGO\":\"VIVT\",\"ATIVO\":\"VIVT3\",\"ValorMercado\":\" R$101.408.370.450,00 \"},\n    {\"SETOR\":\"Comunicações\",\"SUBSETOR\":\"Telecomunicações\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"TIM PART S/A\",\"CODIGO\":\"TIMP\",\"ATIVO\":\"TIMP3\",\"ValorMercado\":\" R$42.101.746.480,00 \"},\n    {\"SETOR\":\"Comunicações\",\"SUBSETOR\":\"Mídia\",\"SEGMENTO\":\"MA\",\"EMPRESA\":\"CINESYSTEM\",\"CODIGO\":\"CNSY\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Utilidade Pública\",\"SUBSETOR\":\"Energia Elétrica\",\"SEGMENTO\":\" \",\"EMPRESA\":\"AES SUL     \",\"CODIGO\":\"AESL\",\"ATIVO\":\"AESL3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Utilidade Pública\",\"SUBSETOR\":\"Energia Elétrica\",\"SEGMENTO\":\"N2             \",\"EMPRESA\":\"AES TIETE E\",\"CODIGO\":\"TIET\",\"ATIVO\":\"TIET11\",\"ValorMercado\":\" R$6.299.566.770,00 \"},\n    {\"SETOR\":\"Utilidade Pública\",\"SUBSETOR\":\"Energia Elétrica\",\"SEGMENTO\":\" \",\"EMPRESA\":\"AFLUENTE T  \",\"CODIGO\":\"AFLT\",\"ATIVO\":\"AFLT3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Utilidade Pública\",\"SUBSETOR\":\"Energia Elétrica\",\"SEGMENTO\":\"N2             \",\"EMPRESA\":\"ALUPAR\",\"CODIGO\":\"ALUP\",\"ATIVO\":\"ALUP11\",\"ValorMercado\":\" R$8.544.958.920,00 \"},\n    {\"SETOR\":\"Utilidade Pública\",\"SUBSETOR\":\"Energia Elétrica\",\"SEGMENTO\":\" \",\"EMPRESA\":\"AMPLA ENERG \",\"CODIGO\":\"CBEE\",\"ATIVO\":\"CBEE3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Utilidade Pública\",\"SUBSETOR\":\"Energia Elétrica\",\"SEGMENTO\":\"MB             \",\"EMPRESA\":\"CACHOEIRA\",\"CODIGO\":\"CPTE\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Utilidade Pública\",\"SUBSETOR\":\"Energia Elétrica\",\"SEGMENTO\":\" \",\"EMPRESA\":\"CEB         \",\"CODIGO\":\"CEBR\",\"ATIVO\":\"CEBR3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Utilidade Pública\",\"SUBSETOR\":\"Energia Elétrica\",\"SEGMENTO\":\"N1             \",\"EMPRESA\":\"CEEE-D      \",\"CODIGO\":\"CEED\",\"ATIVO\":\"CEED3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Utilidade Pública\",\"SUBSETOR\":\"Energia Elétrica\",\"SEGMENTO\":\"N1             \",\"EMPRESA\":\"CEEE-GT     \",\"CODIGO\":\"EEEL\",\"ATIVO\":\"EEEL3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Utilidade Pública\",\"SUBSETOR\":\"Energia Elétrica\",\"SEGMENTO\":\"N2             \",\"EMPRESA\":\"CELESC      \",\"CODIGO\":\"CLSC\",\"ATIVO\":\"CLSC3\",\"ValorMercado\":\" R$2.156.118.900,00 \"},\n    {\"SETOR\":\"Utilidade Pública\",\"SUBSETOR\":\"Energia Elétrica\",\"SEGMENTO\":\" \",\"EMPRESA\":\"CELGPAR     \",\"CODIGO\":\"GPAR\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Utilidade Pública\",\"SUBSETOR\":\"Energia Elétrica\",\"SEGMENTO\":\" \",\"EMPRESA\":\"CELPE       \",\"CODIGO\":\"CEPE\",\"ATIVO\":\"CEPE3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Utilidade Pública\",\"SUBSETOR\":\"Energia Elétrica\",\"SEGMENTO\":\"N1             \",\"EMPRESA\":\"CEMIG       \",\"CODIGO\":\"CMIG\",\"ATIVO\":\"CMIG3\",\"ValorMercado\":\" R$21.560.354.560,00 \"},\n    {\"SETOR\":\"Utilidade Pública\",\"SUBSETOR\":\"Energia Elétrica\",\"SEGMENTO\":\" \",\"EMPRESA\":\"CEMIG DIST  \",\"CODIGO\":\"CMGD\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Utilidade Pública\",\"SUBSETOR\":\"Energia Elétrica\",\"SEGMENTO\":\" \",\"EMPRESA\":\"CEMIG GT    \",\"CODIGO\":\"CMGT\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Utilidade Pública\",\"SUBSETOR\":\"Energia Elétrica\",\"SEGMENTO\":\"N1             \",\"EMPRESA\":\"CESP        \",\"CODIGO\":\"CESP\",\"ATIVO\":\"CESP3\",\"ValorMercado\":\" R$11.108.901.760,00 \"},\n    {\"SETOR\":\"Utilidade Pública\",\"SUBSETOR\":\"Energia Elétrica\",\"SEGMENTO\":\" \",\"EMPRESA\":\"COELBA      \",\"CODIGO\":\"CEEB\",\"ATIVO\":\"CEEB3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Utilidade Pública\",\"SUBSETOR\":\"Energia Elétrica\",\"SEGMENTO\":\" \",\"EMPRESA\":\"COELCE      \",\"CODIGO\":\"COCE\",\"ATIVO\":\"COCE3\",\"ValorMercado\":\" R$4.831.681.300,00 \"},\n    {\"SETOR\":\"Utilidade Pública\",\"SUBSETOR\":\"Energia Elétrica\",\"SEGMENTO\":\"N1             \",\"EMPRESA\":\"COPEL       \",\"CODIGO\":\"CPLE\",\"ATIVO\":\"CPLE3\",\"ValorMercado\":\" R$21.317.724.500,00 \"},\n    {\"SETOR\":\"Utilidade Pública\",\"SUBSETOR\":\"Energia Elétrica\",\"SEGMENTO\":\" \",\"EMPRESA\":\"COSERN      \",\"CODIGO\":\"CSRN\",\"ATIVO\":\"CSRN3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Utilidade Pública\",\"SUBSETOR\":\"Energia Elétrica\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"CPFL ENERGIA\",\"CODIGO\":\"CPFE\",\"ATIVO\":\"CPFE3\",\"ValorMercado\":\" R$43.255.615.160,00 \"},\n    {\"SETOR\":\"Utilidade Pública\",\"SUBSETOR\":\"Energia Elétrica\",\"SEGMENTO\":\" \",\"EMPRESA\":\"CPFL GERACAO\",\"CODIGO\":\"CPFG\",\"ATIVO\":\"CPFG3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Utilidade Pública\",\"SUBSETOR\":\"Energia Elétrica\",\"SEGMENTO\":\" \",\"EMPRESA\":\"CPFL PIRATIN\",\"CODIGO\":\"CPFP\",\"ATIVO\":\"CPFP4\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Utilidade Pública\",\"SUBSETOR\":\"Energia Elétrica\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"CPFL RENOVAV\",\"CODIGO\":\"CPRE\",\"ATIVO\":\"CPRE3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Utilidade Pública\",\"SUBSETOR\":\"Energia Elétrica\",\"SEGMENTO\":\" \",\"EMPRESA\":\"EBE         \",\"CODIGO\":\"EBEN\",\"ATIVO\":\"EBEN4\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Utilidade Pública\",\"SUBSETOR\":\"Energia Elétrica\",\"SEGMENTO\":\" \",\"EMPRESA\":\"ELEKTRO     \",\"CODIGO\":\"EKTR\",\"ATIVO\":\"EKTR3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Utilidade Pública\",\"SUBSETOR\":\"Energia Elétrica\",\"SEGMENTO\":\"N1             \",\"EMPRESA\":\"ELETROBRAS  \",\"CODIGO\":\"ELET\",\"ATIVO\":\"ELET3\",\"ValorMercado\":\" R$47.693.874.840,00 \"},\n    {\"SETOR\":\"Utilidade Pública\",\"SUBSETOR\":\"Energia Elétrica\",\"SEGMENTO\":\" \",\"EMPRESA\":\"ELETROPAR   \",\"CODIGO\":\"LIPR\",\"ATIVO\":\"LIPR3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Utilidade Pública\",\"SUBSETOR\":\"Energia Elétrica\",\"SEGMENTO\":\" \",\"EMPRESA\":\"EMAE        \",\"CODIGO\":\"EMAE\",\"ATIVO\":\"EMAE4\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Utilidade Pública\",\"SUBSETOR\":\"Energia Elétrica\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"ENERGIAS BR \",\"CODIGO\":\"ENBR\",\"ATIVO\":\"ENBR3\",\"ValorMercado\":\" R$13.120.097.000,00 \"},\n    {\"SETOR\":\"Utilidade Pública\",\"SUBSETOR\":\"Energia Elétrica\",\"SEGMENTO\":\"N2             \",\"EMPRESA\":\"ENERGISA    \",\"CODIGO\":\"ENGI\",\"ATIVO\":\"ENGI11\",\"ValorMercado\":\" R$105.081.227.510,00 \"},\n    {\"SETOR\":\"Utilidade Pública\",\"SUBSETOR\":\"Energia Elétrica\",\"SEGMENTO\":\" \",\"EMPRESA\":\"ENERGISA MT\",\"CODIGO\":\"ENMT\",\"ATIVO\":\"ENMT3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Utilidade Pública\",\"SUBSETOR\":\"Energia Elétrica\",\"SEGMENTO\":\" \",\"EMPRESA\":\"ENERSUL     \",\"CODIGO\":\"ENER\",\"ATIVO\":\"ENER3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Utilidade Pública\",\"SUBSETOR\":\"Energia Elétrica\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"ENEVA\",\"CODIGO\":\"ENEV\",\"ATIVO\":\"ENEV3\",\"ValorMercado\":\" R$14.042.393.040,00 \"},\n    {\"SETOR\":\"Utilidade Pública\",\"SUBSETOR\":\"Energia Elétrica\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"ENGIE BRASIL\",\"CODIGO\":\"EGIE\",\"ATIVO\":\"EGIE3\",\"ValorMercado\":\" R$41.081.924.450,00 \"},\n    {\"SETOR\":\"Utilidade Pública\",\"SUBSETOR\":\"Energia Elétrica\",\"SEGMENTO\":\" \",\"EMPRESA\":\"EQTL PARA\",\"CODIGO\":\"EQPA\",\"ATIVO\":\"EQPA3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Utilidade Pública\",\"SUBSETOR\":\"Energia Elétrica\",\"SEGMENTO\":\"MB             \",\"EMPRESA\":\"EQTLMARANHAO\",\"CODIGO\":\"EQMA\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Utilidade Pública\",\"SUBSETOR\":\"Energia Elétrica\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"EQUATORIAL  \",\"CODIGO\":\"EQTL\",\"ATIVO\":\"EQTL3\",\"ValorMercado\":\" R$26.590.254.600,00 \"},\n    {\"SETOR\":\"Utilidade Pública\",\"SUBSETOR\":\"Energia Elétrica\",\"SEGMENTO\":\" \",\"EMPRESA\":\"ESCELSA     \",\"CODIGO\":\"ESCE\",\"ATIVO\":\"ESCE3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Utilidade Pública\",\"SUBSETOR\":\"Energia Elétrica\",\"SEGMENTO\":\" \",\"EMPRESA\":\"FGENERGIA\",\"CODIGO\":\"FGEN\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Utilidade Pública\",\"SUBSETOR\":\"Energia Elétrica\",\"SEGMENTO\":\" \",\"EMPRESA\":\"GER PARANAP \",\"CODIGO\":\"GEPA\",\"ATIVO\":\"GEPA3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Utilidade Pública\",\"SUBSETOR\":\"Energia Elétrica\",\"SEGMENTO\":\" \",\"EMPRESA\":\"ITAPEBI     \",\"CODIGO\":\"ITPB\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Utilidade Pública\",\"SUBSETOR\":\"Energia Elétrica\",\"SEGMENTO\":\" \",\"EMPRESA\":\"LIGHT       \",\"CODIGO\":\"LIGH\",\"ATIVO\":\"LIGH3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Utilidade Pública\",\"SUBSETOR\":\"Energia Elétrica\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"LIGHT S/A   \",\"CODIGO\":\"LIGT\",\"ATIVO\":\"LIGT3\",\"ValorMercado\":\" R$4.504.902.060,00 \"},\n    {\"SETOR\":\"Utilidade Pública\",\"SUBSETOR\":\"Energia Elétrica\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"NEOENERGIA  \",\"CODIGO\":\"NEOE\",\"ATIVO\":\"NEOE3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Utilidade Pública\",\"SUBSETOR\":\"Energia Elétrica\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"OMEGA GER\",\"CODIGO\":\"OMGE\",\"ATIVO\":\"OMGE3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Utilidade Pública\",\"SUBSETOR\":\"Energia Elétrica\",\"SEGMENTO\":\" \",\"EMPRESA\":\"PAUL F LUZ  \",\"CODIGO\":\"PALF\",\"ATIVO\":\"PALF11\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Utilidade Pública\",\"SUBSETOR\":\"Energia Elétrica\",\"SEGMENTO\":\"MB             \",\"EMPRESA\":\"PROMAN      \",\"CODIGO\":\"PRMN\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Utilidade Pública\",\"SUBSETOR\":\"Energia Elétrica\",\"SEGMENTO\":\" \",\"EMPRESA\":\"REDE ENERGIA\",\"CODIGO\":\"REDE\",\"ATIVO\":\"REDE3\",\"ValorMercado\":\" R$19.344.015.600,00 \"},\n    {\"SETOR\":\"Utilidade Pública\",\"SUBSETOR\":\"Energia Elétrica\",\"SEGMENTO\":\"N2             \",\"EMPRESA\":\"RENOVA      \",\"CODIGO\":\"RNEW\",\"ATIVO\":\"RNEW11\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Utilidade Pública\",\"SUBSETOR\":\"Energia Elétrica\",\"SEGMENTO\":\" \",\"EMPRESA\":\"STATKRAFT\",\"CODIGO\":\"STKF\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Utilidade Pública\",\"SUBSETOR\":\"Energia Elétrica\",\"SEGMENTO\":\" \",\"EMPRESA\":\"STO ANTONIO\",\"CODIGO\":\"STEN\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Utilidade Pública\",\"SUBSETOR\":\"Energia Elétrica\",\"SEGMENTO\":\"N2             \",\"EMPRESA\":\"TAESA       \",\"CODIGO\":\"TAEE\",\"ATIVO\":\"TAEE11\",\"ValorMercado\":\" R$10.741.478.820,00 \"},\n    {\"SETOR\":\"Utilidade Pública\",\"SUBSETOR\":\"Energia Elétrica\",\"SEGMENTO\":\" \",\"EMPRESA\":\"TERMOPE     \",\"CODIGO\":\"TMPE\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Utilidade Pública\",\"SUBSETOR\":\"Energia Elétrica\",\"SEGMENTO\":\" \",\"EMPRESA\":\"TERM. PE III\",\"CODIGO\":\"TEPE\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Utilidade Pública\",\"SUBSETOR\":\"Energia Elétrica\",\"SEGMENTO\":\"N1             \",\"EMPRESA\":\"TRAN PAULIST\",\"CODIGO\":\"TRPL\",\"ATIVO\":\"TRPL3\",\"ValorMercado\":\" R$14.673.324.410,00 \"},\n    {\"SETOR\":\"Utilidade Pública\",\"SUBSETOR\":\"Energia Elétrica\",\"SEGMENTO\":\"MB             \",\"EMPRESA\":\"UPTICK      \",\"CODIGO\":\"UPKP\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Utilidade Pública\",\"SUBSETOR\":\"Água e Saneamento\",\"SEGMENTO\":\" \",\"EMPRESA\":\"CASAN       \",\"CODIGO\":\"CASN\",\"ATIVO\":\"CASN3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Utilidade Pública\",\"SUBSETOR\":\"Água e Saneamento\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"COPASA      \",\"CODIGO\":\"CSMG\",\"ATIVO\":\"CSMG3\",\"ValorMercado\":\" R$8.333.878.250,00 \"},\n    {\"SETOR\":\"Utilidade Pública\",\"SUBSETOR\":\"Água e Saneamento\",\"SEGMENTO\":\"MA\",\"EMPRESA\":\"IGUA SA  \",\"CODIGO\":\"IGSN\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Utilidade Pública\",\"SUBSETOR\":\"Água e Saneamento\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"SABESP      \",\"CODIGO\":\"SBSP\",\"ATIVO\":\"SBSP3\",\"ValorMercado\":\" R$43.614.709.290,00 \"},\n    {\"SETOR\":\"Utilidade Pública\",\"SUBSETOR\":\"Água e Saneamento\",\"SEGMENTO\":\"N2             \",\"EMPRESA\":\"SANEPAR     \",\"CODIGO\":\"SAPR\",\"ATIVO\":\"SAPR11\",\"ValorMercado\":\" R$10.851.459.370,00 \"},\n    {\"SETOR\":\"Utilidade Pública\",\"SUBSETOR\":\"Água e Saneamento\",\"SEGMENTO\":\" \",\"EMPRESA\":\"SANESALTO   \",\"CODIGO\":\"SNST\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Utilidade Pública\",\"SUBSETOR\":\"Gás\",\"SEGMENTO\":\" \",\"EMPRESA\":\"CEG         \",\"CODIGO\":\"CEGR\",\"ATIVO\":\"CEGR3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Utilidade Pública\",\"SUBSETOR\":\"Gás\",\"SEGMENTO\":\" \",\"EMPRESA\":\"COMGAS      \",\"CODIGO\":\"CGAS\",\"ATIVO\":\"CGAS3\",\"ValorMercado\":\" R$28.424.214.800,00 \"},\n    {\"SETOR\":\"Financeiro\",\"SUBSETOR\":\"Intermediários Financeiros\",\"SEGMENTO\":\"N2             \",\"EMPRESA\":\"ABC BRASIL  \",\"CODIGO\":\"ABCB\",\"ATIVO\":\"ABCB3\",\"ValorMercado\":\" R$4.720.921.580,00 \"},\n    {\"SETOR\":\"Financeiro\",\"SUBSETOR\":\"Intermediários Financeiros\",\"SEGMENTO\":\" \",\"EMPRESA\":\"ALFA HOLDING\",\"CODIGO\":\"RPAD\",\"ATIVO\":\"RPAD3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Financeiro\",\"SUBSETOR\":\"Intermediários Financeiros\",\"SEGMENTO\":\" \",\"EMPRESA\":\"ALFA INVEST \",\"CODIGO\":\"BRIV\",\"ATIVO\":\"BRIV3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Financeiro\",\"SUBSETOR\":\"Intermediários Financeiros\",\"SEGMENTO\":\" \",\"EMPRESA\":\"AMAZONIA    \",\"CODIGO\":\"BAZA\",\"ATIVO\":\"BAZA3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Financeiro\",\"SUBSETOR\":\"Intermediários Financeiros\",\"SEGMENTO\":\"N1             \",\"EMPRESA\":\"BANCO BMG\",\"CODIGO\":\"BMGB\",\"ATIVO\":\"BMGB11\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Financeiro\",\"SUBSETOR\":\"Intermediários Financeiros\",\"SEGMENTO\":\"N2             \",\"EMPRESA\":\"BANCO INTER\",\"CODIGO\":\"BIDI\",\"ATIVO\":\"BIDI11\",\"ValorMercado\":\" R$9.765.540.120,00 \"},\n    {\"SETOR\":\"Financeiro\",\"SUBSETOR\":\"Intermediários Financeiros\",\"SEGMENTO\":\"N1             \",\"EMPRESA\":\"BANCO PAN\",\"CODIGO\":\"BPAN\",\"ATIVO\":\"BPAN4\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Financeiro\",\"SUBSETOR\":\"Intermediários Financeiros\",\"SEGMENTO\":\" \",\"EMPRESA\":\"BANESE      \",\"CODIGO\":\"BGIP\",\"ATIVO\":\"BGIP3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Financeiro\",\"SUBSETOR\":\"Intermediários Financeiros\",\"SEGMENTO\":\" \",\"EMPRESA\":\"BANESTES    \",\"CODIGO\":\"BEES\",\"ATIVO\":\"BEES3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Financeiro\",\"SUBSETOR\":\"Intermediários Financeiros\",\"SEGMENTO\":\" \",\"EMPRESA\":\"BANPARA     \",\"CODIGO\":\"BPAR\",\"ATIVO\":\"BPAR3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Financeiro\",\"SUBSETOR\":\"Intermediários Financeiros\",\"SEGMENTO\":\"N1             \",\"EMPRESA\":\"BANRISUL    \",\"CODIGO\":\"BRSR\",\"ATIVO\":\"BRSR3\",\"ValorMercado\":\" R$7.974.993.000,00 \"},\n    {\"SETOR\":\"Financeiro\",\"SUBSETOR\":\"Intermediários Financeiros\",\"SEGMENTO\":\"N1             \",\"EMPRESA\":\"BRADESCO    \",\"CODIGO\":\"BBDC\",\"ATIVO\":\"BBDC3\",\"ValorMercado\":\" R$268.364.262.400,00 \"},\n    {\"SETOR\":\"Financeiro\",\"SUBSETOR\":\"Intermediários Financeiros\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"BRASIL      \",\"CODIGO\":\"BBAS\",\"ATIVO\":\"BBAS3\",\"ValorMercado\":\" R$145.620.491.940,00 \"},\n    {\"SETOR\":\"Financeiro\",\"SUBSETOR\":\"Intermediários Financeiros\",\"SEGMENTO\":\" \",\"EMPRESA\":\"BRB BANCO   \",\"CODIGO\":\"BSLI\",\"ATIVO\":\"BSLI3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Financeiro\",\"SUBSETOR\":\"Intermediários Financeiros\",\"SEGMENTO\":\" \",\"EMPRESA\":\"BTGP BANCO\",\"CODIGO\":\"BPAC\",\"ATIVO\":\"BPAC11\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Financeiro\",\"SUBSETOR\":\"Intermediários Financeiros\",\"SEGMENTO\":\"N2             \",\"EMPRESA\":\"INDUSVAL    \",\"CODIGO\":\"IDVL\",\"ATIVO\":\"IDVL11\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Financeiro\",\"SUBSETOR\":\"Intermediários Financeiros\",\"SEGMENTO\":\"N1             \",\"EMPRESA\":\"ITAUSA      \",\"CODIGO\":\"ITSA\",\"ATIVO\":\"ITSA3\",\"ValorMercado\":\" R$110.770.459.890,00 \"},\n    {\"SETOR\":\"Financeiro\",\"SUBSETOR\":\"Intermediários Financeiros\",\"SEGMENTO\":\"N1             \",\"EMPRESA\":\"ITAUUNIBANCO\",\"CODIGO\":\"ITUB\",\"ATIVO\":\"ITUB3\",\"ValorMercado\":\" R$337.164.202.650,00 \"},\n    {\"SETOR\":\"Financeiro\",\"SUBSETOR\":\"Intermediários Financeiros\",\"SEGMENTO\":\" \",\"EMPRESA\":\"MERC BRASIL \",\"CODIGO\":\"BMEB\",\"ATIVO\":\"BMEB3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Financeiro\",\"SUBSETOR\":\"Intermediários Financeiros\",\"SEGMENTO\":\" \",\"EMPRESA\":\"MERC INVEST \",\"CODIGO\":\"BMIN\",\"ATIVO\":\"BMIN3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Financeiro\",\"SUBSETOR\":\"Intermediários Financeiros\",\"SEGMENTO\":\" \",\"EMPRESA\":\"NORD BRASIL \",\"CODIGO\":\"BNBR\",\"ATIVO\":\"BNBR3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Financeiro\",\"SUBSETOR\":\"Intermediários Financeiros\",\"SEGMENTO\":\" \",\"EMPRESA\":\"PARANA      \",\"CODIGO\":\"PRBC\",\"ATIVO\":\"PRBC3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Financeiro\",\"SUBSETOR\":\"Intermediários Financeiros\",\"SEGMENTO\":\"N2             \",\"EMPRESA\":\"PINE        \",\"CODIGO\":\"PINE\",\"ATIVO\":\"PINE3\",\"ValorMercado\":\" R$494.381.760,00 \"},\n    {\"SETOR\":\"Financeiro\",\"SUBSETOR\":\"Intermediários Financeiros\",\"SEGMENTO\":\" \",\"EMPRESA\":\"SANTANDER BR\",\"CODIGO\":\"SANB\",\"ATIVO\":\"SANB11\",\"ValorMercado\":\" R$156.243.689.780,00 \"},\n    {\"SETOR\":\"Financeiro\",\"SUBSETOR\":\"Intermediários Financeiros\",\"SEGMENTO\":\" \",\"EMPRESA\":\"ALFA FINANC \",\"CODIGO\":\"CRIV\",\"ATIVO\":\"CRIV3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Financeiro\",\"SUBSETOR\":\"Intermediários Financeiros\",\"SEGMENTO\":\" \",\"EMPRESA\":\"FINANSINOS  \",\"CODIGO\":\"FNCN\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Financeiro\",\"SUBSETOR\":\"Intermediários Financeiros\",\"SEGMENTO\":\" \",\"EMPRESA\":\"MERC FINANC \",\"CODIGO\":\"MERC\",\"ATIVO\":\"MERC3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Financeiro\",\"SUBSETOR\":\"Intermediários Financeiros\",\"SEGMENTO\":\" \",\"EMPRESA\":\"BRADESCO LSG\",\"CODIGO\":\"BDLS\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Financeiro\",\"SUBSETOR\":\"Intermediários Financeiros\",\"SEGMENTO\":\" \",\"EMPRESA\":\"BV LEASING  \",\"CODIGO\":\"BVLS\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Financeiro\",\"SUBSETOR\":\"Intermediários Financeiros\",\"SEGMENTO\":\" \",\"EMPRESA\":\"DIBENS LSG  \",\"CODIGO\":\"DBEN\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Financeiro\",\"SUBSETOR\":\"Securitizadoras de Recebíveis\",\"SEGMENTO\":\" \",\"EMPRESA\":\"BRAZIL REALT\",\"CODIGO\":\"BZRS\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Financeiro\",\"SUBSETOR\":\"Securitizadoras de Recebíveis\",\"SEGMENTO\":\" \",\"EMPRESA\":\"BRAZILIAN SC\",\"CODIGO\":\"BSCS\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Financeiro\",\"SUBSETOR\":\"Securitizadoras de Recebíveis\",\"SEGMENTO\":\" \",\"EMPRESA\":\"BRC SECURIT \",\"CODIGO\":\"BRCS\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Financeiro\",\"SUBSETOR\":\"Securitizadoras de Recebíveis\",\"SEGMENTO\":\" \",\"EMPRESA\":\"BRPR 56 SEC\",\"CODIGO\":\"WTVR\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Financeiro\",\"SUBSETOR\":\"Securitizadoras de Recebíveis\",\"SEGMENTO\":\" \",\"EMPRESA\":\"CIBRASEC\",\"CODIGO\":\"CBSC\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Financeiro\",\"SUBSETOR\":\"Securitizadoras de Recebíveis\",\"SEGMENTO\":\"MB             \",\"EMPRESA\":\"ECO SEC AGRO\",\"CODIGO\":\"ECOA\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Financeiro\",\"SUBSETOR\":\"Securitizadoras de Recebíveis\",\"SEGMENTO\":\" \",\"EMPRESA\":\"GAIA AGRO   \",\"CODIGO\":\"GAFL\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Financeiro\",\"SUBSETOR\":\"Securitizadoras de Recebíveis\",\"SEGMENTO\":\"MB             \",\"EMPRESA\":\"GAIA SECURIT\",\"CODIGO\":\"GAIA\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Financeiro\",\"SUBSETOR\":\"Securitizadoras de Recebíveis\",\"SEGMENTO\":\" \",\"EMPRESA\":\"OCTANTE SEC\",\"CODIGO\":\"OCTS\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Financeiro\",\"SUBSETOR\":\"Securitizadoras de Recebíveis\",\"SEGMENTO\":\" \",\"EMPRESA\":\"PDG SECURIT \",\"CODIGO\":\"PDGS\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Financeiro\",\"SUBSETOR\":\"Securitizadoras de Recebíveis\",\"SEGMENTO\":\" \",\"EMPRESA\":\"POLO CAP SEC\",\"CODIGO\":\"PLSC\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Financeiro\",\"SUBSETOR\":\"Securitizadoras de Recebíveis\",\"SEGMENTO\":\"MB             \",\"EMPRESA\":\"RBCAPITALRES\",\"CODIGO\":\"RBRA\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Financeiro\",\"SUBSETOR\":\"Securitizadoras de Recebíveis\",\"SEGMENTO\":\"MB             \",\"EMPRESA\":\"RBCAPITALSEC\",\"CODIGO\":\"RBCS\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Financeiro\",\"SUBSETOR\":\"Securitizadoras de Recebíveis\",\"SEGMENTO\":\" \",\"EMPRESA\":\"TRUESEC\",\"CODIGO\":\"APCS\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Financeiro\",\"SUBSETOR\":\"Securitizadoras de Recebíveis\",\"SEGMENTO\":\" \",\"EMPRESA\":\"VERTCIASEC\",\"CODIGO\":\"VERT\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Financeiro\",\"SUBSETOR\":\"Securitizadoras de Recebíveis\",\"SEGMENTO\":\" \",\"EMPRESA\":\"WTORRE PIC  \",\"CODIGO\":\"WTPI\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Financeiro\",\"SUBSETOR\":\"Serviços Financeiros Diversos\",\"SEGMENTO\":\"MB             \",\"EMPRESA\":\"BNDESPAR    \",\"CODIGO\":\"BNDP\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Financeiro\",\"SUBSETOR\":\"Serviços Financeiros Diversos\",\"SEGMENTO\":\" \",\"EMPRESA\":\"BRAZILIAN FR\",\"CODIGO\":\"BFRE\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Financeiro\",\"SUBSETOR\":\"Serviços Financeiros Diversos\",\"SEGMENTO\":\"DR3\",\"EMPRESA\":\"GP INVEST   \",\"CODIGO\":\"GPIV\",\"ATIVO\":\"GPIV33\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Financeiro\",\"SUBSETOR\":\"Serviços Financeiros Diversos\",\"SEGMENTO\":\" \",\"EMPRESA\":\"IDEIASNET   \",\"CODIGO\":\"IDNT\",\"ATIVO\":\"IDNT3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Financeiro\",\"SUBSETOR\":\"Serviços Financeiros Diversos\",\"SEGMENTO\":\"DR3\",\"EMPRESA\":\"PPLA\",\"CODIGO\":\"PPLA\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Financeiro\",\"SUBSETOR\":\"Serviços Financeiros Diversos\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"B3 \",\"CODIGO\":\"B3SA\",\"ATIVO\":\"B3SA3\",\"ValorMercado\":\" R$102.092.062.040,00 \"},\n    {\"SETOR\":\"Financeiro\",\"SUBSETOR\":\"Serviços Financeiros Diversos\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"CIELO       \",\"CODIGO\":\"CIEL\",\"ATIVO\":\"CIEL3\",\"ValorMercado\":\" R$19.561.068.000,00 \"},\n    {\"SETOR\":\"Financeiro\",\"SUBSETOR\":\"Previdência e Seguros\",\"SEGMENTO\":\" \",\"EMPRESA\":\"ALFA CONSORC\",\"CODIGO\":\"BRGE\",\"ATIVO\":\"BRGE11\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Financeiro\",\"SUBSETOR\":\"Previdência e Seguros\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"BBSEGURIDADE\",\"CODIGO\":\"BBSE\",\"ATIVO\":\"BBSE3\",\"ValorMercado\":\" R$74.480.000.000,00 \"},\n    {\"SETOR\":\"Financeiro\",\"SUBSETOR\":\"Previdência e Seguros\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"IRBBRASIL RE\",\"CODIGO\":\"IRBR\",\"ATIVO\":\"IRBR3\",\"ValorMercado\":\" R$30.700.800.000,00 \"},\n    {\"SETOR\":\"Financeiro\",\"SUBSETOR\":\"Previdência e Seguros\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"PORTO SEGURO\",\"CODIGO\":\"PSSA\",\"ATIVO\":\"PSSA3\",\"ValorMercado\":\" R$21.456.956.410,00 \"},\n    {\"SETOR\":\"Financeiro\",\"SUBSETOR\":\"Previdência e Seguros\",\"SEGMENTO\":\" \",\"EMPRESA\":\"SEG AL BAHIA\",\"CODIGO\":\"CSAB\",\"ATIVO\":\"CSAB3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Financeiro\",\"SUBSETOR\":\"Previdência e Seguros\",\"SEGMENTO\":\"N2             \",\"EMPRESA\":\"SUL AMERICA \",\"CODIGO\":\"SULA\",\"ATIVO\":\"SULA11\",\"ValorMercado\":\" R$24.291.690.480,00 \"},\n    {\"SETOR\":\"Financeiro\",\"SUBSETOR\":\"Previdência e Seguros\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"ALPER S.A.\",\"CODIGO\":\"APER\",\"ATIVO\":\"APER3\",\"ValorMercado\":\" R$214.984.000,00 \"},\n    {\"SETOR\":\"Financeiro\",\"SUBSETOR\":\"Previdência e Seguros\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"WIZ S.A.\",\"CODIGO\":\"WIZS\",\"ATIVO\":\"WIZS3\",\"ValorMercado\":\" R$2.547.318.510,00 \"},\n    {\"SETOR\":\"Financeiro\",\"SUBSETOR\":\"Exploração de Imóveis\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"ALIANSCSONAE\",\"CODIGO\":\"ALSO\",\"ATIVO\":\"ALSO3\",\"ValorMercado\":\" R$3.970.939.080,00 \"},\n    {\"SETOR\":\"Financeiro\",\"SUBSETOR\":\"Exploração de Imóveis\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"BR MALLS PAR\",\"CODIGO\":\"BRML\",\"ATIVO\":\"BRML3\",\"ValorMercado\":\" R$16.058.195.200,00 \"},\n    {\"SETOR\":\"Financeiro\",\"SUBSETOR\":\"Exploração de Imóveis\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"BR PROPERT  \",\"CODIGO\":\"BRPR\",\"ATIVO\":\"BRPR3\",\"ValorMercado\":\" R$6.286.164.400,00 \"},\n    {\"SETOR\":\"Financeiro\",\"SUBSETOR\":\"Exploração de Imóveis\",\"SEGMENTO\":\" \",\"EMPRESA\":\"COR RIBEIRO \",\"CODIGO\":\"CORR\",\"ATIVO\":\"CORR3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Financeiro\",\"SUBSETOR\":\"Exploração de Imóveis\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"CYRE COM-CCP\",\"CODIGO\":\"CCPR\",\"ATIVO\":\"CCPR3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Financeiro\",\"SUBSETOR\":\"Exploração de Imóveis\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"GENERALSHOPP\",\"CODIGO\":\"GSHP\",\"ATIVO\":\"GSHP3\",\"ValorMercado\":\" R$4.374.405.000,00 \"},\n    {\"SETOR\":\"Financeiro\",\"SUBSETOR\":\"Exploração de Imóveis\",\"SEGMENTO\":\" \",\"EMPRESA\":\"HABITASUL   \",\"CODIGO\":\"HBTS\",\"ATIVO\":\"HBTS5\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Financeiro\",\"SUBSETOR\":\"Exploração de Imóveis\",\"SEGMENTO\":\" \",\"EMPRESA\":\"IGB S/A     \",\"CODIGO\":\"IGBR\",\"ATIVO\":\"IGBR3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Financeiro\",\"SUBSETOR\":\"Exploração de Imóveis\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"IGUATEMI    \",\"CODIGO\":\"IGTA\",\"ATIVO\":\"IGTA3\",\"ValorMercado\":\" R$9.651.791.150,00 \"},\n    {\"SETOR\":\"Financeiro\",\"SUBSETOR\":\"Exploração de Imóveis\",\"SEGMENTO\":\" \",\"EMPRESA\":\"JEREISSATI  \",\"CODIGO\":\"JPSA\",\"ATIVO\":\"JPSA3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Financeiro\",\"SUBSETOR\":\"Exploração de Imóveis\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"LOG COM PROP\",\"CODIGO\":\"LOGG\",\"ATIVO\":\"LOGG3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Financeiro\",\"SUBSETOR\":\"Exploração de Imóveis\",\"SEGMENTO\":\"MB             \",\"EMPRESA\":\"MENEZES CORT\",\"CODIGO\":\"MNZC\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Financeiro\",\"SUBSETOR\":\"Exploração de Imóveis\",\"SEGMENTO\":\"N2             \",\"EMPRESA\":\"MULTIPLAN   \",\"CODIGO\":\"MULT\",\"ATIVO\":\"MULT3\",\"ValorMercado\":\" R$20.089.414.400,00 \"},\n    {\"SETOR\":\"Financeiro\",\"SUBSETOR\":\"Exploração de Imóveis\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"SAO CARLOS  \",\"CODIGO\":\"SCAR\",\"ATIVO\":\"SCAR3\",\"ValorMercado\":\" R$3.188.814.510,00 \"},\n    {\"SETOR\":\"Financeiro\",\"SUBSETOR\":\"Exploração de Imóveis\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"BR BROKERS  \",\"CODIGO\":\"BBRK\",\"ATIVO\":\"BBRK3\",\"ValorMercado\":\" R$158.172.080,00 \"},\n    {\"SETOR\":\"Financeiro\",\"SUBSETOR\":\"Exploração de Imóveis\",\"SEGMENTO\":\"NM             \",\"EMPRESA\":\"LOPES BRASIL\",\"CODIGO\":\"LPSB\",\"ATIVO\":\"LPSB3\",\"ValorMercado\":\" R$1.074.451.950,00 \"},\n    {\"SETOR\":\"Financeiro\",\"SUBSETOR\":\"Holdings Diversificadas\",\"SEGMENTO\":\" \",\"EMPRESA\":\"MONT ARANHA \",\"CODIGO\":\"MOAR\",\"ATIVO\":\"MOAR3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Financeiro\",\"SUBSETOR\":\"Holdings Diversificadas\",\"SEGMENTO\":\" \",\"EMPRESA\":\"PAR AL BAHIA\",\"CODIGO\":\"PEAB\",\"ATIVO\":\"PEAB3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Financeiro\",\"SUBSETOR\":\"Holdings Diversificadas\",\"SEGMENTO\":\" \",\"EMPRESA\":\"SPRINGER    \",\"CODIGO\":\"SPRI\",\"ATIVO\":\"SPRI3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Financeiro\",\"SUBSETOR\":\"Outros Títulos\",\"SEGMENTO\":\"MB             \",\"EMPRESA\":\"CEPAC - CTBA\",\"CODIGO\":\"CTBA\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Financeiro\",\"SUBSETOR\":\"Outros Títulos\",\"SEGMENTO\":\"MB             \",\"EMPRESA\":\"CEPAC - MCRJ\",\"CODIGO\":\"MCRJ\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Financeiro\",\"SUBSETOR\":\"Outros Títulos\",\"SEGMENTO\":\"MB             \",\"EMPRESA\":\"CEPAC - PMSP\",\"CODIGO\":\"PMSP\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Outros\",\"SUBSETOR\":\"Outros\",\"SEGMENTO\":\"MB             \",\"EMPRESA\":\"524 PARTICIP\",\"CODIGO\":\"QVQP\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Outros\",\"SUBSETOR\":\"Outros\",\"SEGMENTO\":\"MB             \",\"EMPRESA\":\"ALEF S/A    \",\"CODIGO\":\"ALEF\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Outros\",\"SUBSETOR\":\"Outros\",\"SEGMENTO\":\" \",\"EMPRESA\":\"ATOMPAR\",\"CODIGO\":\"ATOM\",\"ATIVO\":\"ATOM3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Outros\",\"SUBSETOR\":\"Outros\",\"SEGMENTO\":\"MB             \",\"EMPRESA\":\"BETAPART    \",\"CODIGO\":\"BETP\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Outros\",\"SUBSETOR\":\"Outros\",\"SEGMENTO\":\"MB             \",\"EMPRESA\":\"CABINDA PART\",\"CODIGO\":\"CABI\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Outros\",\"SUBSETOR\":\"Outros\",\"SEGMENTO\":\"MB             \",\"EMPRESA\":\"CACONDE PART\",\"CODIGO\":\"CACO\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Outros\",\"SUBSETOR\":\"Outros\",\"SEGMENTO\":\"MB             \",\"EMPRESA\":\"CAPITALPART \",\"CODIGO\":\"CPTP\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Outros\",\"SUBSETOR\":\"Outros\",\"SEGMENTO\":\" \",\"EMPRESA\":\"CEMEPE      \",\"CODIGO\":\"MAPT\",\"ATIVO\":\"MAPT3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Outros\",\"SUBSETOR\":\"Outros\",\"SEGMENTO\":\" \",\"EMPRESA\":\"CIMS        \",\"CODIGO\":\"CMSA\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Outros\",\"SUBSETOR\":\"Outros\",\"SEGMENTO\":\"MB             \",\"EMPRESA\":\"ELETRON     \",\"CODIGO\":\"ETRO\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Outros\",\"SUBSETOR\":\"Outros\",\"SEGMENTO\":\"MB             \",\"EMPRESA\":\"GAMA PART   \",\"CODIGO\":\"OPGM\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Outros\",\"SUBSETOR\":\"Outros\",\"SEGMENTO\":\" \",\"EMPRESA\":\"INVEST BEMGE\",\"CODIGO\":\"FIGE\",\"ATIVO\":\"FIGE3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Outros\",\"SUBSETOR\":\"Outros\",\"SEGMENTO\":\" \",\"EMPRESA\":\"J B DUARTE  \",\"CODIGO\":\"JBDU\",\"ATIVO\":\"JBDU3\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Outros\",\"SUBSETOR\":\"Outros\",\"SEGMENTO\":\"MB             \",\"EMPRESA\":\"LONGDIS     \",\"CODIGO\":\"SPRT\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Outros\",\"SUBSETOR\":\"Outros\",\"SEGMENTO\":\" \",\"EMPRESA\":\"MGI PARTICIP\",\"CODIGO\":\"MGIP\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Outros\",\"SUBSETOR\":\"Outros\",\"SEGMENTO\":\"MB             \",\"EMPRESA\":\"OPPORT ENERG\",\"CODIGO\":\"OPHE\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Outros\",\"SUBSETOR\":\"Outros\",\"SEGMENTO\":\" \",\"EMPRESA\":\"POLPAR      \",\"CODIGO\":\"PPAR\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Outros\",\"SUBSETOR\":\"Outros\",\"SEGMENTO\":\"MB             \",\"EMPRESA\":\"PROMPT PART \",\"CODIGO\":\"PRPT\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Outros\",\"SUBSETOR\":\"Outros\",\"SEGMENTO\":\"MB             \",\"EMPRESA\":\"SELECTPART  \",\"CODIGO\":\"SLCT\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Outros\",\"SUBSETOR\":\"Outros\",\"SEGMENTO\":\"MB             \",\"EMPRESA\":\"SUDESTE S/A \",\"CODIGO\":\"OPSE\",\"ATIVO\":\"\",\"ValorMercado\":\"\"},\n    {\"SETOR\":\"Outros\",\"SUBSETOR\":\"Outros\",\"SEGMENTO\":\"MB             \",\"EMPRESA\":\"SUL 116 PART\",\"CODIGO\":\"OPTS\",\"ATIVO\":\"\",\"ValorMercado\":\"\"}\n]\n\nmsg.payload = table\nmsg.payload.command = \"setFilter\"\nmsg.payload.arguments = [[{\"field\":\"EMPRESA\",\"type\":\"=\",\"value\":\"COSAN\"}]]\nmsg.payload.returnPromise = false\n\n\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 310,
+        "y": 100,
+        "wires": [
+            [
+                "823f9baa.e85378",
+                "6d0177df.f5ea78"
+            ]
+        ]
+    },
+    {
+        "id": "69da8556.1efa5c",
+        "type": "ui_table",
+        "z": "415872bf.76470c",
+        "group": "ddf4ccb1.e24dd",
+        "name": "",
+        "order": 6,
+        "width": "22",
+        "height": "10",
+        "columns": [],
+        "outputs": 0,
+        "cts": false,
+        "x": 950,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "fa402fb1.23c6c",
+        "type": "inject",
+        "z": "415872bf.76470c",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 100,
+        "wires": [
+            [
+                "586203a2.2baccc"
+            ]
+        ]
+    },
+    {
+        "id": "823f9baa.e85378",
+        "type": "debug",
+        "z": "415872bf.76470c",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 510,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "6ea97f6a.98c36",
+        "type": "comment",
+        "z": "415872bf.76470c",
+        "name": "Table convert",
+        "info": "https://tableconvert.com/",
+        "x": 110,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "8742438b.4a29c",
+        "type": "function",
+        "z": "415872bf.76470c",
+        "name": "",
+        "func": "let txtfilter = msg.payload\n\nmsg.payload={\n    command: \"setFilter\",\n    arguments: \n        [\n            [\n                {field:\"SETOR\", type:\"like\", value:txtfilter},\n            ]\n        ],\n    returnPromise: false\n}\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 300,
+        "y": 300,
+        "wires": [
+            [
+                "69da8556.1efa5c",
+                "eb263c4a.95ec7"
+            ]
+        ]
+    },
+    {
+        "id": "6d0177df.f5ea78",
+        "type": "function",
+        "z": "415872bf.76470c",
+        "name": "",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 500,
+        "y": 100,
+        "wires": [
+            [
+                "13087a70.e03136"
+            ]
+        ]
+    },
+    {
+        "id": "eb263c4a.95ec7",
+        "type": "debug",
+        "z": "415872bf.76470c",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 970,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "2e1c241a.f7413c",
+        "type": "function",
+        "z": "67ccaa57.7f0e14",
+        "name": "filter by paper",
+        "func": "let paper = msg.payload\n\nmsg.payload={\n    command: \"setFilter\",\n    arguments: \n        [\n            [\n                {field:\"Papel\", type:\"like\", value:paper},\n            ]\n        ],\n    returnPromise: false\n}\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 1020,
+        "y": 940,
+        "wires": [
+            [
+                "dd8cdd9c.548c2",
+                "b643d67a.f66bb8"
+            ]
+        ]
+    },
+    {
+        "id": "636207b9.fe9028",
+        "type": "ui_text_input",
+        "z": "415872bf.76470c",
+        "name": "",
+        "label": "sector filter",
+        "tooltip": "",
+        "group": "ddf4ccb1.e24dd",
+        "order": 1,
+        "width": "5",
+        "height": "1",
+        "passthru": false,
+        "mode": "text",
+        "delay": "0",
+        "topic": "",
+        "x": 130,
+        "y": 300,
+        "wires": [
+            [
+                "8742438b.4a29c"
+            ]
+        ]
+    },
+    {
+        "id": "196cbb57.38e2d5",
+        "type": "ui_text_input",
+        "z": "415872bf.76470c",
+        "name": "",
+        "label": "subsector filter",
+        "tooltip": "",
+        "group": "ddf4ccb1.e24dd",
+        "order": 2,
+        "width": "5",
+        "height": "1",
+        "passthru": false,
+        "mode": "text",
+        "delay": "0",
+        "topic": "",
+        "x": 140,
+        "y": 340,
+        "wires": [
+            [
+                "88535601.918028"
+            ]
+        ]
+    },
+    {
+        "id": "88535601.918028",
+        "type": "function",
+        "z": "415872bf.76470c",
+        "name": "",
+        "func": "let txtfilter = msg.payload\n\nmsg.payload={\n    command: \"setFilter\",\n    arguments: \n        [\n            [\n                {field:\"SUBSETOR\", type:\"like\", value:txtfilter},\n            ]\n        ],\n    returnPromise: false\n}\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 300,
+        "y": 340,
+        "wires": [
+            [
+                "69da8556.1efa5c",
+                "eb263c4a.95ec7"
+            ]
+        ]
+    },
+    {
+        "id": "a42fccea.19f95",
+        "type": "ui_ui_control",
+        "z": "415872bf.76470c",
+        "name": "",
+        "events": "change",
+        "x": 100,
+        "y": 160,
+        "wires": [
+            [
+                "586203a2.2baccc"
+            ]
+        ]
+    },
+    {
+        "id": "e228286b.25b918",
+        "type": "ui_text_input",
+        "z": "415872bf.76470c",
+        "name": "",
+        "label": "segment filter",
+        "tooltip": "",
+        "group": "ddf4ccb1.e24dd",
+        "order": 3,
+        "width": "5",
+        "height": "1",
+        "passthru": false,
+        "mode": "text",
+        "delay": "0",
+        "topic": "",
+        "x": 140,
+        "y": 380,
+        "wires": [
+            [
+                "efe7aa72.027908"
+            ]
+        ]
+    },
+    {
+        "id": "efe7aa72.027908",
+        "type": "function",
+        "z": "415872bf.76470c",
+        "name": "",
+        "func": "let txtfilter = msg.payload\n\nmsg.payload={\n    command: \"setFilter\",\n    arguments: \n        [\n            [\n                {field:\"SEGMENTO\", type:\"like\", value:txtfilter},\n            ]\n        ],\n    returnPromise: false\n}\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 300,
+        "y": 380,
+        "wires": [
+            [
+                "69da8556.1efa5c",
+                "eb263c4a.95ec7"
+            ]
+        ]
+    },
+    {
+        "id": "13087a70.e03136",
+        "type": "change",
+        "z": "415872bf.76470c",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "companySectors",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 700,
+        "y": 100,
+        "wires": [
+            [
+                "69da8556.1efa5c"
+            ]
+        ]
+    },
+    {
+        "id": "4b006ebe.90253",
+        "type": "function",
+        "z": "67ccaa57.7f0e14",
+        "name": "add sector",
+        "func": "let tableRows = flow.get('tableRows')\nlet companySectors = global.get('companySectors')\nlet code = \"\"\n\nfor (i = 0; i < tableRows.length; i++)\n{\n    code = \"\"\n    code = tableRows[i].Papel.substring(0,4)\n    index = 1000000\n    for (j = 0; j< companySectors.length; j++)\n        {\n            if (code === companySectors[j].CODIGO)\n            {\n                index = j\n            }\n        }\n    if (index != 1000000)\n    {\n        //tableRows[i].code = \"Found\"\n        tableRows[i].code = companySectors[index].CODIGO\n        tableRows[i].sector = companySectors[index].SETOR\n        tableRows[i].subsector = companySectors[index].SUBSETOR\n        tableRows[i].segment = companySectors[index].SEGMENTO\n        tableRows[i].company = companySectors[index].EMPRESA\n\n    } else\n    {\n        tableRows[i].code = \" - \"\n        tableRows[i].sector = \" - \"\n        tableRows[i].subsector = \" - \"\n        tableRows[i].segment = \" - \"\n        tableRows[i].company = \" - \"\n    }\n}\n\nflow.set('tableRows', tableRows)\n\nmsg.code = code\nmsg.index = index\nmsg.companySectors = companySectors\nmsg.tableRows = tableRows\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 1310,
+        "y": 440,
+        "wires": [
+            [
+                "ae5d8aed.312ba8"
+            ]
+        ]
+    },
+    {
+        "id": "6c47defd.582ae",
+        "type": "function",
+        "z": "67ccaa57.7f0e14",
+        "name": "",
+        "func": "homes.filter(function (el) {\n  return el.price <= 1000 &&\n         el.sqft >= 500 &&\n         el.num_of_beds >=2 &&\n         el.num_of_baths >= 2.5;\n});\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 1420,
+        "y": 520,
+        "wires": [
+            [
+                "a32fd691.9ce3b8"
+            ]
+        ]
+    },
+    {
+        "id": "43ef9d19.f60434",
+        "type": "trigger",
+        "z": "67ccaa57.7f0e14",
+        "name": "",
+        "op1": "",
+        "op2": "continue",
+        "op1type": "nul",
+        "op2type": "str",
+        "duration": "250",
+        "extend": true,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 940,
+        "y": 440,
+        "wires": [
+            [
+                "817ec8c9.59ff58"
+            ]
+        ]
+    },
+    {
+        "id": "817ec8c9.59ff58",
+        "type": "function",
+        "z": "67ccaa57.7f0e14",
+        "name": "add factors",
+        "func": "let tableRows = flow.get('tableRows')\n\nfor (i = 0; i < tableRows.length; i++)\n{\n    row = tableRows[i] \n    tableRows[i].factorSeba =Math.abs(\n                                (1+row[\"DivYield\"])^5 *\n                                (1+row[\"Mrg Liq\"])^5 * \n                                (1+row[\"Cresc Rec 5a\"])^5 *\n                                (1/(row[\"DivBrut/Patrim\"]+0.1)) *\n                                (1/(row[\"P/VP\"]+0.1))\n                                ) *\n                                Math.sign(row[\"Mrg Liq\"])\n}\n\nfor (i = 0; i < tableRows.length; i++)\n{\n    row = tableRows[i] \n    tableRows[i].factorLuis = (100000*row[\"DivYield\"] *\n                                       row[\"Mrg Liq\"])/ \n                                       //row[\"Cresc Rec 5a\"])/\n                                       ((row[\"DivBrut/Patrim\"]+0.0001)*(row[\"P/VP\"])+0.0001)\n}\n\nflow.set('tableRows', tableRows)\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 1130,
+        "y": 440,
+        "wires": [
+            [
+                "4b006ebe.90253"
+            ]
+        ]
+    },
+    {
+        "id": "829b8d49.b185d",
+        "type": "ui_ui_control",
+        "z": "67ccaa57.7f0e14",
+        "name": "",
+        "events": "change",
+        "x": 420,
+        "y": 760,
+        "wires": [
+            [
+                "48654a03.391114"
+            ]
+        ]
+    },
+    {
+        "id": "44868518.740aac",
+        "type": "ui_ui_control",
+        "z": "987aa7c6.9ea908",
+        "name": "",
+        "events": "change",
+        "x": 260,
+        "y": 320,
+        "wires": [
+            [
+                "4473ee5.58e321",
+                "e2e1c993.1bcfa8",
+                "949101e9.c1602"
+            ]
+        ]
+    },
+    {
+        "id": "d425df94.ae9cf",
+        "type": "ui_text_input",
+        "z": "415872bf.76470c",
+        "name": "",
+        "label": "Code filter",
+        "tooltip": "",
+        "group": "ddf4ccb1.e24dd",
+        "order": 5,
+        "width": "5",
+        "height": "1",
+        "passthru": false,
+        "mode": "text",
+        "delay": "0",
+        "topic": "",
+        "x": 130,
+        "y": 460,
+        "wires": [
+            [
+                "3b54ce95.e70da2"
+            ]
+        ]
+    },
+    {
+        "id": "3b54ce95.e70da2",
+        "type": "function",
+        "z": "415872bf.76470c",
+        "name": "",
+        "func": "let txtfilter = msg.payload\n\nmsg.payload={\n    command: \"setFilter\",\n    arguments: \n        [\n            [\n                {field:\"CODIGO\", type:\"like\", value:txtfilter},\n            ]\n        ],\n    returnPromise: false\n}\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 300,
+        "y": 460,
+        "wires": [
+            [
+                "69da8556.1efa5c",
+                "eb263c4a.95ec7"
+            ]
+        ]
+    },
+    {
+        "id": "8b6e010e.ba902",
+        "type": "ui_text_input",
+        "z": "415872bf.76470c",
+        "name": "",
+        "label": "Company filter",
+        "tooltip": "",
+        "group": "ddf4ccb1.e24dd",
+        "order": 4,
+        "width": "5",
+        "height": "1",
+        "passthru": false,
+        "mode": "text",
+        "delay": "0",
+        "topic": "",
+        "x": 140,
+        "y": 420,
+        "wires": [
+            [
+                "7df4b114.818dd"
+            ]
+        ]
+    },
+    {
+        "id": "7df4b114.818dd",
+        "type": "function",
+        "z": "415872bf.76470c",
+        "name": "",
+        "func": "let txtfilter = msg.payload\n\nmsg.payload={\n    command: \"setFilter\",\n    arguments: \n        [\n            [\n                {field:\"EMPRESA\", type:\"like\", value:txtfilter},\n            ]\n        ],\n    returnPromise: false\n}\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 300,
+        "y": 420,
+        "wires": [
+            [
+                "69da8556.1efa5c",
+                "eb263c4a.95ec7"
+            ]
+        ]
+    },
+    {
+        "id": "a32fd691.9ce3b8",
+        "type": "debug",
+        "z": "67ccaa57.7f0e14",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1580,
+        "y": 520,
+        "wires": []
+    }
+]
