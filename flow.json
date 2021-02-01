@@ -116,63 +116,6 @@
         }
     },
     {
-        "id": "f07159ac.5fc0f8",
-        "type": "ui_group",
-        "name": "Group 1",
-        "tab": "9e69bc57.dd606",
-        "order": 1,
-        "disp": false,
-        "width": "32",
-        "collapse": false
-    },
-    {
-        "id": "7963295f.aa30c8",
-        "type": "ui_group",
-        "name": "Group1",
-        "tab": "870782ae.d531c",
-        "order": 1,
-        "disp": false,
-        "width": "32",
-        "collapse": false
-    },
-    {
-        "id": "2723be6d.a35e52",
-        "type": "ui_group",
-        "name": "Group 1",
-        "tab": "6825de81.ffaff",
-        "order": 1,
-        "disp": false,
-        "width": "32",
-        "collapse": false
-    },
-    {
-        "id": "9e69bc57.dd606",
-        "type": "ui_tab",
-        "name": "Landing",
-        "icon": "dashboard",
-        "order": 2,
-        "disabled": false,
-        "hidden": false
-    },
-    {
-        "id": "870782ae.d531c",
-        "type": "ui_tab",
-        "name": "Fundamentus (filtered)",
-        "icon": "dashboard",
-        "order": 3,
-        "disabled": false,
-        "hidden": false
-    },
-    {
-        "id": "6825de81.ffaff",
-        "type": "ui_tab",
-        "name": "Landing",
-        "icon": "dashboard",
-        "order": 2,
-        "disabled": false,
-        "hidden": false
-    },
-    {
         "id": "6863a290.6ad93c",
         "type": "ui_tab",
         "name": "Fundamentus (filtered)",
@@ -681,7 +624,7 @@
         "z": "67ccaa57.7f0e14",
         "group": "3b9e390f.f205d6",
         "name": "Details",
-        "order": 7,
+        "order": 12,
         "width": "32",
         "height": "10",
         "columns": [],
@@ -1132,7 +1075,7 @@
         "z": "67ccaa57.7f0e14",
         "group": "3b9e390f.f205d6",
         "name": "Summary",
-        "order": 6,
+        "order": 11,
         "width": "26",
         "height": "10",
         "columns": [
@@ -1327,29 +1270,6 @@
         ]
     },
     {
-        "id": "864b893.b162978",
-        "type": "ui_text_input",
-        "z": "67ccaa57.7f0e14",
-        "name": "",
-        "label": "Ticker filter",
-        "tooltip": "Ingresse o papel que quer buscar",
-        "group": "3b9e390f.f205d6",
-        "order": 5,
-        "width": "0",
-        "height": "0",
-        "passthru": false,
-        "mode": "text",
-        "delay": "0",
-        "topic": "",
-        "x": 530,
-        "y": 940,
-        "wires": [
-            [
-                "2e1c241a.f7413c"
-            ]
-        ]
-    },
-    {
         "id": "586203a2.2baccc",
         "type": "function",
         "z": "415872bf.76470c",
@@ -1502,7 +1422,7 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 1020,
+        "x": 980,
         "y": 940,
         "wires": [
             [
@@ -1868,5 +1788,233 @@
         "x": 1580,
         "y": 520,
         "wires": []
+    },
+    {
+        "id": "1993ef34.332901",
+        "type": "function",
+        "z": "67ccaa57.7f0e14",
+        "name": "",
+        "func": "let txtfilter = msg.payload\n\nmsg.payload={\n    command: \"setFilter\",\n    arguments: \n        [\n            [\n                {field:\"sector\", type:\"like\", value:txtfilter},\n            ]\n        ],\n    returnPromise: false\n}\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 700,
+        "y": 1000,
+        "wires": [
+            [
+                "dd8cdd9c.548c2"
+            ]
+        ]
+    },
+    {
+        "id": "b1e89362.b563c",
+        "type": "ui_text_input",
+        "z": "67ccaa57.7f0e14",
+        "name": "",
+        "label": "sector filter",
+        "tooltip": "",
+        "group": "3b9e390f.f205d6",
+        "order": 5,
+        "width": "0",
+        "height": "0",
+        "passthru": false,
+        "mode": "text",
+        "delay": "0",
+        "topic": "",
+        "x": 530,
+        "y": 1000,
+        "wires": [
+            [
+                "1993ef34.332901"
+            ]
+        ]
+    },
+    {
+        "id": "8e8a524e.5469c",
+        "type": "ui_text_input",
+        "z": "67ccaa57.7f0e14",
+        "name": "",
+        "label": "subsector filter",
+        "tooltip": "",
+        "group": "3b9e390f.f205d6",
+        "order": 6,
+        "width": "0",
+        "height": "0",
+        "passthru": false,
+        "mode": "text",
+        "delay": "0",
+        "topic": "",
+        "x": 540,
+        "y": 1040,
+        "wires": [
+            [
+                "fcefe787.1d8288"
+            ]
+        ]
+    },
+    {
+        "id": "fcefe787.1d8288",
+        "type": "function",
+        "z": "67ccaa57.7f0e14",
+        "name": "",
+        "func": "let txtfilter = msg.payload\n\nmsg.payload={\n    command: \"setFilter\",\n    arguments: \n        [\n            [\n                {field:\"subsector\", type:\"like\", value:txtfilter},\n            ]\n        ],\n    returnPromise: false\n}\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 700,
+        "y": 1040,
+        "wires": [
+            [
+                "dd8cdd9c.548c2"
+            ]
+        ]
+    },
+    {
+        "id": "128f82c2.c18c7d",
+        "type": "ui_text_input",
+        "z": "67ccaa57.7f0e14",
+        "name": "",
+        "label": "segment filter",
+        "tooltip": "",
+        "group": "3b9e390f.f205d6",
+        "order": 7,
+        "width": "0",
+        "height": "0",
+        "passthru": false,
+        "mode": "text",
+        "delay": "0",
+        "topic": "",
+        "x": 540,
+        "y": 1080,
+        "wires": [
+            [
+                "29984990.c71fa6"
+            ]
+        ]
+    },
+    {
+        "id": "29984990.c71fa6",
+        "type": "function",
+        "z": "67ccaa57.7f0e14",
+        "name": "",
+        "func": "let txtfilter = msg.payload\n\nmsg.payload={\n    command: \"setFilter\",\n    arguments: \n        [\n            [\n                {field:\"segment\", type:\"like\", value:txtfilter},\n            ]\n        ],\n    returnPromise: false\n}\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 700,
+        "y": 1080,
+        "wires": [
+            [
+                "dd8cdd9c.548c2"
+            ]
+        ]
+    },
+    {
+        "id": "cca579ef.98b8c8",
+        "type": "ui_text_input",
+        "z": "67ccaa57.7f0e14",
+        "name": "",
+        "label": "Code filter",
+        "tooltip": "",
+        "group": "3b9e390f.f205d6",
+        "order": 9,
+        "width": "0",
+        "height": "0",
+        "passthru": false,
+        "mode": "text",
+        "delay": "0",
+        "topic": "",
+        "x": 530,
+        "y": 1160,
+        "wires": [
+            [
+                "d053aa6b.0d7d98"
+            ]
+        ]
+    },
+    {
+        "id": "d053aa6b.0d7d98",
+        "type": "function",
+        "z": "67ccaa57.7f0e14",
+        "name": "",
+        "func": "let txtfilter = msg.payload\n\nmsg.payload={\n    command: \"setFilter\",\n    arguments: \n        [\n            [\n                {field:\"code\", type:\"like\", value:txtfilter},\n            ]\n        ],\n    returnPromise: false\n}\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 700,
+        "y": 1160,
+        "wires": [
+            [
+                "dd8cdd9c.548c2"
+            ]
+        ]
+    },
+    {
+        "id": "c4ec1db0.7094d",
+        "type": "ui_text_input",
+        "z": "67ccaa57.7f0e14",
+        "name": "",
+        "label": "Company filter",
+        "tooltip": "",
+        "group": "3b9e390f.f205d6",
+        "order": 10,
+        "width": "0",
+        "height": "0",
+        "passthru": false,
+        "mode": "text",
+        "delay": "0",
+        "topic": "",
+        "x": 540,
+        "y": 1120,
+        "wires": [
+            [
+                "fa903bdc.647c98"
+            ]
+        ]
+    },
+    {
+        "id": "fa903bdc.647c98",
+        "type": "function",
+        "z": "67ccaa57.7f0e14",
+        "name": "",
+        "func": "let txtfilter = msg.payload\n\nmsg.payload={\n    command: \"setFilter\",\n    arguments: \n        [\n            [\n                {field:\"company\", type:\"like\", value:txtfilter},\n            ]\n        ],\n    returnPromise: false\n}\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 700,
+        "y": 1120,
+        "wires": [
+            [
+                "dd8cdd9c.548c2"
+            ]
+        ]
+    },
+    {
+        "id": "864b893.b162978",
+        "type": "ui_text_input",
+        "z": "67ccaa57.7f0e14",
+        "name": "",
+        "label": "Ticker filter",
+        "tooltip": "Ingresse o papel que quer buscar",
+        "group": "3b9e390f.f205d6",
+        "order": 8,
+        "width": "0",
+        "height": "0",
+        "passthru": false,
+        "mode": "text",
+        "delay": "0",
+        "topic": "",
+        "x": 530,
+        "y": 940,
+        "wires": [
+            [
+                "2e1c241a.f7413c"
+            ]
+        ]
     }
 ]
