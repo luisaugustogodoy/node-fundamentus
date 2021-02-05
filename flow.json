@@ -150,7 +150,7 @@
         "type": "ui_tab",
         "name": "Landing",
         "icon": "dashboard",
-        "order": 2,
+        "order": 4,
         "disabled": false,
         "hidden": false
     },
@@ -159,7 +159,7 @@
         "type": "ui_tab",
         "name": "Fundamentus (filtered)",
         "icon": "dashboard",
-        "order": 3,
+        "order": 2,
         "disabled": false,
         "hidden": false
     },
@@ -168,7 +168,7 @@
         "type": "ui_tab",
         "name": "Landing",
         "icon": "dashboard",
-        "order": 2,
+        "order": 5,
         "disabled": false,
         "hidden": false
     },
@@ -177,7 +177,7 @@
         "type": "ui_tab",
         "name": "Fundamentus (filtered)",
         "icon": "dashboard",
-        "order": 3,
+        "order": 1,
         "disabled": false,
         "hidden": false
     },
@@ -292,7 +292,7 @@
         "type": "ui_tab",
         "name": "Landing",
         "icon": "dashboard",
-        "order": 1,
+        "order": 3,
         "disabled": false,
         "hidden": false
     },
@@ -311,7 +311,7 @@
         "type": "ui_tab",
         "name": "Company - Sector",
         "icon": "dashboard",
-        "order": 2,
+        "order": 6,
         "disabled": false,
         "hidden": false
     },
@@ -557,7 +557,7 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 70,
+        "x": 190,
         "y": 460,
         "wires": [
             [
@@ -688,7 +688,7 @@
         "outputs": 1,
         "cts": true,
         "x": 1210,
-        "y": 820,
+        "y": 960,
         "wires": [
             [
                 "73232335.0e594c"
@@ -810,7 +810,7 @@
         "payload": "",
         "topic": "",
         "x": 520,
-        "y": 820,
+        "y": 960,
         "wires": [
             [
                 "3fb25b9f.345c14"
@@ -850,7 +850,7 @@
         "repair": false,
         "outputs": 4,
         "x": 850,
-        "y": 820,
+        "y": 960,
         "wires": [
             [
                 "a0142158.388f9"
@@ -877,7 +877,7 @@
         "initialize": "",
         "finalize": "",
         "x": 690,
-        "y": 820,
+        "y": 960,
         "wires": [
             [
                 "908822c2.cdb57"
@@ -895,7 +895,7 @@
         "initialize": "",
         "finalize": "",
         "x": 990,
-        "y": 760,
+        "y": 900,
         "wires": [
             [
                 "b643d67a.f66bb8",
@@ -915,7 +915,7 @@
         "initialize": "",
         "finalize": "",
         "x": 990,
-        "y": 800,
+        "y": 940,
         "wires": [
             [
                 "b643d67a.f66bb8",
@@ -935,7 +935,7 @@
         "initialize": "",
         "finalize": "",
         "x": 990,
-        "y": 880,
+        "y": 1020,
         "wires": [
             [
                 "b643d67a.f66bb8",
@@ -957,7 +957,7 @@
         "format": "{{msg.filteredRows}}",
         "layout": "row-left",
         "x": 1210,
-        "y": 880,
+        "y": 1020,
         "wires": []
     },
     {
@@ -971,7 +971,7 @@
         "initialize": "",
         "finalize": "",
         "x": 1370,
-        "y": 800,
+        "y": 940,
         "wires": [
             [
                 "24c4df0b.8ecfe"
@@ -989,7 +989,7 @@
         "initialize": "",
         "finalize": "",
         "x": 990,
-        "y": 840,
+        "y": 980,
         "wires": [
             [
                 "b643d67a.f66bb8",
@@ -1139,7 +1139,7 @@
             {
                 "field": "sector",
                 "title": "setor",
-                "width": "12%",
+                "width": "",
                 "align": "left",
                 "formatter": "plaintext",
                 "formatterParams": {
@@ -1149,7 +1149,7 @@
             {
                 "field": "subsector",
                 "title": "subsetor",
-                "width": "12%",
+                "width": "",
                 "align": "left",
                 "formatter": "plaintext",
                 "formatterParams": {
@@ -1159,7 +1159,7 @@
             {
                 "field": "segment",
                 "title": "segmento",
-                "width": "4%",
+                "width": "",
                 "align": "left",
                 "formatter": "plaintext",
                 "formatterParams": {
@@ -1169,7 +1169,7 @@
             {
                 "field": "company",
                 "title": "Compania",
-                "width": "10%",
+                "width": "",
                 "align": "left",
                 "formatter": "plaintext",
                 "formatterParams": {
@@ -1179,7 +1179,7 @@
             {
                 "field": "Papel",
                 "title": "Papel",
-                "width": "5%",
+                "width": "",
                 "align": "left",
                 "formatter": "plaintext",
                 "formatterParams": {
@@ -1189,7 +1189,7 @@
             {
                 "field": "Cotacao",
                 "title": "Cotacao",
-                "width": "5%",
+                "width": "",
                 "align": "left",
                 "formatter": "plaintext",
                 "formatterParams": {
@@ -1197,19 +1197,9 @@
                 }
             },
             {
-                "field": "DivYield",
-                "title": "DivYield",
-                "width": "5%",
-                "align": "left",
-                "formatter": "plaintext",
-                "formatterParams": {
-                    "target": "_blank"
-                }
-            },
-            {
-                "field": "P/VP",
-                "title": "P/VP",
-                "width": "5%",
+                "field": "Mrg Ebit",
+                "title": "Margem EBIT",
+                "width": "",
                 "align": "left",
                 "formatter": "plaintext",
                 "formatterParams": {
@@ -1219,7 +1209,7 @@
             {
                 "field": "Mrg Liq",
                 "title": "Mrg Liq",
-                "width": "5%",
+                "width": "",
                 "align": "left",
                 "formatter": "plaintext",
                 "formatterParams": {
@@ -1227,9 +1217,9 @@
                 }
             },
             {
-                "field": "Cresc Rec 5a",
-                "title": "Cresc Rec 5a",
-                "width": "5%",
+                "field": "Liq Corr",
+                "title": "Liq. Corr.",
+                "width": "",
                 "align": "left",
                 "formatter": "plaintext",
                 "formatterParams": {
@@ -1239,7 +1229,7 @@
             {
                 "field": "DivBrut/Patrim",
                 "title": "DivBrut/Patrim",
-                "width": "5%",
+                "width": "",
                 "align": "left",
                 "formatter": "plaintext",
                 "formatterParams": {
@@ -1247,9 +1237,9 @@
                 }
             },
             {
-                "field": "factorSeba",
-                "title": "factorSeba",
-                "width": "6%",
+                "field": "P/VP",
+                "title": "P/VP",
+                "width": "",
                 "align": "left",
                 "formatter": "plaintext",
                 "formatterParams": {
@@ -1257,9 +1247,19 @@
                 }
             },
             {
-                "field": "factorLuis",
-                "title": "factorLuis",
-                "width": "6%",
+                "field": "P/L",
+                "title": "P/L",
+                "width": "",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "ROE",
+                "title": "ROE",
+                "width": "",
                 "align": "left",
                 "formatter": "plaintext",
                 "formatterParams": {
@@ -1270,7 +1270,7 @@
         "outputs": 1,
         "cts": true,
         "x": 1220,
-        "y": 760,
+        "y": 900,
         "wires": [
             [
                 "73232335.0e594c"
@@ -1298,8 +1298,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 1140,
-        "y": 520,
+        "x": 1120,
+        "y": 540,
         "wires": [
             [
                 "4b006ebe.90253"
@@ -1321,7 +1321,7 @@
         "resendOnRefresh": true,
         "templateScope": "local",
         "x": 1510,
-        "y": 800,
+        "y": 940,
         "wires": [
             []
         ]
@@ -1342,7 +1342,7 @@
         "delay": "0",
         "topic": "",
         "x": 530,
-        "y": 940,
+        "y": 1080,
         "wires": [
             [
                 "2e1c241a.f7413c"
@@ -1502,8 +1502,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 1020,
-        "y": 940,
+        "x": 980,
+        "y": 1120,
         "wires": [
             [
                 "dd8cdd9c.548c2",
@@ -1687,8 +1687,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 1420,
-        "y": 520,
+        "x": 1400,
+        "y": 540,
         "wires": [
             [
                 "a32fd691.9ce3b8"
@@ -1745,7 +1745,7 @@
         "name": "",
         "events": "change",
         "x": 420,
-        "y": 760,
+        "y": 900,
         "wires": [
             [
                 "48654a03.391114"
@@ -1865,8 +1865,131 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1580,
-        "y": 520,
+        "x": 1560,
+        "y": 540,
         "wires": []
+    },
+    {
+        "id": "9627d05a.9a751",
+        "type": "function",
+        "z": "67ccaa57.7f0e14",
+        "name": "",
+        "func": "let txtfilter = msg.payload\n\nmsg.payload={\n    command: \"setFilter\",\n    arguments: \n        [\n            [\n                {field:\"setor\", type:\"like\", value:txtfilter},\n            ]\n        ],\n    returnPromise: false\n}\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 1040,
+        "y": 680,
+        "wires": [
+            [
+                "dd8cdd9c.548c2"
+            ]
+        ]
+    },
+    {
+        "id": "263a0e11.75ab92",
+        "type": "ui_text_input",
+        "z": "67ccaa57.7f0e14",
+        "name": "",
+        "label": "sector filter",
+        "tooltip": "",
+        "group": "3b9e390f.f205d6",
+        "order": 1,
+        "width": "5",
+        "height": "1",
+        "passthru": false,
+        "mode": "text",
+        "delay": "0",
+        "topic": "",
+        "x": 870,
+        "y": 680,
+        "wires": [
+            [
+                "9627d05a.9a751"
+            ]
+        ]
+    },
+    {
+        "id": "ade9e52.6a10e18",
+        "type": "ui_text_input",
+        "z": "67ccaa57.7f0e14",
+        "name": "",
+        "label": "subsector filter",
+        "tooltip": "",
+        "group": "3b9e390f.f205d6",
+        "order": 2,
+        "width": "5",
+        "height": "1",
+        "passthru": false,
+        "mode": "text",
+        "delay": "0",
+        "topic": "",
+        "x": 880,
+        "y": 720,
+        "wires": [
+            [
+                "54394616.7f8648"
+            ]
+        ]
+    },
+    {
+        "id": "54394616.7f8648",
+        "type": "function",
+        "z": "67ccaa57.7f0e14",
+        "name": "",
+        "func": "let txtfilter = msg.payload\n\nmsg.payload={\n    command: \"setFilter\",\n    arguments: \n        [\n            [\n                {field:\"SUBSETOR\", type:\"like\", value:txtfilter},\n            ]\n        ],\n    returnPromise: false\n}\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 1040,
+        "y": 720,
+        "wires": [
+            [
+                "dd8cdd9c.548c2"
+            ]
+        ]
+    },
+    {
+        "id": "e326ff7b.9ee9b",
+        "type": "ui_text_input",
+        "z": "67ccaa57.7f0e14",
+        "name": "",
+        "label": "segment filter",
+        "tooltip": "",
+        "group": "3b9e390f.f205d6",
+        "order": 3,
+        "width": "5",
+        "height": "1",
+        "passthru": false,
+        "mode": "text",
+        "delay": "0",
+        "topic": "",
+        "x": 880,
+        "y": 760,
+        "wires": [
+            [
+                "cb359cf8.89c6a"
+            ]
+        ]
+    },
+    {
+        "id": "cb359cf8.89c6a",
+        "type": "function",
+        "z": "67ccaa57.7f0e14",
+        "name": "",
+        "func": "let txtfilter = msg.payload\n\nmsg.payload={\n    command: \"setFilter\",\n    arguments: \n        [\n            [\n                {field:\"SEGMENTO\", type:\"like\", value:txtfilter},\n            ]\n        ],\n    returnPromise: false\n}\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 1040,
+        "y": 760,
+        "wires": [
+            [
+                "dd8cdd9c.548c2"
+            ]
+        ]
     }
 ]
